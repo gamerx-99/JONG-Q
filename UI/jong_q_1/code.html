@@ -1,0 +1,890 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="th"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>JONG-Q จองคิว — ระบบจองคิววันต่อวันสำหรับร้านค้ายุคใหม่</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#e2bfb2",
+            "secondary": "#5f5e61",
+            "primary-container": "#cc4900",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f3f3f3",
+            "primary-fixed-dim": "#ffb599",
+            "on-tertiary-fixed": "#1a1b22",
+            "secondary-container": "#e4e1e6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e2e2e2",
+            "on-primary-container": "#fffbff",
+            "tertiary-fixed-dim": "#c6c5cf",
+            "on-primary-fixed": "#370e00",
+            "surface-container": "#eeeeee",
+            "on-background": "#1a1c1c",
+            "error": "#ba1a1a",
+            "inverse-primary": "#ffb599",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#74747d",
+            "surface-variant": "#e2e2e2",
+            "surface": "#f9f9f9",
+            "surface-tint": "#a73a00",
+            "on-primary-fixed-variant": "#7f2b00",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#c8c5ca",
+            "on-tertiary-fixed-variant": "#46464e",
+            "primary-fixed": "#ffdbce",
+            "inverse-on-surface": "#f0f1f1",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#5a4138",
+            "tertiary-fixed": "#e3e1ec",
+            "secondary-fixed": "#e4e1e6",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2f3131",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f9f9f9",
+            "on-secondary-container": "#656467",
+            "on-surface": "#1a1c1c",
+            "background": "#f9f9f9",
+            "primary": "#a33900",
+            "on-tertiary-container": "#fffbff",
+            "surface-dim": "#dadada",
+            "outline": "#8e7166",
+            "on-secondary-fixed": "#1b1b1e",
+            "surface-container-high": "#e8e8e8",
+            "tertiary": "#5b5b64",
+            "on-secondary-fixed-variant": "#47464a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "4rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Noto Sans Thai"],
+            "headline-xl-mobile": ["Noto Sans Thai"],
+            "label-code": ["Noto Sans Thai"],
+            "display-hero": ["Noto Sans Thai"],
+            "display-hero-mobile": ["Noto Sans Thai"],
+            "body-md": ["Noto Sans Thai"],
+            "headline-lg-mobile": ["Noto Sans Thai"],
+            "label-pill": ["Noto Sans Thai"],
+            "headline-lg": ["Noto Sans Thai"],
+            "headline-xl": ["Noto Sans Thai"],
+            "body-sm": ["Noto Sans Thai"],
+            "headline-sm": ["Noto Sans Thai"],
+            "headline-md": ["Noto Sans Thai"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-code": ["13px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "display-hero": ["80px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "display-hero-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-pill": ["11px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .ticket-perforation {
+      background-image: linear-gradient(to right, #e4e4e7 50%, rgba(255, 255, 255, 0) 0%);
+      background-position: top;
+      background-size: 8px 1px;
+      background-repeat: repeat-x;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar (Shared Component JSON anchor) -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-[1440px] rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-md border border-outline-variant/30 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.65)] z-50">
+<div class="flex justify-between items-center px-6 py-3.5 w-full mx-auto">
+<a class="flex items-center gap-2" href="#">
+<span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight text-on-surface uppercase">JONG-Q จองคิว</span>
+</a>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-primary-container font-semibold hover:text-primary-container transition-colors duration-200 text-body-md font-body-md" href="#hero">จองคิวทันที</a>
+<a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-200 text-body-md font-body-md" href="#how-it-works">วิธีใช้งาน</a>
+<a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-200 text-body-md font-body-md" href="#open-stores">สำรวจร้านค้า</a>
+<a class="text-on-surface font-medium hover:text-primary-container transition-colors duration-200 text-body-md font-body-md" href="#merchant">สำหรับพาร์ทเนอร์</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="px-5 py-2 rounded-full bg-primary text-on-primary font-headline-sm text-label-code hover:opacity-95 active:scale-95 transition-all duration-150" href="#open-stores">
+          รับคิวด่วน (Get Ticket)
+        </a>
+</div>
+</div>
+</header>
+<main>
+<!-- Section 01: Hero -->
+<section class="relative pt-36 md:pt-48 pb-20 md:pb-32 px-6 md:px-16 max-w-[1280px] mx-auto" id="hero">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<div class="lg:col-span-7 flex flex-col items-start">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low border border-surface-container-highest mb-6">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-label-pill font-label-pill text-tertiary">SAME-DAY APPOINTMENT ARCHITECTURE</span>
+</div>
+<h1 class="text-display-hero-mobile md:text-display-hero font-display-hero text-on-surface mb-6 tracking-tight">
+            จองคิว ไม่ต้องยืนรอ
+          </h1>
+<p class="text-body-lg font-body-lg text-secondary max-w-xl mb-10">
+            เลือกบริการ เลือกเวลา แล้วติดตามการจองของคุณผ่าน LINE ได้ง่าย ๆ หมดกังวลกับการรอคิวหน้าร้านที่ไม่แน่นอน
+          </p>
+<div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+<a class="w-full sm:w-auto px-8 py-3.5 bg-primary text-on-primary text-center font-headline-sm text-body-md rounded-xl hover:opacity-90 active:scale-95 transition-all" href="#open-stores">
+              ดูร้านที่เปิดอยู่
+            </a>
+<a class="w-full sm:w-auto px-8 py-3.5 bg-surface-container-lowest border border-surface-container-highest text-on-surface text-center font-headline-sm text-body-md rounded-xl hover:bg-surface-container-low active:scale-95 transition-all" href="#merchant">
+              สำหรับเจ้าของร้าน
+            </a>
+</div>
+<!-- Hero Metrics -->
+<div class="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-surface-container-highest w-full">
+<div>
+<div class="text-label-code font-label-code text-primary mb-1">01</div>
+<div class="text-body-sm font-body-sm text-secondary">ไม่ต้องโหลดแอปเพิ่ม</div>
+</div>
+<div>
+<div class="text-label-code font-label-code text-primary mb-1">100%</div>
+<div class="text-body-sm font-body-sm text-secondary">แจ้งเตือนผ่าน LINE</div>
+</div>
+<div>
+<div class="text-label-code font-label-code text-primary mb-1">REAL-TIME</div>
+<div class="text-body-sm font-body-sm text-secondary">วันต่อวัน ไม่ต้องจองข้ามสัปดาห์</div>
+</div>
+</div>
+</div>
+<!-- Centerpiece: Digital Booking Ticket Card -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="w-full max-w-[380px] bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)] relative">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-label-pill font-label-pill px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 border border-emerald-200">CONFIRMED PASS</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mt-2">The Barbershop Ari</h3>
+<p class="text-body-sm font-body-sm text-secondary">อารีย์ ซอย 1, กรุงเทพฯ</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="confirmation_number">confirmation_number</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg text-center mb-6 border border-surface-container-highest">
+<span class="text-label-code font-label-code text-tertiary">หมายเลขคิวของคุณ</span>
+<div class="text-display-hero-mobile font-display-hero text-primary my-1">A-012</div>
+<div class="text-body-sm font-body-sm font-medium text-on-surface">วันนี้ 14:30 น. (อีกประมาณ 2 คิว)</div>
+</div>
+<div class="ticket-perforation h-[1px] w-full my-6"></div>
+<div class="grid grid-cols-2 gap-4 text-left mb-6">
+<div>
+<span class="text-label-pill font-label-pill text-tertiary block">บริการ</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">ตัดผมวินเทจ + สระ</span>
+</div>
+<div>
+<span class="text-label-pill font-label-pill text-tertiary block">ช่างบริการ</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">ช่างเอก (Master)</span>
+</div>
+</div>
+<!-- Barcode Mockup -->
+<div class="pt-4 border-t border-surface-container-highest flex flex-col items-center">
+<div class="h-10 w-full flex items-center justify-center gap-1 opacity-80">
+<div class="h-8 w-1 bg-black"></div><div class="h-8 w-0.5 bg-black"></div><div class="h-8 w-1.5 bg-black"></div><div class="h-8 w-0.5 bg-black"></div><div class="h-8 w-2 bg-black"></div><div class="h-8 w-1 bg-black"></div><div class="h-8 w-0.5 bg-black"></div><div class="h-8 w-1 bg-black"></div><div class="h-8 w-2 bg-black"></div><div class="h-8 w-0.5 bg-black"></div><div class="h-8 w-1.5 bg-black"></div><div class="h-8 w-1 bg-black"></div>
+</div>
+<span class="text-label-pill font-label-pill text-tertiary mt-2">JQ-9842-LINE-SYNC</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-16">
+<a class="inline-flex items-center gap-2 text-label-code font-label-code text-tertiary hover:text-on-surface transition-colors" href="#how-it-works">
+          SCROLL TO DISCOVER <span class="material-symbols-outlined" data-icon="arrow_downward">arrow_downward</span>
+</a>
+</div>
+</section>
+<!-- Section 02: How It Works -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface-container-lowest" id="how-it-works">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-label-code font-label-code text-primary uppercase">Simple Architecture</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2">ง่ายแค่ 3 ขั้นตอน</h2>
+</div>
+<p class="text-body-md font-body-md text-secondary max-w-md mt-4 md:mt-0">
+            ตัดความซับซ้อนทิ้งทั้งหมด ไม่ต้องเสียเวลาโหลดแอป ไม่ต้องยืนรอหน้าร้าน รักษาสิทธิ์และเวลาของคุณอย่างสมบูรณ์แบบ
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 01 -->
+<div class="p-8 rounded-xl border border-surface-container-highest bg-surface hover:border-outline-variant transition-colors">
+<div class="text-display-hero-mobile font-display-hero text-surface-container-highest mb-6">01</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">เลือกร้าน</h3>
+<p class="text-body-sm font-body-sm text-secondary">
+              ดูเฉพาะร้านที่เปิดรับจองในวันนี้ ระบบแสดงเฉพาะร้านที่มีรอบเวลาพร้อมให้บริการจริง
+            </p>
+<div class="mt-8 pt-6 border-t border-surface-container-highest flex items-center gap-2 text-primary text-label-code font-label-code">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+              เฉพาะร้านเปิดทำการ
+            </div>
+</div>
+<!-- Step 02 -->
+<div class="p-8 rounded-xl border border-surface-container-highest bg-surface hover:border-outline-variant transition-colors">
+<div class="text-display-hero-mobile font-display-hero text-primary mb-6">02</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">เลือกเวลา</h3>
+<p class="text-body-sm font-body-sm text-secondary">
+              เลือกรอบเวลาที่ร้านเปิดให้บริการ แตะเลือกสล็อตเวลาที่ว่างได้ทันที จองไวใน 5 วินาที
+            </p>
+<div class="mt-8 pt-6 border-t border-surface-container-highest flex items-center gap-2 text-primary text-label-code font-label-code">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+              สล็อตเวลาอัปเดตสด
+            </div>
+</div>
+<!-- Step 03 -->
+<div class="p-8 rounded-xl border border-surface-container-highest bg-surface hover:border-outline-variant transition-colors">
+<div class="text-display-hero-mobile font-display-hero text-surface-container-highest mb-6">03</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">ไปตามเวลาที่จอง</h3>
+<p class="text-body-sm font-body-sm text-secondary">
+              ดูรายละเอียดการจองและอัปเดตสถานะคิวได้ตลอดเวลาผ่าน LINE พร้อมระบบแจ้งเตือนเมื่อใกล้ถึงคิว
+            </p>
+<div class="mt-8 pt-6 border-t border-surface-container-highest flex items-center gap-2 text-primary text-label-code font-label-code">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+              แจ้งเตือนอัตโนมัติ
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 03: Same-Day Booking (วันนี้ ก็คือวันนี้) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-code font-label-code text-primary uppercase">Pure Same-Day Logic</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">วันนี้ ก็คือวันนี้</h2>
+<p class="text-body-md font-body-md text-secondary">
+            Jong-Q ออกแบบระบบจองแบบวันต่อวัน ร้านเปิดรับจองเมื่อพร้อม และลูกค้าเห็นเฉพาะร้านที่เปิดให้บริการอยู่ หมดปัญหาการจองลมหรือลืมคิว
+          </p>
+</div>
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-2xl p-8 md:p-12 shadow-[0_12px_24px_rgba(0,0,0,0.03)]">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-8 mb-8 border-b border-surface-container-highest gap-4">
+<div>
+<div class="text-label-code font-label-code text-tertiary">LIVE TIMETABLE SLOTS</div>
+<h4 class="text-headline-md font-headline-md text-on-surface">รอบเวลาประจำวัน: Aura Glow Clinic</h4>
+</div>
+<div class="flex items-center gap-4 text-label-code font-label-code">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-surface-container-highest"></span> ว่าง</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> เวลาที่เลือก</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> เต็ม</span>
+</div>
+</div>
+<!-- Time slot grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">09:00</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">09:30</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">10:00</span>
+<span class="text-label-pill font-label-pill text-primary">เหลือ 1 ที่</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface-container-low opacity-40 cursor-not-allowed">
+<span class="text-headline-sm font-headline-sm block text-secondary">10:30</span>
+<span class="text-label-pill font-label-pill text-secondary">เต็ม</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">11:00</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">11:30</span>
+<span class="text-label-pill font-label-pill text-primary">เหลือ 1 ที่</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface-container-low opacity-40 cursor-not-allowed">
+<span class="text-headline-sm font-headline-sm block text-secondary">13:00</span>
+<span class="text-label-pill font-label-pill text-secondary">เต็ม</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">13:30</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">14:00</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+<!-- Highlighted Selected Slot -->
+<div class="p-3.5 rounded-xl border-2 border-primary bg-primary/5 text-center relative ring-2 ring-primary/20">
+<span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-2 py-0.2 rounded-full font-label-pill whitespace-nowrap">เวลาที่คุณเลือก</span>
+<span class="text-headline-sm font-headline-sm block text-primary mt-1">14:30</span>
+<span class="text-label-pill font-label-pill text-primary font-semibold">พร้อมจอง</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">15:00</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+<div class="p-3.5 rounded-xl border border-surface-container-highest text-center bg-surface hover:border-outline transition-colors cursor-pointer">
+<span class="text-headline-sm font-headline-sm block text-on-surface">15:30</span>
+<span class="text-label-pill font-label-pill text-emerald-600">ว่าง</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 04: Open Stores (ตอนนี้มีร้านไหนเปิดบ้าง?) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface-container-lowest" id="open-stores">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-label-code font-label-code text-primary uppercase">Active Store Directory</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2">ตอนนี้มีร้านไหนเปิดบ้าง?</h2>
+<p class="text-body-md font-body-md text-secondary mt-2">ร้านจะแสดงบน Jong-Q เฉพาะเมื่อร้านเปิดรับการจอง</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-2 text-label-code font-label-code">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+<span class="text-on-surface">อัปเดตแบบเรียลไทม์ตามสถานะจริง</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl border border-surface-container-highest overflow-hidden hover:border-outline transition-all flex flex-col">
+<div class="h-48 w-full bg-cover bg-center" data-alt="A sophisticated upscale barber shop interior with sleek leather chairs, warm ambient lighting, crisp white marble counters, and architectural wooden partitions embodying modern minimalist Japanese craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVF8906D5aiHk9_vNS3xzhRkbm-xk10HWemE73iT_VJRhhYutsxdLPkagk7WTmXXG_BhMQQeOoAV3Mvlng3zPwHN4BQ6A6fwyVyfSyQT3O8GPAAr-f_0EbSjWonLhQhEJOW9qER_w3Rm2tGZTb2XNdJyLHLjN7jqu5R17tE8xtqWslQ-RID92etfcDeJrMJ99MhRXJiL_miPiLKtM7Dq3u-D168ylmI-_Nu3psnqmRddnaVP7asSjl')"></div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-label-pill font-label-pill text-secondary">GROOMING &amp; HAIR</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-600 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> เปิดรับจอง
+                  </span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">The Barbershop Ari</h3>
+<p class="text-body-sm font-body-sm text-secondary mt-1">คิวถัดไปว่าง: 14:30 น.</p>
+</div>
+<button class="w-full mt-6 py-2.5 bg-surface-container-lowest border border-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary text-body-sm font-headline-sm rounded-lg transition-all">
+                ดูเวลาว่าง
+              </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl border border-surface-container-highest overflow-hidden hover:border-outline transition-all flex flex-col">
+<div class="h-48 w-full bg-cover bg-center" data-alt="A modern aesthetic medical clinic reception with serene beige limewash walls, minimalist curved seating, warm natural illumination, and delicate dried botanical arrangements creating a calming and elevated sanctuary." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoG578vyI4fyYNLHpervx7U1MvrzeqYz-DF0YuJ6nK9sLDBnsf11hyc2AVRmRe14xPGF4SfaY1ZLiSjdBD0CCLjauzdmC8wOP9XFxZcoZ9G3Uhh4L4n9K6VaAQzimJGk_TPmgOehOwWLPNa_OzBiUCUHhIzrss3sJNoEaJFJ_p1svF-EFFOqvbkb3KSMtwSTi_GFa6pU3HZ3qAUr1qXZASdF0I2oPisH7BOSVvjpYWAXqvBpRYVD9n')"></div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-label-pill font-label-pill text-secondary">BEAUTY &amp; CLINIC</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-600 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> เปิดรับจอง
+                  </span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Aura Glow Clinic</h3>
+<p class="text-body-sm font-body-sm text-secondary mt-1">คิวถัดไปว่าง: 15:00 น.</p>
+</div>
+<button class="w-full mt-6 py-2.5 bg-surface-container-lowest border border-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary text-body-sm font-headline-sm rounded-lg transition-all">
+                ดูเวลาว่าง
+              </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl border border-surface-container-highest overflow-hidden hover:border-outline transition-all flex flex-col">
+<div class="h-48 w-full bg-cover bg-center" data-alt="An exclusive Japanese omakase sushi counter crafted from clean hinoki cypress wood, soft focused spotlighting on culinary slate plates, and refined minimalist architectural lines in a quiet dining room." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcpNT0OXe-iDfbxu1n8ljNNv4gTLNjhSBgOf7qC_udsYmQwFBWHTWeRMjp6qHOJAUnFQj0gMd6CJFg3LSSPRBOblCFOy0go3SaK1Wo7riK_JpVh8bNQLR5QSMxSdf4NK_gxC_TcJzlCjYypX9irAY13K5WAbxhVT5516rTbI7YPDSREq8SeI7VzhSjnmDdB_Rt5ue2BzKKKw5brchYWNCNgv11J_LJTaqhJCiaDa6Hxelsg9-FiCJ2')"></div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-label-pill font-label-pill text-secondary">DINING &amp; OMAKASE</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-600 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> เปิดรับจอง
+                  </span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Kaizen Omakase</h3>
+<p class="text-body-sm font-body-sm text-secondary mt-1">คิวถัดไปว่าง: 17:30 น.</p>
+</div>
+<button class="w-full mt-6 py-2.5 bg-surface-container-lowest border border-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary text-body-sm font-headline-sm rounded-lg transition-all">
+                ดูเวลาว่าง
+              </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-xl border border-surface-container-highest overflow-hidden hover:border-outline transition-all flex flex-col">
+<div class="h-48 w-full bg-cover bg-center" data-alt="A boutique luxury nail salon and spa featuring plush linen seating, polished stone pedestals, clean organic earth tones, and warm diffused skylight creating an unhurried, peaceful wellness experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9zH68ITEQA44340yt2RaUDup4pfuLCF9MWg75BzcqRsXZXdLpVSQuBm9E3YgEHVsuMi0-Ufd62cAwMg4tEwOruYdBiruMOoWequKOCpPvv64gf9sW5rsORFrdV1s3yWU7Wl8X18zZK2nFlxSUilSe0YFmKYKnBMVwe29Xm-i9ms9MI1DQrzKjSZ7wMGNRQb6Om7ed1goqVuxm5sb1rnk8lc4xzIBGgEoQ0yzkTOxYfjcr0U4zztnb')"></div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-label-pill font-label-pill text-secondary">WELLNESS &amp; SPA</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-600 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> เปิดรับจอง
+                  </span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Posh Nails &amp; Spa</h3>
+<p class="text-body-sm font-body-sm text-secondary mt-1">คิวถัดไปว่าง: 14:00 น.</p>
+</div>
+<button class="w-full mt-6 py-2.5 bg-surface-container-lowest border border-surface-container-highest text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary text-body-sm font-headline-sm rounded-lg transition-all">
+                ดูเวลาว่าง
+              </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 05: Booking Experience (ประสบการณ์การจองที่ลื่นไหลระดับวินาที) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-code font-label-code text-primary uppercase">Frictionless Journey</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">ประสบการณ์การจองที่ลื่นไหลระดับวินาที</h2>
+<p class="text-body-md font-body-md text-secondary">
+            ออกแบบให้ใช้งานได้ทันทีบนเบราว์เซอร์ของโทรศัพท์มือถือ แตะเลือกรอบเวลา ยืนยัน และรับบัตรคิวดิจิทัล
+          </p>
+</div>
+<div class="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16">
+<!-- Screen A: Service & Time selection -->
+<div class="w-full max-w-[340px] bg-surface-container-lowest border border-surface-container-highest rounded-3xl p-5 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center mb-4 pb-2 border-b border-surface-container-highest">
+<span class="text-label-code font-label-code text-tertiary">STEP 01: จองบริการ</span>
+<span class="text-label-pill font-label-pill text-primary font-medium">ร้าน ABC</span>
+</div>
+<div class="mb-4">
+<span class="text-label-pill font-label-pill text-tertiary block mb-1.5">เลือกบริการ</span>
+<div class="p-3 bg-surface rounded-xl border border-surface-container-highest flex justify-between items-center">
+<div>
+<div class="text-body-sm font-body-sm font-medium text-on-surface">ตัดผมชาย มาตรฐาน</div>
+<div class="text-[11px] text-secondary">~30 นาที • 350 บาท</div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="mb-5">
+<span class="text-label-pill font-label-pill text-tertiary block mb-1.5">เลือกรอบเวลา (วันนี้)</span>
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2.5 rounded-lg border border-surface-container-highest text-center text-body-sm text-secondary bg-surface">13:00</div>
+<div class="p-2.5 rounded-lg border border-surface-container-highest text-center text-body-sm text-secondary bg-surface">13:30</div>
+<div class="p-2.5 rounded-lg border border-surface-container-highest text-center text-body-sm text-secondary bg-surface">14:00</div>
+<div class="p-2.5 rounded-lg border-2 border-primary text-center text-body-sm font-semibold text-primary bg-primary/10">14:30 ✓</div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary text-center font-headline-sm text-body-sm rounded-xl hover:opacity-95 transition-all">
+              ยืนยันการจอง
+            </button>
+</div>
+<!-- Arrow Flow -->
+<div class="hidden lg:flex items-center text-surface-container-highest">
+<span class="material-symbols-outlined text-4xl" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<!-- Screen B: Confirmed Ticket -->
+<div class="w-full max-w-[340px] bg-surface-container-lowest border border-surface-container-highest rounded-3xl p-5 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center mb-4 pb-2 border-b border-surface-container-highest">
+<span class="text-label-code font-label-code text-emerald-600">STEP 02: สำเร็จ</span>
+<span class="text-label-pill font-label-pill text-tertiary">TICKET ISSUED</span>
+</div>
+<div class="text-center py-4 bg-emerald-50/60 rounded-xl border border-emerald-100 mb-4">
+<span class="material-symbols-outlined text-emerald-600 text-3xl mb-1" data-icon="task_alt">task_alt</span>
+<h4 class="text-headline-sm font-headline-sm text-emerald-800">จองสำเร็จ!</h4>
+<p class="text-body-sm font-body-sm text-emerald-700">วันนี้ 14:30 น. (ร้าน ABC)</p>
+</div>
+<div class="p-4 bg-surface rounded-xl border border-surface-container-highest text-center mb-5">
+<span class="text-label-pill font-label-pill text-tertiary">คิวของคุณ</span>
+<div class="text-headline-xl font-headline-xl text-on-surface font-bold">Q-08</div>
+<p class="text-[12px] text-secondary mt-1">โปรดมาถึงก่อนเวลา 5 นาที</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl border border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-body-sm font-body-sm text-on-surface">เชื่อมต่อ LINE แล้ว</span>
+</div>
+<span class="text-label-code font-label-code text-primary">ดูตั๋ว</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 06: LINE Experience (ทุกอย่างเริ่มและจบที่ LINE OA) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface-container-lowest">
+<div class="max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6">
+<span class="text-label-code font-label-code text-primary uppercase">Zero Friction Paradigm</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-6">
+              ทุกอย่างเริ่มและจบที่ LINE OA
+            </h2>
+<p class="text-body-lg font-body-lg text-secondary mb-8">
+              ไม่ต้องจำรหัสผ่าน ไม่ต้องดาวน์โหลดแอปพลิเคชันให้เปลืองความจำโทรศัพท์ ลูกค้าสามารถเข้าถึงระบบจอง ติดตามคิว และรับข้อความแจ้งเตือนผ่านแอปพลิเคชัน LINE ที่ทุกคนมีอยู่แล้ว
+            </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl border border-surface-container-highest bg-surface">
+<span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs mt-0.5">1</span>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">เข้าถึงผ่าน Rich Menu</h4>
+<p class="text-body-sm font-body-sm text-secondary">แตะเมนูใน LINE OA เพื่อเริ่มค้นหาร้านใกล้คุณหรือร้านประจำ</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl border border-surface-container-highest bg-surface">
+<span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs mt-0.5">2</span>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">เลือกบริการและเวลา</h4>
+<p class="text-body-sm font-body-sm text-secondary">ระบบเปิดหน้าเว็บแบบ WebApp ลื่นไหล ไม่หน่วง เลือกเสร็จใน 3 วินาที</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl border border-surface-container-highest bg-surface">
+<span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs mt-0.5">3</span>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">รับแจ้งเตือนเมื่อใกล้ถึงเวลา</h4>
+<p class="text-body-sm font-body-sm text-secondary">ระบบเตือนล่วงหน้า 15-30 นาที และแจ้งทันทีเมื่อทางร้านเรียกคิว</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pipeline Graphic -->
+<div class="lg:col-span-6 bg-surface p-8 rounded-2xl border border-surface-container-highest">
+<div class="text-label-code font-label-code text-tertiary mb-6">INTEGRATED LINE PIPELINE</div>
+<div class="flex flex-col gap-3">
+<div class="p-4 bg-surface-container-lowest border border-surface-container-highest rounded-xl flex items-center justify-between">
+<span class="text-body-sm font-medium text-on-surface">LINE Rich Menu</span>
+<span class="text-label-pill font-label-pill text-emerald-600">START</span>
+</div>
+<div class="flex justify-center"><span class="material-symbols-outlined text-tertiary" data-icon="south">south</span></div>
+<div class="p-4 bg-surface-container-lowest border border-surface-container-highest rounded-xl flex items-center justify-between">
+<span class="text-body-sm font-medium text-on-surface">ดูร้านที่เปิดรับจองวันนี้</span>
+<span class="text-label-pill font-label-pill text-tertiary">STEP 01</span>
+</div>
+<div class="flex justify-center"><span class="material-symbols-outlined text-tertiary" data-icon="south">south</span></div>
+<div class="p-4 bg-surface-container-lowest border border-surface-container-highest rounded-xl flex items-center justify-between">
+<span class="text-body-sm font-medium text-on-surface">เลือกรอบเวลาว่าง</span>
+<span class="text-label-pill font-label-pill text-tertiary">STEP 02</span>
+</div>
+<div class="flex justify-center"><span class="material-symbols-outlined text-tertiary" data-icon="south">south</span></div>
+<div class="p-4 bg-surface-container-lowest border border-surface-container-highest rounded-xl flex items-center justify-between border-l-4 border-l-primary">
+<span class="text-body-sm font-medium text-on-surface">จองสำเร็จ &amp; บัตรคิวเข้าสู่ LINE อัตโนมัติ</span>
+<span class="text-label-pill font-label-pill text-primary font-bold">COMPLETED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 07: Merchant Cockpit (คุณเปิดร้าน เราช่วยจัดเวลา) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface" id="merchant">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-label-code font-label-code text-primary uppercase">Merchant Operation System</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2">คุณเปิดร้าน เราช่วยจัดเวลา</h2>
+<p class="text-body-md font-body-md text-secondary mt-2 max-w-xl">
+              เปิดหรือปิดรับจองได้เอง กำหนดเวลาให้บริการ และดูรายการจองของวันนี้ได้จากหน้าจอเดียว ลดงานแอดมินตอบแชท
+            </p>
+</div>
+<div class="mt-4 md:mt-0">
+<span class="px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-label-code font-label-code border border-emerald-200">
+              สถานะร้าน: กำลังเปิดรับจอง
+            </span>
+</div>
+</div>
+<!-- Cockpit Dashboard Preview Card -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-2xl p-6 md:p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Today's Schedule Overview -->
+<div class="lg:col-span-7">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">รายการจองวันนี้ (12 รายการ)</h3>
+<span class="text-label-code font-label-code text-tertiary">อัปเดตอัตโนมัติ</span>
+</div>
+<div class="space-y-3">
+<div class="p-4 rounded-xl border border-surface-container-highest bg-surface flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-headline-sm font-headline-sm text-tertiary">13:30</span>
+<div>
+<div class="text-body-sm font-medium text-on-surface">คุณแพรวา (1 คน)</div>
+<div class="text-[12px] text-secondary">บริการ: ตัดแต่งทรงผม</div>
+</div>
+</div>
+<span class="text-label-pill font-label-pill px-2.5 py-1 rounded bg-secondary/10 text-secondary">เสร็จสิ้น</span>
+</div>
+<!-- Active Incoming Alert Item -->
+<div class="p-4 rounded-xl border-2 border-primary bg-primary/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<span class="text-headline-sm font-headline-sm text-primary font-bold">14:30</span>
+<div>
+<div class="text-body-sm font-bold text-on-surface">คุณเกมส์ (2 คน)</div>
+<div class="text-[12px] text-secondary">บริการ: Omakase Course A • คิว A-012</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-surface-container-lowest border border-surface-container-highest rounded-lg text-body-sm hover:bg-surface text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span> โทร
+                    </button>
+<button class="px-3.5 py-1.5 bg-primary text-on-primary rounded-lg text-body-sm font-medium hover:opacity-90">
+                      เรียกคิว
+                    </button>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-surface-container-highest bg-surface flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-headline-sm font-headline-sm text-on-surface">15:00</span>
+<div>
+<div class="text-body-sm font-medium text-on-surface">คุณธนภัทร (1 คน)</div>
+<div class="text-[12px] text-secondary">บริการ: ปรึกษาผิวพรรณ</div>
+</div>
+</div>
+<span class="text-label-pill font-label-pill px-2.5 py-1 rounded bg-surface-container-highest text-tertiary">รอรับบริการ</span>
+</div>
+</div>
+</div>
+<!-- Right: Real-time Slot Capacity -->
+<div class="lg:col-span-5 bg-surface p-6 rounded-xl border border-surface-container-highest flex flex-col justify-between">
+<div>
+<div class="text-label-code font-label-code text-tertiary mb-1">REAL-TIME CAPACITY</div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface mb-6">ความจุรอบเวลาบ่ายนี้</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-body-sm mb-1.5">
+<span class="text-secondary">ช่วงเวลา 13:00 - 15:00</span>
+<span class="font-medium text-on-surface">100% เต็ม</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-full h-full bg-secondary"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1.5">
+<span class="text-secondary">ช่วงเวลา 15:00 - 17:00</span>
+<span class="font-medium text-on-surface">75% (เหลือ 2 ที่)</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1.5">
+<span class="text-secondary">ช่วงเวลา 17:00 - 19:00</span>
+<span class="font-medium text-on-surface">25% (เหลือ 6 ที่)</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-1/4 h-full bg-emerald-500"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 mt-6 border-t border-surface-container-highest text-center">
+<span class="text-body-sm text-secondary">ต้องการพักเบรกชั่วคราว?</span>
+<button class="mt-2 text-label-code font-label-code text-primary hover:underline block mx-auto">
+                  + เพิ่มช่วงปิดรับจองชั่วคราว (Pause Slot)
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 08: Merchant Control (คุมระบบง่าย เหมือนสับสวิตช์ไฟ) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface-container-lowest">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-code font-label-code text-primary uppercase">Tactile Controls</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">คุมระบบง่าย เหมือนสับสวิตช์ไฟ</h2>
+<p class="text-body-md font-body-md text-secondary">
+            ระบบบริหารจัดการที่ออกแบบมาให้เจ้าของร้านและพนักงานหน้าร้านทุกคนใช้งานได้ทันทีโดยไม่ต้องเรียนรู้
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Control 1: Open / Close toggle -->
+<div class="p-6 rounded-2xl border border-surface-container-highest bg-surface flex flex-col justify-between">
+<div>
+<span class="text-label-pill font-label-pill text-tertiary">MASTER SWITCH</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface mt-1 mb-4">เปิด / ปิดร้าน</h4>
+<p class="text-body-sm font-body-sm text-secondary mb-6">กดครั้งเดียวเพื่อเปิดหรือปิดระบบรับคิวประจำวันได้ทันที</p>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest border border-surface-container-highest">
+<span class="text-body-sm font-medium text-emerald-600">เปิดรับจอง</span>
+<div class="w-12 h-6 bg-emerald-500 rounded-full p-1 flex items-center justify-end cursor-pointer">
+<div class="w-4 h-4 rounded-full bg-white shadow"></div>
+</div>
+</div>
+</div>
+<!-- Control 2: Operating Hours -->
+<div class="p-6 rounded-2xl border border-surface-container-highest bg-surface flex flex-col justify-between">
+<div>
+<span class="text-label-pill font-label-pill text-tertiary">OPERATING HOURS</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface mt-1 mb-4">กำหนดเวลารับจอง</h4>
+<p class="text-body-sm font-body-sm text-secondary mb-6">ตั้งเวลาเริ่มต้นและสิ้นสุดของรอบให้บริการแต่ละวัน</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-surface-container-highest flex items-center justify-between">
+<span class="text-headline-sm font-headline-sm text-on-surface">09:00</span>
+<span class="text-tertiary">—</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">18:00</span>
+</div>
+</div>
+<!-- Control 3: Slot Interval -->
+<div class="p-6 rounded-2xl border border-surface-container-highest bg-surface flex flex-col justify-between">
+<div>
+<span class="text-label-pill font-label-pill text-tertiary">SLOT INTERVAL</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface mt-1 mb-4">ช่วงห่างการจอง</h4>
+<p class="text-body-sm font-body-sm text-secondary mb-4">เลือกระยะห่างของรอบคิวที่เหมาะสมกับประเภทงาน</p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest border border-surface-container-highest text-xs text-secondary">15 นาที</span>
+<span class="px-2.5 py-1 rounded bg-primary text-on-primary text-xs font-semibold">30 นาที</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest border border-surface-container-highest text-xs text-secondary">45 นาที</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest border border-surface-container-highest text-xs text-secondary">1 ชม.</span>
+</div>
+</div>
+<!-- Control 4: Capacity per Slot -->
+<div class="p-6 rounded-2xl border border-surface-container-highest bg-surface flex flex-col justify-between">
+<div>
+<span class="text-label-pill font-label-pill text-tertiary">MAX CAPACITY</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface mt-1 mb-4">จำนวนรับต่อรอบ</h4>
+<p class="text-body-sm font-body-sm text-secondary mb-6">กำหนดปริมาณลูกค้าสูงสุดที่ร้านรับได้พร้อมกันในรอบนั้น</p>
+</div>
+<div class="p-2 bg-surface-container-lowest border border-surface-container-highest rounded-xl flex items-center justify-between">
+<button class="w-8 h-8 rounded-lg bg-surface border border-surface-container-highest flex items-center justify-center text-on-surface font-bold hover:bg-surface-container-low">-</button>
+<span class="text-headline-sm font-headline-sm text-on-surface">3 การจอง</span>
+<button class="w-8 h-8 rounded-lg bg-surface border border-surface-container-highest flex items-center justify-center text-on-surface font-bold hover:bg-surface-container-low">+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 09: Business Types (หนึ่งระบบ ใช้ได้หลายธุรกิจ) -->
+<section class="py-24 px-6 md:px-16 border-t border-surface-container-highest bg-surface">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-label-code font-label-code text-primary uppercase">Versatile Ecosystem</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">หนึ่งระบบ ใช้ได้หลายธุรกิจ</h2>
+<p class="text-body-md font-body-md text-secondary">
+            ยืดหยุ่นต่อทุกโมเดลการให้บริการที่ต้องการจัดระเบียบเวลาและลดการรอคอย
+          </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<div class="p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest text-center hover:border-primary transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</div>
+<h4 class="text-body-md font-semibold text-on-surface">ร้านอาหาร</h4>
+<span class="text-label-pill font-label-pill text-tertiary block mt-1">คิวโต๊ะ &amp; โอมากาเสะ</span>
+</div>
+<div class="p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest text-center hover:border-primary transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+</div>
+<h4 class="text-body-md font-semibold text-on-surface">คลินิก</h4>
+<span class="text-label-pill font-label-pill text-tertiary block mt-1">แพทย์ &amp; ทันตกรรม</span>
+</div>
+<div class="p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest text-center hover:border-primary transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
+</div>
+<h4 class="text-body-md font-semibold text-on-surface">ร้านตัดผม</h4>
+<span class="text-label-pill font-label-pill text-tertiary block mt-1">บาร์เบอร์ &amp; ซาลอน</span>
+</div>
+<div class="p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest text-center hover:border-primary transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="spa">spa</span>
+</div>
+<h4 class="text-body-md font-semibold text-on-surface">เสริมสวย</h4>
+<span class="text-label-pill font-label-pill text-tertiary block mt-1">สปา เล็บ ขนตา</span>
+</div>
+<div class="p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest text-center hover:border-primary transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+</div>
+<h4 class="text-body-md font-semibold text-on-surface">ศูนย์บริการ</h4>
+<span class="text-label-pill font-label-pill text-tertiary block mt-1">ซ่อมรถ ล้างรถ ไอที</span>
+</div>
+<div class="p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest text-center hover:border-primary transition-all group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="local_mall">local_mall</span>
+</div>
+<h4 class="text-body-md font-semibold text-on-surface">ธุรกิจท้องถิ่น</h4>
+<span class="text-label-pill font-label-pill text-tertiary block mt-1">นวดเพื่อสุขภาพ &amp; ช็อป</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 10: Final CTA -->
+<section class="py-28 px-6 md:px-16 border-t border-surface-container-highest bg-surface-container-lowest text-center">
+<div class="max-w-[800px] mx-auto">
+<span class="text-label-code font-label-code text-primary uppercase">GET STARTED TODAY</span>
+<h2 class="text-display-hero-mobile md:text-headline-xl font-display-hero text-on-surface mt-4 mb-6">
+          พร้อมแล้ว ก็เปิดรับจองได้เลย
+        </h2>
+<p class="text-body-lg font-body-lg text-secondary mb-10 max-w-xl mx-auto">
+          เริ่มต้นยกระดับการจัดการคิวของร้านคุณวันนี้ ลดเวลาคอย เพิ่มความพึงพอใจให้ลูกค้าของคุณได้ทันที
+        </p>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<a class="px-8 py-3.5 bg-primary text-on-primary font-headline-sm text-body-md rounded-xl hover:opacity-90 active:scale-95 transition-all" href="#open-stores">
+            ดูร้านที่เปิดอยู่
+          </a>
+<a class="px-8 py-3.5 bg-surface-container-lowest border border-surface-container-highest text-on-surface font-headline-sm text-body-md rounded-xl hover:bg-surface-container-low active:scale-95 transition-all" href="#merchant">
+            สมัครร้านค้า
+          </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Editorial Footer (Shared Component JSON anchor) -->
+<footer class="docked full-width bottom border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="w-full max-w-[1440px] mx-auto px-6 md:px-16 pt-20 pb-12 flex flex-col gap-12">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<span class="text-display-hero-mobile md:text-display-hero font-display-hero text-on-surface tracking-tighter block">
+            JONG-Q จองคิว
+          </span>
+<p class="text-body-sm font-body-sm text-secondary mt-2">
+            แพลตฟอร์มบริหารคิวและการนัดหมายวันต่อวัน สำหรับร้านค้าและผู้รับบริการในประเทศไทย
+          </p>
+</div>
+<div class="flex flex-wrap gap-6 md:gap-8">
+<a class="text-body-sm font-body-sm text-on-surface hover:text-primary-container transition-colors duration-200" href="#">ข้อกำหนดการใช้งาน</a>
+<a class="text-body-sm font-body-sm text-tertiary hover:text-primary-container transition-colors duration-200" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="text-body-sm font-body-sm text-tertiary hover:text-primary-container transition-colors duration-200" href="#">เชื่อมต่อ LINE OA</a>
+<a class="text-body-sm font-body-sm text-tertiary hover:text-primary-container transition-colors duration-200" href="#">สมัครเปิดระบบร้านค้า</a>
+<a class="text-body-sm font-body-sm text-tertiary hover:text-primary-container transition-colors duration-200" href="#">ศูนย์ช่วยเหลือ</a>
+</div>
+</div>
+<div class="pt-8 border-t border-surface-container-highest flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-label-code font-label-code text-tertiary text-center sm:text-left">
+          © 2025 JONG-Q (จองคิว) TECHNOLOGIES THAILAND. ALL RIGHTS RESERVED. TIME IS CURATED.
+        </p>
+<span class="text-label-pill font-label-pill px-2.5 py-1 rounded bg-surface-container-low text-secondary border border-surface-container-highest">
+          BANGKOK • CHIANG MAI • PHUKET
+        </span>
+</div>
+</div>
+</footer>
+</body></html>

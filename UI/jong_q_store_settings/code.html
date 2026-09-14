@@ -1,0 +1,749 @@
+<!DOCTYPE html><html class="light" lang="th"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Jong-Q (จองคิว) - ตั้งค่าร้านค้า The Barbershop Ari</title>
+<!-- Fonts: Noto Sans Thai, Space Mono for retro zine feel, and Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#e2bfb2",
+            "inverse-primary": "#ffb599",
+            "on-secondary-container": "#656467",
+            "primary-container": "#cc4900",
+            "tertiary-container": "#74747d",
+            "tertiary-fixed": "#e3e1ec",
+            "surface-container": "#eeeeee",
+            "on-primary": "#ffffff",
+            "outline": "#8e7166",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#c6c5cf",
+            "tertiary": "#5b5b64",
+            "surface-container-high": "#e8e8e8",
+            "secondary-container": "#e4e1e6",
+            "on-secondary-fixed-variant": "#47464a",
+            "secondary-fixed-dim": "#c8c5ca",
+            "on-tertiary-container": "#fffbff",
+            "surface-tint": "#a73a00",
+            "surface": "#FCF9F2",
+            "on-surface-variant": "#5a4138",
+            "on-tertiary-fixed-variant": "#46464e",
+            "primary-fixed": "#ffdbce",
+            "secondary-fixed": "#e4e1e6",
+            "surface-dim": "#dadada",
+            "on-surface": "#18181b",
+            "on-secondary-fixed": "#1b1b1e",
+            "primary-fixed-dim": "#ffb599",
+            "inverse-surface": "#2f3131",
+            "on-primary-container": "#fffbff",
+            "on-error": "#ffffff",
+            "background": "#FAF6EE",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#5f5e61",
+            "surface-bright": "#ffffff",
+            "inverse-on-surface": "#f0f1f1",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#1a1b22",
+            "surface-variant": "#f4ede0",
+            "on-primary-fixed": "#370e00",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f7f2e7",
+            "on-primary-fixed-variant": "#7f2b00",
+            "on-tertiary": "#ffffff",
+            "primary": "#ea580c",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#E4E4E7",
+            "on-background": "#18181b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.375rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "2.5rem",
+            "margin": "4rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "body-sm": ["Noto Sans Thai", "sans-serif"],
+            "label-code": ["Space Mono", "Noto Sans Thai", "monospace"],
+            "headline-md": ["Noto Sans Thai", "sans-serif"],
+            "headline-lg": ["Noto Sans Thai", "sans-serif"],
+            "headline-xl-mobile": ["Noto Sans Thai", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans Thai", "sans-serif"],
+            "display-hero-mobile": ["Noto Sans Thai", "sans-serif"],
+            "headline-xl": ["Noto Sans Thai", "sans-serif"],
+            "headline-sm": ["Noto Sans Thai", "sans-serif"],
+            "label-pill": ["Space Mono", "Noto Sans Thai", "monospace"],
+            "body-md": ["Noto Sans Thai", "sans-serif"],
+            "display-hero": ["Noto Sans Thai", "sans-serif"],
+            "body-lg": ["Noto Sans Thai", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "label-code": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-hero-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-pill": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-hero": ["80px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }]
+          },
+          boxShadow: {
+            "zine": "3px 3px 0px #18181b",
+            "zine-lg": "5px 5px 0px #18181b",
+            "zine-xl": "7px 7px 0px #18181b",
+            "zine-orange": "4px 4px 0px #ea580c"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Risograph halftone & paper feel */
+    .bg-paper-pattern {
+      background-color: #FAF6EE;
+      background-image: radial-gradient(#d6cebe 0.75px, transparent 0.75px);
+      background-size: 14px 14px;
+    }
+
+    /* Sketch tape effect */
+    .tape-strip {
+      background: rgba(250, 204, 21, 0.45);
+      backdrop-filter: blur(1px);
+      transform: rotate(-2deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.2);
+      border-right: 2px dashed rgba(24, 24, 27, 0.2);
+    }
+    
+    .tape-strip-alt {
+      background: rgba(234, 88, 12, 0.2);
+      transform: rotate(1.5deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.2);
+      border-right: 2px dashed rgba(24, 24, 27, 0.2);
+    }
+
+    /* Hand drawn double border outline effect */
+    .border-sketch {
+      border: 2px solid #18181b;
+      box-shadow: 4px 4px 0px #18181b;
+    }
+
+    .border-sketch-subtle {
+      border: 1.5px solid #18181b;
+      box-shadow: 2px 2px 0px #18181b;
+    }
+
+    /* Switch toggles custom tactile styling */
+    .toggle-checkbox:checked {
+      right: 2px;
+      border-color: #18181b;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body class="bg-paper-pattern text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white pb-32">
+<!-- ================= TOP APP BAR / MERCHANT PORTAL HEADER ================= -->
+<!-- Shared Component: TopNavBar with JSON identity + Risograph Merchant Portal twist -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b-2 border-on-surface px-4 md:px-8 py-3 transition-all duration-150">
+<div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
+<!-- Brand & Breadcrumbs -->
+<div class="flex items-center gap-3 md:gap-5">
+<div class="flex items-center gap-2">
+<!-- Risograph Badge Logo -->
+<div class="bg-primary text-white border-2 border-on-surface px-3 py-1 font-label-code text-label-code shadow-zine rounded-lg -rotate-1 flex items-center gap-1.5 cursor-pointer">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">counter_1</span>
+<span class="font-bold tracking-tight">Jong-Q (จองคิว)</span>
+</div>
+<span class="hidden sm:inline-block px-1.5 py-0.5 text-xs font-label-code bg-amber-200 border border-on-surface rounded shadow-[1px_1px_0px_#000]">MERCHANT HUB</span>
+</div>
+<!-- Breadcrumbs -->
+<div class="hidden md:flex items-center text-secondary font-label-code text-body-sm gap-2">
+<span class="text-tertiary">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">แผงควบคุมร้านค้า</span>
+<span class="text-tertiary">/</span>
+<span class="text-on-surface font-bold underline decoration-primary decoration-2 underline-offset-4">ตั้งค่าร้านค้า</span>
+</div>
+</div>
+<!-- Merchant Store Switcher & Trailing Actions -->
+<div class="flex items-center gap-3">
+<!-- Store Selector Pill -->
+<div class="flex items-center gap-2 bg-surface border-2 border-on-surface px-2.5 py-1 rounded-lg shadow-zine cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold border border-on-surface">
+            B
+          </div>
+<div class="text-left leading-tight pr-1">
+<div class="text-xs font-label-code text-tertiary font-bold leading-none">สาขาปัจจุบัน</div>
+<div class="text-body-sm font-headline-sm font-bold text-on-surface truncate max-w-[140px] sm:max-w-[180px]">The Barbershop แม่ฮ่องสอน</div>
+</div>
+<span class="material-symbols-outlined text-base">unfold_more</span>
+</div>
+<!-- Trailing JSON Icons: help & notifications -->
+<div class="flex items-center gap-1.5">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border-2 border-on-surface bg-surface hover:bg-surface-container shadow-[2px_2px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all" title="ช่วยเหลือ">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border-2 border-on-surface bg-surface hover:bg-surface-container shadow-[2px_2px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all" title="การแจ้งเตือน">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-primary border border-on-surface rounded-full"></span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-12 w-full">
+<!-- PAGE HEADER TITLE & ZINE MOTIF -->
+<div class="relative mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-dashed border-tertiary-fixed-dim pb-4">
+<!-- Tape visual accent -->
+<div class="tape-strip absolute -top-4 left-6 px-4 py-0.5 text-[11px] font-label-code text-on-surface font-bold uppercase tracking-wider shadow-sm z-10">
+        ★ OFFICIAL STORE CONFIGURATION / 2025
+      </div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/10 text-primary border border-primary/40 font-label-code text-xs px-2 py-0.5 rounded font-bold">CONFIG 01</span>
+<span class="text-xs font-label-code text-tertiary">SYNCED WITH CLOUD QUEUE ENGINE</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg font-extrabold text-on-surface tracking-tight flex items-center gap-2">
+          ตั้งค่าข้อมูลร้านค้า 
+          <span class="text-primary font-normal font-label-code text-headline-sm">(Merchant Settings)</span>
+</h1>
+<p class="text-secondary font-body-md mt-1">
+          ปรับแต่งข้อมูลร้าน เวลาให้บริการ พิกัดแผนที่ และระบบควบคุมคิวเรียลไทม์ เพื่อประสบการณ์ลูกค้าที่นิ่ง เรียบง่าย และแม่นยำ
+        </p>
+</div>
+<!-- Quick Status Stamp -->
+<div class="hidden sm:flex items-center gap-2 bg-surface-container-lowest border-2 border-on-surface px-3 py-1.5 rounded-lg shadow-zine">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-on-surface"></span>
+</span>
+<div class="text-xs font-label-code font-bold">
+          LIVE STATUS: <span class="text-emerald-700">ONLINE</span>
+</div>
+</div>
+</div>
+<!-- ================= 2. TOP MASTER SWITCH BAR ================= -->
+<!-- Tactical prominent banner card with sketchy border & pause break -->
+<section aria-label="Master Store Switch" class="mb-8">
+<div class="relative bg-surface-container-lowest border-2 border-on-surface rounded-xl p-5 md:p-6 shadow-zine-lg overflow-hidden bg-gradient-to-r from-orange-50/70 via-white to-amber-50/60">
+<!-- Background vintage stamp watermark -->
+<div class="absolute right-4 -bottom-6 text-9xl font-black text-black/[0.03] select-none pointer-events-none font-label-code">
+          LIVE
+        </div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+<!-- Left: Switch label & context -->
+<div class="flex items-start gap-4">
+<div class="w-13 h-13 p-3 bg-primary text-white border-2 border-on-surface rounded-xl shadow-zine flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 1;">power_settings_new</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">
+                  สวิตช์หลัก: เปิด-ปิดรับคิวทันที (Master Queue Switch)
+                </h2>
+<!-- Live Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold font-label-code bg-emerald-100 text-emerald-800 border border-emerald-700 shadow-[1px_1px_0px_#047857]" id="liveStatusBadge">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                  🟢 กำลังเปิดรับจอง (LIVE OPEN)
+                </span>
+</div>
+<p class="text-body-sm text-secondary mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">info</span>
+<span class="">เมื่อปิด ลูกค้าจะไม่สามารถกดรับคิวรอบถัดไปได้ทันที แต่ลูกค้าที่ถือบัตรคิวเดิมยังคงอยู่ในระบบ</span>
+</p>
+</div>
+</div>
+<!-- Right: Interactive Tactical Toggle & Emergency Break Button -->
+<div class="flex flex-wrap items-center gap-3 w-full lg:w-auto justify-end border-t lg:border-t-0 pt-3 lg:pt-0 border-surface-container-highest">
+<!-- Pause 30 min break -->
+<button class="px-3.5 py-2.5 bg-amber-100 hover:bg-amber-200 text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base text-amber-900" style="font-variation-settings: &quot;FILL&quot; 1;">coffee</span>
+<span class="">พักรับคิว 30 นาที (Break)</span>
+</button>
+<!-- Master Toggle Button -->
+<div class="flex items-center gap-3 bg-surface border-2 border-on-surface px-4 py-2 rounded-lg shadow-zine">
+<span class="text-body-sm font-bold font-label-code" id="toggleStateText">เปิดรับคิว</span>
+<!-- Stylized Custom Checkbox Slider -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="masterQueueToggle" type="checkbox">
+<div class="w-14 h-7 bg-tertiary-fixed-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[3px] after:bg-white after:border-2 after:border-on-surface after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[1px_1px_0px_#000] peer-checked:bg-primary border-2 border-on-surface"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= BENTO GRID FORM SECTIONS ================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- ================= LEFT COLUMN: IDENTITY & MAP (7 COLS) ================= -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- SECTION 1: ข้อมูลทั่วไปและชื่อร้าน (Store Identity) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 01 // IDENTITY
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">storefront</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">ข้อมูลทั่วไปและชื่อร้าน (Store Identity)</h2>
+<p class="text-body-sm text-secondary">ข้อมูลที่ปรากฏบนหน้าบัตรคิวดิจิทัล และในแอปพลิเคชันสำหรับลูกค้า</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Store Name -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span class="">ชื่อร้านค้า (Store Name) <span class="text-primary">*</span></span>
+<span class="text-xs text-tertiary font-normal">สูงสุด 60 ตัวอักษร</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md font-medium text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] transition-all" type="text" value="The Barbershop Mae Hong Son (เดอะ บาร์เบอร์ช็อป จองคำ แม่ฮ่องสอน)">
+<span class="absolute right-3 top-3 text-xs font-label-code text-emerald-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">check_circle</span>
+</span>
+</div>
+</div>
+<!-- Category & Branch Code Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  หมวดหมู่ธุรกิจ (Category)
+                </label>
+<div class="relative">
+<select class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] appearance-none cursor-pointer">
+<option selected="">บาร์เบอร์ &amp; กรูมมิ่ง (Grooming)</option>
+<option>ร้านอาหาร &amp; คาเฟ่ (Food &amp; Dining)</option>
+<option>สปา &amp; ซาลอน (Spa &amp; Salon)</option>
+<option>คลินิกเวชกรรม (Medical Clinic)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  รหัสประจำสาขา (Branch Code)
+                </label>
+<input class="w-full bg-surface-container border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-label-code text-body-sm text-tertiary shadow-[2px_2px_0px_#18181b] cursor-not-allowed" readonly="" type="text" value="JQ-MHS-001">
+</div>
+</div>
+<!-- Slogan / Short Description -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                สโลแกน / คำอธิบายสั้น (Tagline &amp; Bio)
+              </label>
+<textarea class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] resize-none" rows="2">ตัดผมวินเทจ &amp; กรูมมิ่งชายใจกลางเมืองแม่ฮ่องสอน ริมหนองจองคำ คิวสดวันต่อวัน ไม่ต้องรอ บรรยากาศผ่อนคลาย</textarea>
+<p class="text-xs font-label-code text-tertiary mt-1">ข้อความนี้จะแสดงบนหัวบัตรคิวมินิมอลของลูกค้า (The Minimalist Slip)</p>
+</div>
+<!-- Store Cover Banner / Logo Upload with sketched tape effect -->
+<div class="pt-2">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2">
+                รูปภาพหน้าร้าน / Cover Banner &amp; Logo
+              </label>
+<div class="border-2 border-dashed border-on-surface rounded-xl p-4 bg-surface/60 flex flex-col sm:flex-row items-center gap-5 relative">
+<!-- Mini tape accent -->
+<div class="tape-strip absolute -top-2.5 left-4 px-2 py-0.2 text-[10px] font-label-code font-bold">PREVIEW</div>
+<!-- Preview Thumbnail with sketchy frame -->
+<div class="w-24 h-24 sm:w-28 sm:h-28 bg-stone-200 border-2 border-on-surface rounded-lg overflow-hidden shadow-zine shrink-0 relative group">
+<img class="w-full h-full object-cover" data-alt="A warm, atmospheric vintage barbershop interior in Bangkok Ari with dark oak wood finishes, polished brass mirrors, leather barber chairs, and gentle warm pendant lighting, captured in an artisanal film photography aesthetic with soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9RgAlpZ6_cyhdymtSuFbri1Qiigs0PG4bZzKcKqJl7Ea3tR23XMiHx4Amw3oY3zNKBDRy6Om848XyYuEeAcAcca7i7kEDtNfTGdjINExTdPpI8xQigBOoaJAZzwtIxBKC-De6IhSAkI9cNkNOJwCUU7Q-PJkvnbIBVtnuUgqcVpETiLdPh477Y6BvLWrXPowkZmSascUNtdpjn7rFD-6Vld0u9oTcIbq1yldumv8BWk72zjIHgCLk">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-white">
+<span class="material-symbols-outlined text-lg">edit</span>
+</div>
+</div>
+<!-- Upload details and trigger -->
+<div class="flex-1 text-center sm:text-left">
+<div class="font-headline-sm font-bold text-on-surface text-body-md">barbershop_banner_mhs.jpg</div>
+<p class="text-xs text-secondary mt-0.5">ขนาดแนะนำ: 1200x600px (JPG, PNG หรือ WebP สูงสุด 5MB)</p>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-3">
+<button class="px-3 py-1.5 bg-surface hover:bg-surface-container border-2 border-on-surface rounded-md text-xs font-label-code font-bold shadow-[2px_2px_0px_#18181b] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">cloud_upload</span> เปลี่ยนรูปภาพ
+                    </button>
+<button class="px-2.5 py-1.5 text-error hover:bg-red-50 border border-transparent rounded-md text-xs font-label-code font-bold transition-all" type="button">
+                      ลบรูป
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: พิกัดและแผนที่ (Location & Interactive Map Preview) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 02 // LOCATION
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">pin_drop</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">พิกัดและแผนที่ตั้งร้าน (Location &amp; Coordinates)</h2>
+<p class="text-body-sm text-secondary">ช่วยให้ลูกค้าคำนวณเวลาเดินทาง และเดินมาถึงหน้าร้านได้อย่างแม่นยำ</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Full Address -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                ที่อยู่ร้านแบบละเอียด (Store Address) <span class="text-primary">*</span>
+</label>
+<textarea class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] resize-none" rows="2">ถนนสิงหนาทบำรุง ตำบลจองคำ อำเภอเมืองแม่ฮ่องสอน จังหวัดแม่ฮ่องสอน 58000</textarea>
+</div>
+<!-- Landmark & GPS Coordinates -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+<div class="sm:col-span-7">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  จุดสังเกตเด่น (Landmark)
+                </label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b]" type="text" value="ใกล้หนองจองคำ / ตรงข้ามวัดจองกลาง ถนนคนเดินแม่ฮ่องสอน">
+</div>
+<div class="sm:col-span-5">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span class="">พิกัด GPS ละติจูด / ลองจิจูด</span>
+<span class="text-[11px] text-emerald-700 font-bold font-label-code">LOCKED</span>
+</label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-label-code text-body-sm text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b]" type="text" value="19.3005, 97.9654">
+</div>
+</div>
+<!-- Map Preview Box styled with Risograph / Cartography Blueprint Feel -->
+<div class="mt-3">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span class="">ภาพจำลองแผนที่ปักหมุด (Interactive Map Preview)</span>
+<span class="text-xs text-tertiary">หนองจองคำ - ถนนสิงหนาทบำรุง</span>
+</label>
+<div class="relative w-full h-56 bg-amber-50/50 border-2 border-on-surface rounded-xl overflow-hidden shadow-zine p-3 flex flex-col justify-between" style="background-image: linear-gradient(#d6cebe 1px, transparent 1px), linear-gradient(90deg, #d6cebe 1px, transparent 1px); background-size: 24px 24px;">
+<!-- Blueprint Cartography overlay graphics -->
+<div class="flex items-center justify-between z-10">
+<div class="bg-surface-container-lowest/90 border border-on-surface px-2.5 py-1 rounded text-xs font-label-code font-bold shadow-[1px_1px_0px_#000]">GRID: MHS_JONGKHAM_01</div>
+<div class="flex items-center gap-1.5 bg-white/95 border border-on-surface px-2 py-0.5 rounded text-[11px] font-label-code font-bold">50m จากหนองจองคำ • ถ.สิงหนาทบำรุง</div>
+</div>
+<!-- Simulated Sketch Map Canvas / Visual Pins -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- Main Road sketch line -->
+<div class="w-full h-4 bg-stone-300/80 border-y border-dashed border-stone-500 transform -rotate-12 absolute flex items-center justify-center text-[10px] font-label-code text-stone-600 font-bold uppercase tracking-widest">ถนนสิงหนาทบำรุง (Singhanat Bamrung Rd.)</div>
+<!-- BTS Station Badge -->
+<div class="absolute top-12 left-1/4 bg-emerald-600 text-white border-2 border-on-surface px-2.5 py-1 rounded-md text-xs font-label-code font-bold shadow-zine flex items-center gap-1 -rotate-6"><span class="material-symbols-outlined text-sm">temple_buddhist</span> วัดจองกลาง / หนองจองคำ</div>
+<!-- Alley / Soi sketch line -->
+<div class="h-44 w-3 bg-stone-200/90 border-x border-stone-400 transform rotate-78 absolute"></div>
+<!-- The Barber Pin (Risograph Vermilion Badge) -->
+<div class="relative z-20 flex flex-col items-center animate-bounce">
+<div class="bg-primary text-white border-2 border-on-surface px-3 py-1.5 rounded-lg text-xs font-bold font-label-code shadow-zine flex items-center gap-1.5"><span class="material-symbols-outlined text-base">content_cut</span><span class="">The Barbershop แม่ฮ่องสอน</span></div>
+<div class="w-0.5 h-4 bg-on-surface"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary border border-on-surface shadow-sm"><span class="material-symbols-outlined text-base">content_cut</span><span class="">The Barbershop แม่ฮ่องสอน</span></div>
+</div>
+</div>
+<!-- Map Action Controls at Bottom -->
+<div class="flex items-center justify-between z-10 pt-2">
+<div class="text-[11px] font-label-code bg-white/90 border border-on-surface px-2 py-1 rounded">50m จากหนองจองคำ • ถ.สิงหนาทบำรุง</div>
+<button class="px-3 py-1.5 bg-surface-container-lowest hover:bg-surface border-2 border-on-surface rounded-lg text-xs font-label-code font-bold shadow-zine active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-1 text-on-surface" type="button">
+<span class="material-symbols-outlined text-base text-primary">open_in_new</span>
+<span class="">ปักหมุดตำแหน่งบน Google Maps</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: HOURS, SLOTS & CONTACT (5 COLS) ================= -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- SECTION 3: เวลาเปิด - ปิด และรอบการบริการ (Operating Hours & Slots) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 03 // SCHEDULE
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">schedule</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">เวลาทำการ &amp; รอบการบริการ</h2>
+<p class="text-body-sm text-secondary">กำหนดตารางเวลาเปิดรับจอง และคำนวณคิวอัตโนมัติ</p>
+</div>
+</div>
+<!-- Weekly Schedule Table -->
+<div class="space-y-2.5">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2">
+              ตารางเวลาทำการรายสัปดาห์ (Weekly Schedule)
+            </label>
+<!-- Mon - Tue -->
+<div class="flex items-center justify-between p-2.5 rounded-lg border border-on-surface/20 bg-surface/50 hover:bg-surface transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-amber-100 border border-on-surface flex items-center justify-center font-label-code text-xs font-bold text-on-surface">จ-อ</span>
+<span class="font-body-md font-semibold text-body-sm">จันทร์ - อังคาร</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-code text-xs font-bold text-on-surface bg-white px-2 py-1 border border-on-surface/30 rounded">10:00 - 20:00</span>
+<span class="text-xs font-label-code font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-300">เปิด</span>
+</div>
+</div>
+<!-- Wednesday: CLOSED (Special highlight) -->
+<div class="flex items-center justify-between p-2.5 rounded-lg border-2 border-dashed border-red-300 bg-red-50/40">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-red-200 border border-on-surface flex items-center justify-center font-label-code text-xs font-bold text-red-900">พ</span>
+<span class="font-body-md font-semibold text-body-sm text-red-900">วันพุธ (วันหยุดประจำสัปดาห์)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-code text-xs font-bold text-tertiary">ปิดทำการ</span>
+<span class="text-xs font-label-code font-bold text-error bg-red-100 px-1.5 py-0.5 rounded border border-red-300">ปิด</span>
+</div>
+</div>
+<!-- Thu - Fri -->
+<div class="flex items-center justify-between p-2.5 rounded-lg border border-on-surface/20 bg-surface/50 hover:bg-surface transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-amber-100 border border-on-surface flex items-center justify-center font-label-code text-xs font-bold text-on-surface">พฤ-ศ</span>
+<span class="font-body-md font-semibold text-body-sm">พฤหัสบดี - ศุกร์</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-code text-xs font-bold text-on-surface bg-white px-2 py-1 border border-on-surface/30 rounded">10:00 - 20:00</span>
+<span class="text-xs font-label-code font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-300">เปิด</span>
+</div>
+</div>
+<!-- Sat - Sun -->
+<div class="flex items-center justify-between p-2.5 rounded-lg border border-on-surface/20 bg-amber-50/60 hover:bg-amber-50 transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-primary text-white border border-on-surface flex items-center justify-center font-label-code text-xs font-bold">ส-อา</span>
+<span class="font-body-md font-bold text-body-sm text-on-surface">เสาร์ - อาทิตย์ (Peak Days)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-code text-xs font-bold text-on-surface bg-white px-2 py-1 border border-on-surface/30 rounded">09:00 - 21:00</span>
+<span class="text-xs font-label-code font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-300">เปิด</span>
+</div>
+</div>
+</div>
+<!-- Slot Interval & Capacity Parameters -->
+<div class="mt-6 pt-5 border-t-2 border-surface-container space-y-4">
+<!-- Slot Interval Tripartite Selector -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2 flex items-center justify-between">
+<span class="">ระยะเวลาต่อรอบบริการ (Slot Interval)</span>
+<span class="text-xs text-primary font-bold">แนะนำสำหรับ Barber: 45 นาที</span>
+</label>
+<div class="grid grid-cols-3 gap-2.5">
+<button class="py-2.5 px-2 border-2 border-on-surface rounded-lg bg-surface text-center font-label-code text-xs font-bold hover:bg-surface-container shadow-[2px_2px_0px_#18181b] active:translate-x-0.5 active:translate-y-0.5 transition-all" type="button">
+                  30 นาที
+                </button>
+<button class="py-2.5 px-2 border-2 border-on-surface rounded-lg bg-primary text-white text-center font-label-code text-xs font-bold shadow-zine active:translate-x-0.5 active:translate-y-0.5 transition-all relative" type="button">
+                  45 นาที ★
+                  <span class="absolute -top-2 -right-1 w-2.5 h-2.5 rounded-full bg-amber-400 border border-black"></span>
+</button>
+<button class="py-2.5 px-2 border-2 border-on-surface rounded-lg bg-surface text-center font-label-code text-xs font-bold hover:bg-surface-container shadow-[2px_2px_0px_#18181b] active:translate-x-0.5 active:translate-y-0.5 transition-all" type="button">
+                  60 นาที
+                </button>
+</div>
+</div>
+<!-- Max Capacity Stepper -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                โควตาจำนวนคิวต่อรอบ (Max Capacity per Slot)
+              </label>
+<div class="flex items-center justify-between bg-surface border-2 border-on-surface rounded-lg p-2 shadow-zine">
+<div class="text-body-sm pl-2">
+<div class="font-bold text-on-surface">เก้าอี้บริการพร้อมกัน (Chairs)</div>
+<div class="text-xs text-secondary">ไม่รวมคิวสำรองฉุกเฉิน</div>
+</div>
+<!-- Party Size Stepper (Design System compliant) -->
+<div class="flex items-center bg-white border border-on-surface rounded-lg p-1 gap-3">
+<button class="w-7 h-7 rounded border border-on-surface bg-surface hover:bg-surface-container flex items-center justify-center font-bold text-sm shadow-[1px_1px_0px_#000]" type="button">
+                    -
+                  </button>
+<span class="font-label-code text-body-md font-bold text-on-surface px-1">2 คิว</span>
+<button class="w-7 h-7 rounded border border-on-surface bg-primary text-white flex items-center justify-center font-bold text-sm shadow-[1px_1px_0px_#000]" type="button">
+                    +
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: เบอร์โทรร้าน และช่องทางการติดต่อ (Contact & Social Channels) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 04 // CONTACT
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">contact_phone</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">เบอร์โทร &amp; การติดต่อ (Channels)</h2>
+<p class="text-body-sm text-secondary">ช่องทางแจ้งเตือนเมื่อใกล้ถึงคิว และการประสานงานลูกค้า</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Phone Numbers -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  เบอร์โทรศัพท์หลักร้าน (Store)
+                </label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="02-555-0192">
+</div>
+</div>
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  เบอร์สายด่วนมือถือ (Hotline)
+                </label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="081-987-6543">
+</div>
+</div>
+</div>
+<!-- LINE Official Account Integration -->
+<div class="border-2 border-on-surface bg-emerald-50/40 rounded-xl p-3.5 shadow-zine relative">
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#06C755] text-white border-2 border-on-surface flex items-center justify-center font-bold text-sm shadow-[1px_1px_0px_#000]">
+                    L
+                  </div>
+<div>
+<div class="font-bold text-body-sm font-label-code text-on-surface">LINE Official Account</div>
+<div class="text-xs text-secondary font-label-code">@thebarbershop.mhs</div>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold font-label-code bg-emerald-200 text-emerald-900 border border-emerald-800 shadow-[1px_1px_0px_#065f46]">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+                  เชื่อมต่อแล้ว
+                </span>
+</div>
+<p class="text-xs text-secondary">
+                ระบบเชื่อมต่อบอทส่งแจ้งเตือนเรียกคิว "ใกล้ถึงคิวของคุณแล้ว" ผ่าน LINE ทันทีอัตโนมัติ
+              </p>
+</div>
+<!-- Social Media & SMS Alert -->
+<div class="space-y-3 pt-1">
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  Instagram / Facebook Page
+                </label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-label-code text-tertiary text-xs">@</span>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg pl-8 pr-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="barbershop_mhs">
+</div>
+</div>
+<!-- SMS Notification Toggle -->
+<div class="flex items-center justify-between bg-surface border-2 border-on-surface rounded-lg p-3 shadow-zine">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl">sms</span>
+<div>
+<div class="font-bold text-xs font-label-code text-on-surface">SMS สำรองฉุกเฉิน</div>
+<div class="text-[11px] text-tertiary">ส่งข้อความแจ้งเตือนเมื่อลูกค้าไม่เปิด LINE</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-10 h-5 bg-tertiary-fixed-dim rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-black after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary border border-on-surface"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= EXTRA INFO NOTICE BANNER ================= -->
+<div class="mt-8 bg-amber-100/70 border-2 border-dashed border-on-surface rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0" style="font-variation-settings: &quot;FILL&quot; 1;">info</span>
+<div class="text-body-sm text-on-surface">
+<span class="font-bold font-label-code">NOTE:</span> การแก้ไขการตั้งค่าเวลาและโควตาต่อรอบ จะมีผลกับบัตรคิวที่ออกใหม่นับจากเวลาที่บันทึกเป็นต้นไป
+        </div>
+</div>
+<span class="text-xs font-label-code text-tertiary uppercase tracking-wider shrink-0 bg-white/80 px-2.5 py-1 border border-on-surface/40 rounded">SYSTEM VER: 2.4.9</span>
+</div>
+</main>
+<!-- ================= 7. STICKY BOTTOM ACTION BAR ================= -->
+<!-- Playful sketchy buttons with drop shadows and tactility -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-t-2 border-on-surface py-3 px-4 md:px-8 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<!-- Auto-save state indicator -->
+<div class="flex items-center gap-2 text-xs font-label-code text-tertiary w-full sm:w-auto justify-center sm:justify-start">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="">มี 2 รายการเปลี่ยนแปลงที่ยังไม่ได้บันทึก (Unsaved Changes)</span>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<!-- Discard Button -->
+<button class="flex-1 sm:flex-none px-4 py-2.5 bg-surface hover:bg-surface-container text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all" type="button">
+          ยกเลิก (Discard)
+        </button>
+<!-- Live Preview Button -->
+<button class="flex-1 sm:flex-none px-4 py-2.5 bg-white hover:bg-amber-50 text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span class="">ดูตัวอย่างหน้าร้านจริง</span>
+</button>
+<!-- Primary Save Button (Risograph Orange with chunky shadow) -->
+<button class="flex-1 sm:flex-none px-6 py-2.5 bg-primary hover:bg-[#cc4900] text-white border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center justify-center gap-2" id="saveBtn" type="button">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">save</span>
+<span class="">บันทึกการเปลี่ยนแปลง (Save)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro Interaction Script for Master Switch & Feedback Toast -->
+<script>
+    const masterToggle = document.getElementById('masterQueueToggle');
+    const liveStatusBadge = document.getElementById('liveStatusBadge');
+    const toggleStateText = document.getElementById('toggleStateText');
+    const saveBtn = document.getElementById('saveBtn');
+
+    masterToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        liveStatusBadge.className = "inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold font-label-code bg-emerald-100 text-emerald-800 border border-emerald-700 shadow-[1px_1px_0px_#047857]";
+        liveStatusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> 🟢 กำลังเปิดรับจอง (LIVE OPEN)';
+        toggleStateText.textContent = "เปิดรับคิว";
+      } else {
+        liveStatusBadge.className = "inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold font-label-code bg-red-100 text-red-800 border border-red-700 shadow-[1px_1px_0px_#b91c1c]";
+        liveStatusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-red-600"></span> 🔴 ปิดรับคิวชั่วคราว (PAUSED)';
+        toggleStateText.textContent = "ปิดรับคิว";
+      }
+    });
+
+    saveBtn.addEventListener('click', () => {
+      const originalText = saveBtn.innerHTML;
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">sync</span> กำลังบันทึก...';
+      saveBtn.disabled = true;
+      setTimeout(() => {
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span> บันทึกเรียบร้อย!';
+        saveBtn.classList.remove('bg-primary');
+        saveBtn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          saveBtn.innerHTML = originalText;
+          saveBtn.classList.add('bg-primary');
+          saveBtn.classList.remove('bg-emerald-600');
+          saveBtn.disabled = false;
+        }, 1800);
+      }, 700);
+    });
+  </script>
+
+
+</body></html>

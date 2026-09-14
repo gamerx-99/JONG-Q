@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jong-Q (จองคิว) - ตั้งค่าร้านค้า แม่สะเรียง การาจ &amp; ออโต้ สปา</title>
+<!-- Fonts: Noto Sans Thai, Space Mono for retro zine feel, and Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#e2bfb2",
+            "inverse-primary": "#ffb599",
+            "on-secondary-container": "#656467",
+            "primary-container": "#cc4900",
+            "tertiary-container": "#74747d",
+            "tertiary-fixed": "#e3e1ec",
+            "surface-container": "#eeeeee",
+            "on-primary": "#ffffff",
+            "outline": "#8e7166",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#c6c5cf",
+            "tertiary": "#5b5b64",
+            "surface-container-high": "#e8e8e8",
+            "secondary-container": "#e4e1e6",
+            "on-secondary-fixed-variant": "#47464a",
+            "secondary-fixed-dim": "#c8c5ca",
+            "on-tertiary-container": "#fffbff",
+            "surface-tint": "#a73a00",
+            "surface": "#FCF9F2",
+            "on-surface-variant": "#5a4138",
+            "on-tertiary-fixed-variant": "#46464e",
+            "primary-fixed": "#ffdbce",
+            "secondary-fixed": "#e4e1e6",
+            "surface-dim": "#dadada",
+            "on-surface": "#18181b",
+            "on-secondary-fixed": "#1b1b1e",
+            "primary-fixed-dim": "#ffb599",
+            "inverse-surface": "#2f3131",
+            "on-primary-container": "#fffbff",
+            "on-error": "#ffffff",
+            "background": "#FAF6EE",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#5f5e61",
+            "surface-bright": "#ffffff",
+            "inverse-on-surface": "#f0f1f1",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#1a1b22",
+            "surface-variant": "#f4ede0",
+            "on-primary-fixed": "#370e00",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f7f2e7",
+            "on-primary-fixed-variant": "#7f2b00",
+            "on-tertiary": "#ffffff",
+            "primary": "#ea580c",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#E4E4E7",
+            "on-background": "#18181b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.375rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "2.5rem",
+            "margin": "4rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "body-sm": ["Noto Sans Thai", "sans-serif"],
+            "label-code": ["Space Mono", "Noto Sans Thai", "monospace"],
+            "headline-md": ["Noto Sans Thai", "sans-serif"],
+            "headline-lg": ["Noto Sans Thai", "sans-serif"],
+            "headline-xl-mobile": ["Noto Sans Thai", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans Thai", "sans-serif"],
+            "display-hero-mobile": ["Noto Sans Thai", "sans-serif"],
+            "headline-xl": ["Noto Sans Thai", "sans-serif"],
+            "headline-sm": ["Noto Sans Thai", "sans-serif"],
+            "label-pill": ["Space Mono", "Noto Sans Thai", "monospace"],
+            "body-md": ["Noto Sans Thai", "sans-serif"],
+            "display-hero": ["Noto Sans Thai", "sans-serif"],
+            "body-lg": ["Noto Sans Thai", "sans-serif"]
+          },
+          boxShadow: {
+            "zine": "3px 3px 0px #18181b",
+            "zine-lg": "5px 5px 0px #18181b",
+            "zine-xl": "7px 7px 0px #18181b",
+            "zine-orange": "4px 4px 0px #ea580c"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Risograph halftone & workshop paper feel */
+    .bg-paper-pattern {
+      background-color: #FAF6EE;
+      background-image: radial-gradient(#d6cebe 0.75px, transparent 0.75px);
+      background-size: 14px 14px;
+    }
+
+    /* Sketch tape effect */
+    .tape-strip {
+      background: rgba(250, 204, 21, 0.45);
+      backdrop-filter: blur(1px);
+      transform: rotate(-2deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.2);
+      border-right: 2px dashed rgba(24, 24, 27, 0.2);
+    }
+    
+    .tape-strip-alt {
+      background: rgba(234, 88, 12, 0.2);
+      transform: rotate(1.5deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.2);
+      border-right: 2px dashed rgba(24, 24, 27, 0.2);
+    }
+
+    /* Hand drawn double border outline effect */
+    .border-sketch {
+      border: 2px solid #18181b;
+      box-shadow: 4px 4px 0px #18181b;
+    }
+
+    .border-sketch-subtle {
+      border: 1.5px solid #18181b;
+      box-shadow: 2px 2px 0px #18181b;
+    }
+  </style>
+</head>
+<body class="bg-paper-pattern text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white pb-32">
+<!-- ================= TOP APP BAR / MERCHANT PORTAL HEADER ================= -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b-2 border-on-surface px-4 md:px-8 py-3 transition-all duration-150">
+<div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
+<!-- Brand & Breadcrumbs -->
+<div class="flex items-center gap-3 md:gap-5">
+<div class="flex items-center gap-2">
+<!-- Risograph Badge Logo -->
+<div class="bg-primary text-white border-2 border-on-surface px-3 py-1 font-label-code text-label-code shadow-zine rounded-lg -rotate-1 flex items-center gap-1.5 cursor-pointer">
+<span class="material-symbols-outlined text-lg" style='font-variation-settings: "FILL" 1;'>directions_car</span>
+<span class="font-bold tracking-tight">Jong-Q (จองคิว)</span>
+</div>
+<span class="hidden sm:inline-block px-1.5 py-0.5 text-xs font-label-code bg-amber-200 border border-on-surface rounded shadow-[1px_1px_0px_#000]">GARAGE HUB</span>
+</div>
+<!-- Breadcrumbs -->
+<div class="hidden md:flex items-center text-secondary font-label-code text-body-sm gap-2">
+<span class="text-tertiary">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">แผงควบคุมอู่ &amp; คาร์แคร์</span>
+<span class="text-tertiary">/</span>
+<span class="text-on-surface font-bold underline decoration-primary decoration-2 underline-offset-4">ตั้งค่าศูนย์บริการ</span>
+</div>
+</div>
+<!-- Merchant Store Switcher & Trailing Actions -->
+<div class="flex items-center gap-3">
+<!-- Store Selector Pill -->
+<div class="flex items-center gap-2 bg-surface border-2 border-on-surface px-2.5 py-1 rounded-lg shadow-zine cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold border border-on-surface">
+            M
+          </div>
+<div class="text-left leading-tight pr-1">
+<div class="text-xs font-label-code text-tertiary font-bold leading-none">ศูนย์บริการ</div>
+<div class="text-body-sm font-headline-sm font-bold text-on-surface truncate max-w-[150px] sm:max-w-[200px]">Mae Sariang Garage &amp; Auto Spa</div>
+</div>
+<span class="material-symbols-outlined text-base">unfold_more</span>
+</div>
+<!-- Trailing JSON Icons -->
+<div class="flex items-center gap-1.5">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border-2 border-on-surface bg-surface hover:bg-surface-container shadow-[2px_2px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all" title="ช่วยเหลือ">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border-2 border-on-surface bg-surface hover:bg-surface-container shadow-[2px_2px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all" title="การแจ้งเตือน">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-primary border border-on-surface rounded-full"></span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-12 w-full">
+<!-- PAGE HEADER TITLE & ZINE MOTIF -->
+<div class="relative mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-dashed border-tertiary-fixed-dim pb-4">
+<!-- Tape visual accent -->
+<div class="tape-strip absolute -top-4 left-6 px-4 py-0.5 text-[11px] font-label-code text-on-surface font-bold uppercase tracking-wider shadow-sm z-10">
+        ★ WORKSHOP CONFIGURATION // VARIANT 3: AUTO CARE
+      </div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/10 text-primary border border-primary/40 font-label-code text-xs px-2 py-0.5 rounded font-bold">CONFIG 03 // GARAGE</span>
+<span class="text-xs font-label-code text-tertiary">TODAY + TOMORROW 2-DAY BOOKING ENGINE</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg font-extrabold text-on-surface tracking-tight flex items-center gap-2">
+          ตั้งค่าศูนย์บริการและระบบจอง 
+          <span class="text-primary font-normal font-label-code text-headline-sm">(Mae Sariang Garage &amp; Auto Spa)</span>
+</h1>
+<p class="text-secondary font-body-md mt-1">
+          ระบบจัดการคิวงานช่างและคาร์แคร์ รองรับคิวสดหน้าร้านวันนี้ พร้อมระบบล็อคคิวล่วงหน้า 1 วัน (Today + Tomorrow Engine) บริหารช่องบริการ (Bays) แม่นยำ
+        </p>
+</div>
+<!-- Quick Status Stamp -->
+<div class="hidden sm:flex items-center gap-3 bg-surface-container-lowest border-2 border-on-surface px-3.5 py-1.5 rounded-lg shadow-zine">
+<div class="flex items-center gap-1.5 font-label-code text-xs font-bold text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse border border-on-surface"></span>
+<span>BAYS ACTIVE: 3/3</span>
+</div>
+<span class="text-tertiary font-label-code">|</span>
+<div class="text-xs font-label-code font-bold text-primary">
+          2-DAY QUEUE ENGINE: ON
+        </div>
+</div>
+</div>
+<!-- ================= 2. DUAL MASTER SWITCH BAR (TODAY + TOMORROW) ================= -->
+<section aria-label="Master Store Switch" class="mb-8">
+<div class="relative bg-surface-container-lowest border-2 border-on-surface rounded-xl p-5 md:p-6 shadow-zine-lg overflow-hidden bg-gradient-to-r from-orange-50/70 via-white to-amber-50/60">
+<!-- Background watermark -->
+<div class="absolute right-4 -bottom-6 text-9xl font-black text-black/[0.03] select-none pointer-events-none font-label-code">
+          2-DAY
+        </div>
+<div class="flex flex-col gap-5 relative z-10">
+<!-- Engine Title & Description -->
+<div class="flex items-start justify-between gap-4 flex-wrap pb-4 border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 p-2.5 bg-primary text-white border-2 border-on-surface rounded-xl shadow-zine flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style='font-variation-settings: "FILL" 1;'>tune</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">
+                  โครงสร้างรับจอง 2 วัน (Today + Tomorrow Engine Master Switch)
+                </h2>
+<span class="px-2 py-0.5 bg-amber-100 border border-amber-600 rounded text-[11px] font-label-code font-bold text-amber-900">
+                  สำหรับบริการใช้เวลาสูง (ล้าง/เคลือบแก้ว/เซอร์วิส)
+                </span>
+</div>
+<p class="text-body-sm text-secondary mt-0.5">
+                ควบคุมสวิตช์แยกอิสระระหว่าง "คิวสดหน้าร้านวันนี้" และ "เปิดรับจองล่วงหน้าวันพรุ่งนี้"
+              </p>
+</div>
+</div>
+<!-- Emergency Pause Button -->
+<button class="px-3.5 py-2 bg-amber-100 hover:bg-amber-200 text-on-surface border-2 border-on-surface rounded-lg font-label-code text-xs font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-1.5 shrink-0" type="button">
+<span class="material-symbols-outlined text-base text-amber-900" style='font-variation-settings: "FILL" 1;'>handyman</span>
+<span>พักรับงานด่วน 1 ชม. (Shop Pause)</span>
+</button>
+</div>
+<!-- Two Discrete Master Switches -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Switch 1: Today Slot -->
+<div class="bg-surface border-2 border-on-surface rounded-lg p-4 shadow-zine flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 border-2 border-on-surface flex items-center justify-center text-emerald-800 font-label-code font-bold text-sm shadow-[1px_1px_0px_#000]">
+<span class="material-symbols-outlined text-xl">today</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-body-sm text-on-surface">1. สวิตช์คิวสดวันนี้ (Today Slot)</span>
+<span class="px-2 py-0.2 bg-emerald-100 text-emerald-800 border border-emerald-600 text-[10px] font-label-code font-bold rounded" id="todayStatusBadge">เปิดรับคิวสด</span>
+</div>
+<p class="text-xs text-secondary">สำหรับลูกค้ารถพร้อมนำเข้าหน้าอู่วันนี้</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="todayToggle" type="checkbox"/>
+<div class="w-13 h-7 bg-tertiary-fixed-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[3px] after:bg-white after:border-2 after:border-on-surface after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[1px_1px_0px_#000] peer-checked:bg-emerald-600 border-2 border-on-surface"></div>
+</label>
+</div>
+<!-- Switch 2: Tomorrow Slot -->
+<div class="bg-surface border-2 border-on-surface rounded-lg p-4 shadow-zine flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-100 border-2 border-on-surface flex items-center justify-center text-primary font-label-code font-bold text-sm shadow-[1px_1px_0px_#000]">
+<span class="material-symbols-outlined text-xl">event_upcoming</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-body-sm text-on-surface">2. สวิตช์รอบพรุ่งนี้ (Tomorrow Slot)</span>
+<span class="px-2 py-0.2 bg-orange-100 text-primary border border-primary text-[10px] font-label-code font-bold rounded" id="tomorrowStatusBadge">เปิดล็อคคิวล่วงหน้า</span>
+</div>
+<p class="text-xs text-secondary">ลูกค้าจองเวลาล่วงหน้าก่อน 20:00 น.</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="tomorrowToggle" type="checkbox"/>
+<div class="w-13 h-7 bg-tertiary-fixed-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[3px] after:bg-white after:border-2 after:border-on-surface after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-[1px_1px_0px_#000] peer-checked:bg-primary border-2 border-on-surface"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= BENTO GRID FORM SECTIONS ================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- ================= LEFT COLUMN: IDENTITY & MAP (7 COLS) ================= -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- SECTION 1: ข้อมูลทั่วไปและชื่อศูนย์บริการ (Store Identity) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 01 // WORKSHOP PROFILE
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style='font-variation-settings: "FILL" 1;'>car_repair</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">ข้อมูลทั่วไปและชื่อศูนย์บริการ (Garage Identity)</h2>
+<p class="text-body-sm text-secondary">แสดงบนสลิปคิวดิจิทัล ป้ายแสดงคิวบนจอหน้าอู่ และในแอปพลิเคชัน</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Store Name -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span>ชื่อศูนย์บริการ (Garage / Shop Name) <span class="text-primary">*</span></span>
+<span class="text-xs text-tertiary font-normal">สูงสุด 70 ตัวอักษร</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md font-medium text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] transition-all" type="text" value="ศูนย์บริการคาร์ดีเทลลิ่ง &amp; เซอร์วิสยานยนต์ แม่สะเรียง (Mae Sariang Garage &amp; Auto Spa)"/>
+<span class="absolute right-3 top-3 text-xs font-label-code text-emerald-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">check_circle</span>
+</span>
+</div>
+</div>
+<!-- Category & Branch Code Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  หมวดหมู่งานบริการ (Category)
+                </label>
+<div class="relative">
+<select class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] appearance-none cursor-pointer font-medium">
+<option selected="">คาร์แคร์และเซอร์วิสยานยนต์ (Auto Care &amp; Detailing)</option>
+<option>ศูนย์ซ่อมเครื่องยนต์ &amp; ช่วงล่าง (Garage &amp; Maintenance)</option>
+<option>ติดตั้งฟิล์ม &amp; เคลือบแก้วเซรามิก (Ceramic Coating)</option>
+<option>ยาง ถ่วงล้อ แบตเตอรี่ (Tire &amp; Battery Express)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  รหัสประจำสาขา (Branch Code)
+                </label>
+<input class="w-full bg-surface-container border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-label-code text-body-sm text-tertiary shadow-[2px_2px_0px_#18181b] cursor-not-allowed font-bold" readonly="" type="text" value="JQ-MSR-004"/>
+</div>
+</div>
+<!-- Slogan / Bio -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                สโลแกน &amp; คำอธิบายคาร์แคร์ (Tagline &amp; Bio)
+              </label>
+<textarea class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] resize-none" rows="2">ดูแลรถคุณระดับพรีเมียมริมแม่น้ำยวม อ.แม่สะเรียง ล้างสี ดูดฝุ่น สปารถ เคลือบแก้ว เปลี่ยนถ่ายน้ำมันเครื่อง พร้อมช่างมาตรฐานตรวจเช็กละเอียด</textarea>
+<p class="text-xs font-label-code text-tertiary mt-1">ข้อความนี้จะแสดงบนหัวบัตรคิวตรวจรับรถดิจิทัลของลูกค้า (Digital Job Card Slip)</p>
+</div>
+<!-- Cover Banner / Logo Upload with sketched tape effect -->
+<div class="pt-2">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2">
+                รูปภาพศูนย์บริการ / Garage Bay &amp; Logo Preview
+              </label>
+<div class="border-2 border-dashed border-on-surface rounded-xl p-4 bg-surface/60 flex flex-col sm:flex-row items-center gap-5 relative">
+<!-- Mini tape accent -->
+<div class="tape-strip absolute -top-2.5 left-4 px-2 py-0.2 text-[10px] font-label-code font-bold">WORKSHOP PREVIEW</div>
+<!-- Preview Thumbnail -->
+<div class="w-24 h-24 sm:w-28 sm:h-28 bg-stone-800 border-2 border-on-surface rounded-lg overflow-hidden shadow-zine shrink-0 relative group flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-amber-400 text-3xl">local_car_wash</span>
+<span class="font-label-code text-[11px] text-white font-bold mt-1">GARAGE MSR-04</span>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-white">
+<span class="material-symbols-outlined text-lg">edit</span>
+</div>
+</div>
+<!-- Upload details -->
+<div class="flex-1 text-center sm:text-left">
+<div class="font-headline-sm font-bold text-on-surface text-body-md">maesariang_autospa_bay_cover.jpg</div>
+<p class="text-xs text-secondary mt-0.5">ขนาดแนะนำ: 1200x600px สำหรับหน้าจอมอนิเตอร์เรียกคิวรถ (JPG/PNG/WebP สูงสุด 5MB)</p>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-3">
+<button class="px-3 py-1.5 bg-surface hover:bg-surface-container border-2 border-on-surface rounded-md text-xs font-label-code font-bold shadow-[2px_2px_0px_#18181b] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">cloud_upload</span> เปลี่ยนรูปภาพ
+                    </button>
+<button class="px-2.5 py-1.5 text-error hover:bg-red-50 border border-transparent rounded-md text-xs font-label-code font-bold transition-all" type="button">
+                      ลบรูป
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: พิกัดและแผนที่ (Location & Interactive Map Preview) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 02 // YUAM RIVER MAP
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style='font-variation-settings: "FILL" 1;'>pin_drop</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">พิกัดและแผนที่ตั้งศูนย์บริการ (Location &amp; Coordinates)</h2>
+<p class="text-body-sm text-secondary">จุดสังเกตหลักสำหรับลูกค้านำรถเข้าใช้บริการและเส้นทางเลี่ยงรถติด</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Full Address -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                ที่อยู่ศูนย์บริการแบบละเอียด (Service Center Address) <span class="text-primary">*</span>
+</label>
+<textarea class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] resize-none" rows="2">128 หมู่ 2 ถนนทางหลวง 108 (ใกล้แยกสะพานข้ามแม่น้ำยวม) ตำบลแม่สะเรียง อำเภอแม่สะเรียง จังหวัดแม่ฮ่องสอน 58110</textarea>
+</div>
+<!-- Landmark & GPS Coordinates -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+<div class="sm:col-span-7">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  จุดสังเกตเด่น (Landmark)
+                </label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b]" type="text" value="ห่างจากแยกสะพานข้ามแม่น้ำยวม 150 เมตร ทางออกไปฮอด-เชียงใหม่"/>
+</div>
+<div class="sm:col-span-5">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span>พิกัด GPS ละติจูด / ลองจิจูด</span>
+<span class="text-[11px] text-emerald-700 font-bold font-label-code">GARAGE LOCKED</span>
+</label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-label-code text-body-sm text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b]" type="text" value="18.1632, 97.9331"/>
+</div>
+</div>
+<!-- Map Preview Box styled with Risograph / Blueprint Cartography -->
+<div class="mt-3">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span>ภาพจำลองแผนที่นำทางเข้าช่องบริการ (Map &amp; Workshop Bay Grid)</span>
+<span class="text-xs text-tertiary font-label-code">ทางหลวง 108 • แยกสะพานแม่น้ำยวม</span>
+</label>
+<div class="relative w-full h-56 bg-amber-50/50 border-2 border-on-surface rounded-xl overflow-hidden shadow-zine p-3 flex flex-col justify-between" style="background-image: linear-gradient(#d6cebe 1px, transparent 1px), linear-gradient(90deg, #d6cebe 1px, transparent 1px); background-size: 24px 24px;">
+<!-- Blueprint overlay graphics -->
+<div class="flex items-center justify-between z-10">
+<div class="bg-surface-container-lowest/90 border border-on-surface px-2.5 py-1 rounded text-xs font-label-code font-bold shadow-[1px_1px_0px_#000]">GRID: MSR_YUAM_GARAGE_04</div>
+<div class="flex items-center gap-1.5 bg-white/95 border border-on-surface px-2 py-0.5 rounded text-[11px] font-label-code font-bold">
+<span class="w-2 h-2 rounded-full bg-sky-500"></span> สะพานข้ามแม่น้ำยวม (150m)
+                  </div>
+</div>
+<!-- Simulated Sketch Map Canvas -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- River sketch band -->
+<div class="w-full h-8 bg-sky-200/60 border-y border-dashed border-sky-600 transform rotate-12 absolute flex items-center justify-center text-[10px] font-label-code text-sky-800 font-bold uppercase tracking-widest">
+                    แม่น้ำยวม (Yuam River)
+                  </div>
+<!-- Main Highway sketch line -->
+<div class="h-44 w-10 bg-stone-300/80 border-x-2 border-stone-500 transform -rotate-25 absolute flex flex-col items-center justify-center">
+<span class="text-[9px] font-label-code text-stone-700 font-bold -rotate-90 whitespace-nowrap">ทล. 108 แม่สะเรียง-เชียงใหม่</span>
+</div>
+<!-- Bridge Badge -->
+<div class="absolute top-10 left-16 bg-sky-700 text-white border-2 border-on-surface px-2 py-0.5 rounded text-[10px] font-label-code font-bold shadow-zine -rotate-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">bridge</span> สะพานแม่น้ำยวม
+                  </div>
+<!-- Garage Auto Spa Pin (Badge) -->
+<div class="relative z-20 flex flex-col items-center animate-bounce">
+<div class="bg-primary text-white border-2 border-on-surface px-3 py-1.5 rounded-lg text-xs font-bold font-label-code shadow-zine flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">directions_car</span>
+<span>Mae Sariang Garage &amp; Auto Spa</span>
+</div>
+<div class="w-0.5 h-4 bg-on-surface"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary border border-on-surface shadow-sm"></div>
+</div>
+</div>
+<!-- Map Action Controls at Bottom -->
+<div class="flex items-center justify-between z-10 pt-2">
+<div class="text-[11px] font-label-code bg-white/90 border border-on-surface px-2 py-1 rounded">มีลานจอดรถรอคิว 8 คัน + จุดพักคอยห้องแอร์</div>
+<button class="px-3 py-1.5 bg-surface-container-lowest hover:bg-surface border-2 border-on-surface rounded-lg text-xs font-label-code font-bold shadow-zine active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-1 text-on-surface" type="button">
+<span class="material-symbols-outlined text-base text-primary">open_in_new</span>
+<span>ปักหมุดตำแหน่งบน Google Maps</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: 2-DAY SLOTS, BAYS & CONTACT (5 COLS) ================= -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- SECTION 3: จัดสรรรอบบริการและช่องซ่อม (Service Bays & 2-Day Allocation) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 03 // SERVICE BAYS
+          </div>
+<div class="flex items-center gap-2 mb-4 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style='font-variation-settings: "FILL" 1;'>garage_home</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">ระบบช่องบริการ &amp; โควตาจอง 2 วัน</h2>
+<p class="text-body-sm text-secondary">ตั้งค่ารอบเวลาและจำกัดจำนวนคิววันพรุ่งนี้แยกตามช่องงาน (Bays)</p>
+</div>
+</div>
+<!-- 3 DEDICATED SERVICE BAYS SETUP -->
+<div class="space-y-4">
+<!-- BAY 1 -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface/70 shadow-zine">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-amber-200 border border-on-surface rounded font-label-code text-xs font-bold">BAY 01</span>
+<span class="font-headline-sm font-bold text-body-md text-on-surface">ล้างสี-ดูดฝุ่น พรีเมียม</span>
+</div>
+<span class="text-xs font-label-code font-bold text-primary bg-primary/10 border border-primary/30 px-2 py-0.5 rounded">45 นาที / คัน</span>
+</div>
+<p class="text-xs text-secondary mb-2.5">โฟมสลายคราบ ล้างซุ้มล้อ เช็ดแห้ง ดูดฝุ่นห้องโดยสาร</p>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-on-surface/30">
+<span class="font-label-code text-xs font-bold text-tertiary">โควตาจองล่วงหน้าวันพรุ่งนี้:</span>
+<div class="flex items-center bg-white border border-on-surface rounded-md p-0.5 gap-2">
+<button class="w-6 h-6 rounded border border-on-surface bg-surface hover:bg-surface-container flex items-center justify-center font-bold text-xs" type="button">-</button>
+<span class="font-label-code text-xs font-bold text-on-surface px-1">4 คัน / รอบวัน</span>
+<button class="w-6 h-6 rounded border border-on-surface bg-primary text-white flex items-center justify-center font-bold text-xs" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- BAY 2 -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface/70 shadow-zine">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-orange-200 border border-on-surface rounded font-label-code text-xs font-bold">BAY 02</span>
+<span class="font-headline-sm font-bold text-body-md text-on-surface">ขัดเคลือบสี &amp; สปาเบาะ</span>
+</div>
+<span class="text-xs font-label-code font-bold text-primary bg-primary/10 border border-primary/30 px-2 py-0.5 rounded">90 นาที / คัน</span>
+</div>
+<p class="text-xs text-secondary mb-2.5">ขัดชักเงา ลบรอยขนแมว เคลือบเซรามิก หรือฟอกเบาะหนัง</p>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-on-surface/30">
+<span class="font-label-code text-xs font-bold text-tertiary">โควตาจองล่วงหน้าวันพรุ่งนี้:</span>
+<div class="flex items-center bg-white border border-on-surface rounded-md p-0.5 gap-2">
+<button class="w-6 h-6 rounded border border-on-surface bg-surface hover:bg-surface-container flex items-center justify-center font-bold text-xs" type="button">-</button>
+<span class="font-label-code text-xs font-bold text-on-surface px-1">2 คัน / รอบวัน</span>
+<button class="w-6 h-6 rounded border border-on-surface bg-primary text-white flex items-center justify-center font-bold text-xs" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- BAY 3 -->
+<div class="border-2 border-on-surface rounded-xl p-3.5 bg-surface/70 shadow-zine">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-blue-200 border border-on-surface rounded font-label-code text-xs font-bold">BAY 03</span>
+<span class="font-headline-sm font-bold text-body-md text-on-surface">ตรวจเช็กระยะ &amp; เปลี่ยนถ่ายน้ำมัน</span>
+</div>
+<span class="text-xs font-label-code font-bold text-primary bg-primary/10 border border-primary/30 px-2 py-0.5 rounded">60 นาที / คัน</span>
+</div>
+<p class="text-xs text-secondary mb-2.5">เปลี่ยนถ่ายน้ำมันเครื่อง กรอง ไส้กรอง ตรวจเช็กเบรก 30 จุด</p>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-on-surface/30">
+<span class="font-label-code text-xs font-bold text-tertiary">โควตาจองล่วงหน้าวันพรุ่งนี้:</span>
+<div class="flex items-center bg-white border border-on-surface rounded-md p-0.5 gap-2">
+<button class="w-6 h-6 rounded border border-on-surface bg-surface hover:bg-surface-container flex items-center justify-center font-bold text-xs" type="button">-</button>
+<span class="font-label-code text-xs font-bold text-on-surface px-1">3 คัน / รอบวัน</span>
+<button class="w-6 h-6 rounded border border-on-surface bg-primary text-white flex items-center justify-center font-bold text-xs" type="button">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 2-Day Cut-off Rule Settings -->
+<div class="mt-5 pt-4 border-t-2 border-surface-container space-y-3">
+<div class="flex items-center justify-between bg-amber-50/70 border border-on-surface rounded-lg p-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">timer</span>
+<div>
+<div class="font-bold text-xs font-label-code text-on-surface">เวลาปิดรับจองรอบพรุ่งนี้ (Cut-off Time)</div>
+<div class="text-[11px] text-tertiary">ปิดรับเมื่อถึงเวลาที่กำหนด เพื่อจัดเตรียมทีมช่าง</div>
+</div>
+</div>
+<span class="font-label-code text-xs font-bold bg-white px-2.5 py-1 border border-on-surface rounded shadow-[1px_1px_0px_#000]">20:00 น.</span>
+</div>
+<!-- Weekly Operating Hours -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2">
+                เวลาทำการศูนย์บริการ (Operating Hours)
+              </label>
+<div class="space-y-1.5 text-xs font-label-code">
+<div class="flex items-center justify-between p-2 rounded bg-surface border border-on-surface/20">
+<span>จันทร์ - ศุกร์ (งานช่าง &amp; สปา)</span>
+<span class="font-bold text-on-surface">08:30 - 18:00 น.</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-amber-50 border border-on-surface/20 font-bold">
+<span>เสาร์ - อาทิตย์ (วันคิวหนาแน่น)</span>
+<span class="text-primary">08:00 - 19:00 น.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: เบอร์โทรร้าน และช่องทางการติดต่อ (Contact & Channels) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 04 // CONTACT
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style='font-variation-settings: "FILL" 1;'>contact_phone</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">เบอร์โทร &amp; การแจ้งเตือนรับรถ (Channels)</h2>
+<p class="text-body-sm text-secondary">ช่องทางแจ้งเตือนลูกค้านำรถเข้าช่องบริการ และแจ้งสถานะรถเสร็จ</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Phone Numbers -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  เบอร์โต๊ะรับรถหน้าร้าน (Service Desk)
+                </label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="053-681-445"/>
+</div>
+</div>
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  เบอร์หัวหน้าช่าง/ผู้จัดการ (Shop Mobile)
+                </label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="089-222-7890"/>
+</div>
+</div>
+</div>
+<!-- LINE Official Account Integration -->
+<div class="border-2 border-on-surface bg-emerald-50/40 rounded-xl p-3.5 shadow-zine relative">
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#06C755] text-white border-2 border-on-surface flex items-center justify-center font-bold text-sm shadow-[1px_1px_0px_#000]">
+                    L
+                  </div>
+<div>
+<div class="font-bold text-body-sm font-label-code text-on-surface">LINE Official Account</div>
+<div class="text-xs text-secondary font-label-code">@maesariang.autospa</div>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold font-label-code bg-emerald-200 text-emerald-900 border border-emerald-800 shadow-[1px_1px_0px_#065f46]">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>verified</span>
+                  เชื่อมต่อระบบจองแล้ว
+                </span>
+</div>
+<p class="text-xs text-secondary">
+                แจ้งเตือนอัตโนมัติ: "รถของท่านกำลังเข้าช่องบริการ" และ "งานเสร็จเรียบร้อย พร้อมรับรถได้ที่อู่"
+              </p>
+</div>
+<!-- Social Media & SMS Alert -->
+<div class="space-y-3 pt-1">
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  Facebook Page
+                </label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-label-code text-tertiary text-xs">@</span>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg pl-8 pr-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="maesariang_garagespa"/>
+</div>
+</div>
+<!-- SMS Notification Toggle -->
+<div class="flex items-center justify-between bg-surface border-2 border-on-surface rounded-lg p-3 shadow-zine">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl">sms</span>
+<div>
+<div class="font-bold text-xs font-label-code text-on-surface">SMS แจ้งเตือนเมื่อรถเสร็จ</div>
+<div class="text-[11px] text-tertiary">แจ้งลูกค้านำกุญแจมารับรถกรณีไม่ได้เปิดดู LINE</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-tertiary-fixed-dim rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-black after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary border border-on-surface"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= EXTRA INFO NOTICE BANNER ================= -->
+<div class="mt-8 bg-amber-100/70 border-2 border-dashed border-on-surface rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0" style='font-variation-settings: "FILL" 1;'>minor_crash</span>
+<div class="text-body-sm text-on-surface">
+<span class="font-bold font-label-code">GARAGE RULE:</span> การปรับเปลี่ยนโควตาคิวล่วงหน้าวันพรุ่งนี้ จะอัปเดตแบบเรียลไทม์บนหน้าจองคิวออนไลน์ของลูกค้าทันที
+        </div>
+</div>
+<span class="text-xs font-label-code text-tertiary uppercase tracking-wider shrink-0 bg-white/80 px-2.5 py-1 border border-on-surface/40 rounded">SYSTEM ENGINE: 2-DAY AUTO CARE V3.1</span>
+</div>
+</main>
+<!-- ================= 7. STICKY BOTTOM ACTION BAR ================= -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-t-2 border-on-surface py-3 px-4 md:px-8 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<!-- Auto-save state indicator -->
+<div class="flex items-center gap-2 text-xs font-label-code text-tertiary w-full sm:w-auto justify-center sm:justify-start">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>โครงสร้างรับจอง 2 วัน (Today + Tomorrow Engine) ซิงค์กับระบบคลาวด์แล้ว</span>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<!-- Discard Button -->
+<button class="flex-1 sm:flex-none px-4 py-2.5 bg-surface hover:bg-surface-container text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all" type="button">
+          ยกเลิก (Discard)
+        </button>
+<!-- Live Preview Button -->
+<button class="flex-1 sm:flex-none px-4 py-2.5 bg-white hover:bg-amber-50 text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span>ดูหน้าจองคิวสำหรับลูกค้า</span>
+</button>
+<!-- Primary Save Button -->
+<button class="flex-1 sm:flex-none px-6 py-2.5 bg-primary hover:bg-[#cc4900] text-white border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center justify-center gap-2" id="saveBtn" type="button">
+<span class="material-symbols-outlined text-lg" style='font-variation-settings: "FILL" 1;'>save</span>
+<span>บันทึกการตั้งค่าอู่ (Save Garage)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro Interaction Script for Master Switches & Save Toast -->
+<script>
+    const todayToggle = document.getElementById('todayToggle');
+    const todayStatusBadge = document.getElementById('todayStatusBadge');
+    const tomorrowToggle = document.getElementById('tomorrowToggle');
+    const tomorrowStatusBadge = document.getElementById('tomorrowStatusBadge');
+    const saveBtn = document.getElementById('saveBtn');
+
+    todayToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        todayStatusBadge.className = "px-2 py-0.2 bg-emerald-100 text-emerald-800 border border-emerald-600 text-[10px] font-label-code font-bold rounded";
+        todayStatusBadge.textContent = "เปิดรับคิวสด";
+      } else {
+        todayStatusBadge.className = "px-2 py-0.2 bg-red-100 text-red-800 border border-red-600 text-[10px] font-label-code font-bold rounded";
+        todayStatusBadge.textContent = "ปิดรับคิวสดวันนี้";
+      }
+    });
+
+    tomorrowToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        tomorrowStatusBadge.className = "px-2 py-0.2 bg-orange-100 text-primary border border-primary text-[10px] font-label-code font-bold rounded";
+        tomorrowStatusBadge.textContent = "เปิดล็อคคิวล่วงหน้า";
+      } else {
+        tomorrowStatusBadge.className = "px-2 py-0.2 bg-stone-200 text-stone-700 border border-stone-400 text-[10px] font-label-code font-bold rounded";
+        tomorrowStatusBadge.textContent = "ปิดรับจองล่วงหน้า";
+      }
+    });
+
+    saveBtn.addEventListener('click', () => {
+      const originalText = saveBtn.innerHTML;
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">sync</span> กำลังบันทึก...';
+      saveBtn.disabled = true;
+      setTimeout(() => {
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span> บันทึกเรียบร้อย!';
+        saveBtn.classList.remove('bg-primary');
+        saveBtn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          saveBtn.innerHTML = originalText;
+          saveBtn.classList.add('bg-primary');
+          saveBtn.classList.remove('bg-emerald-600');
+          saveBtn.disabled = false;
+        }, 1800);
+      }, 700);
+    });
+  </script>
+</body></html>

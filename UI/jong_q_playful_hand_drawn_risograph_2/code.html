@@ -1,0 +1,716 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="th" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>JONG-Q จองคิว — ระบบจองคิววันต่อวันสไตล์อินดี้สำหรับร้านค้ายุคใหม่</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Mali:ital,wght@0,400;0,600;0,700;1,400&amp;family=Noto+Sans+Thai:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas-paper": "#FAF6ED",
+            "canvas-cream": "#F4ECE1",
+            "canvas-card": "#FFFDF9",
+            "riso-indigo": "#162032",
+            "riso-orange": "#FF4924",
+            "riso-orange-light": "#FFEFEA",
+            "riso-teal": "#0E8A7F",
+            "riso-teal-light": "#E6F5F3",
+            "riso-yellow": "#FDE047",
+            "riso-pink": "#F43F5E",
+            "pencil-line": "#2C3437",
+            "pencil-sub": "#596569",
+            "washi-tape": "rgba(253, 224, 71, 0.7)",
+            "washi-pink": "rgba(244, 63, 94, 0.4)",
+            "washi-teal": "rgba(14, 138, 127, 0.35)",
+          },
+          fontFamily: {
+            sans: ["'Noto Sans Thai'", "sans-serif"],
+            hand: ["'Mali'", "'Caveat'", "cursive", "sans-serif"],
+            zine: ["'Caveat'", "'Mali'", "cursive"]
+          },
+          boxShadow: {
+            'riso': '4px 4px 0px #162032',
+            'riso-lg': '7px 7px 0px #162032',
+            'riso-sm': '2.5px 2.5px 0px #162032',
+            'riso-orange': '4px 4px 0px #FF4924',
+            'riso-teal': '4px 4px 0px #0E8A7F',
+            'riso-yellow': '5px 5px 0px #FDE047',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    /* Risograph grainy texture background */
+    body {
+      background-color: #FAF6ED;
+      background-image: radial-gradient(#162032 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+      color: #162032;
+    }
+    /* Washi tape effect */
+    .washi-tape-strip {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      backdrop-filter: blur(1px);
+    }
+    /* Wobbly sketch borders */
+    .border-sketch {
+      border: 2px solid #162032;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+    .border-sketch-loose {
+      border: 2px solid #162032;
+      border-radius: 12px 28px 14px 25px/26px 14px 28px 12px;
+    }
+    /* Stamp effect */
+    .stamp-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px dashed #FF4924;
+      transform: rotate(-3deg);
+      border-radius: 8px;
+    }
+    /* Jagged perforation for tickets */
+    .ticket-sawtooth-left {
+      mask-image: radial-gradient(circle at 0px 50%, transparent 12px, black 13px);
+      -webkit-mask-image: radial-gradient(circle at 0px 50%, transparent 12px, black 13px);
+    }
+    /* Highlighter marker style */
+    .highlighter-mark {
+      background: linear-gradient(104deg, rgba(253, 224, 71, 0) 0.9%, rgba(253, 224, 71, 0.85) 2.4%, rgba(253, 224, 71, 0.6) 95%, rgba(253, 224, 71, 0) 98%);
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+    .highlighter-teal {
+      background: linear-gradient(104deg, rgba(14, 138, 127, 0) 0.9%, rgba(14, 138, 127, 0.25) 2.4%, rgba(14, 138, 127, 0.2) 95%, rgba(14, 138, 127, 0) 98%);
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+  </style>
+</head>
+<body class="antialiased font-sans selection:bg-riso-orange selection:text-white">
+<!-- TopNavBar: Playful Indie Zine Ribbon -->
+<header class="fixed top-3 left-1/2 -translate-x-1/2 w-[94%] max-w-[1360px] rounded-2xl bg-canvas-card/95 backdrop-blur-sm border-2 border-riso-indigo shadow-riso z-50 transition-all">
+<div class="flex justify-between items-center px-5 md:px-7 py-3 w-full mx-auto relative">
+<!-- Mini washi tape decoration on header top -->
+<div class="absolute -top-2.5 left-16 px-4 py-0.5 bg-washi-tape washi-tape-strip text-[10px] font-hand font-bold tracking-widest text-riso-indigo -rotate-2 border border-riso-indigo/30 hidden sm:block">✦ MAE HONG SON LOCAL QUEUE ✦</div>
+<!-- Brand / Logo -->
+<a class="flex items-center gap-2.5 group" href="#">
+<span class="w-8 h-8 rounded-lg bg-riso-orange text-white flex items-center justify-center font-hand text-lg font-bold border-2 border-riso-indigo shadow-riso-sm group-hover:rotate-6 transition-transform">
+        Q!
+      </span>
+<div class="flex flex-col">
+<span class="text-xl md:text-2xl font-bold tracking-tight text-riso-indigo uppercase font-sans">
+          JONG-Q <span class="font-hand text-riso-orange text-2xl font-bold tracking-normal">จองคิว</span>
+</span>
+</div>
+</a>
+<!-- Navigation links -->
+<nav class="hidden lg:flex items-center gap-7">
+<a class="text-riso-orange font-bold hover:underline decoration-wavy decoration-riso-orange text-base flex items-center gap-1" href="#hero">
+<span class="">จองคิวทันที</span>
+<span class="text-xs font-hand bg-riso-yellow px-1.5 py-0.2 rounded border border-riso-indigo">ด่วน</span>
+</a>
+<a class="text-riso-indigo font-semibold hover:text-riso-orange transition-colors text-base" href="#how-it-works">วิธีใช้งาน</a>
+<a class="text-riso-indigo font-semibold hover:text-riso-orange transition-colors text-base" href="#open-stores">สำรวจร้านค้า</a>
+<a class="text-riso-indigo font-semibold hover:text-riso-orange transition-colors text-base" href="#merchant">สำหรับพาร์ทเนอร์</a>
+</nav>
+<!-- Header Action Button -->
+<div class="flex items-center gap-3">
+<a class="relative px-5 py-2 rounded-xl bg-riso-orange text-white font-bold text-sm md:text-base border-2 border-riso-indigo shadow-riso-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all flex items-center gap-1.5" href="#open-stores">
+<span class="material-symbols-outlined text-base">confirmation_number</span>
+<span class="">รับคิวด่วน (Get Ticket)</span>
+</a>
+</div>
+</div>
+</header>
+<main>
+<!-- Section 01: Hero -->
+<section class="relative pt-32 md:pt-36 pb-14 md:pb-20 px-6 md:px-14 max-w-[1300px] mx-auto overflow-hidden" id="hero">
+<!-- Floating Hand-drawn Doodles / Risograph Elements in Background -->
+<div class="absolute -top-2 right-12 text-riso-indigo/20 pointer-events-none hidden lg:block select-none rotate-12">
+<svg fill="none" height="120" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" viewBox="0 0 100 100" width="120">
+<path d="M50 10 L60 38 L90 38 L65 56 L75 85 L50 67 L25 85 L35 56 L10 38 L40 38 Z" fill="#FFEFEA" stroke="#FF4924"></path>
+</svg>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<!-- Left Hero Column -->
+<div class="lg:col-span-7 flex flex-col items-start relative z-10">
+<!-- Starburst / Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-riso-yellow border-2 border-riso-indigo shadow-riso-sm mb-5 -rotate-1">
+<span class="w-2.5 h-2.5 rounded-full bg-riso-orange animate-ping"></span>
+<span class="font-hand font-bold text-sm md:text-base text-riso-indigo tracking-wider">★ ระบบจองคิววันต่อวัน ประจำจังหวัดแม่ฮ่องสอน ★</span>
+</div>
+<!-- Hero Headline with Hand-Drawn / Highlighter Flourishes -->
+<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-riso-indigo leading-[1.12] mb-4 tracking-tight">
+          จองคิว <span class="relative inline-block text-riso-orange">ไม่ต้องรอ
+            <!-- Squiggly underline SVG -->
+<svg class="absolute -bottom-2.5 left-0 w-full overflow-visible" height="10" preserveAspectRatio="none" viewBox="0 0 100 10">
+<path d="M0 6 Q 25 0, 50 6 T 100 6" fill="none" stroke="#FF4924" stroke-linecap="round" stroke-width="4"></path>
+</svg></span>
+</h1>
+<!-- Subheading -->
+<p class="text-lg md:text-xl text-pencil-sub font-medium max-w-xl mb-7 leading-relaxed">เลือกบริการ เลือกเวลา แล้วติดตามการจองผ่าน <span class="highlighter-mark font-bold text-riso-indigo">LINE ได้ง่าย ๆ</span> วันต่อวัน ทั่วเมืองแม่ฮ่องสอนและอำเภอใกล้เคียง หมดปัญหารอหน้าร้าน!</p>
+<!-- CTA Buttons with Risograph Pop -->
+<div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-9">
+<a class="w-full sm:w-auto px-7 py-3.5 bg-riso-orange text-white text-center font-bold text-lg rounded-xl border-2 border-riso-indigo shadow-riso hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2" href="#open-stores">
+<span class="">ดูร้านที่เปิดอยู่</span>
+<span class="material-symbols-outlined font-bold">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto px-7 py-3.5 bg-canvas-card border-2 border-riso-indigo text-riso-indigo text-center font-bold text-lg rounded-xl shadow-riso hover:bg-canvas-cream hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2" href="#merchant">
+<span class="">สำหรับเจ้าของร้าน</span>
+<span class="font-hand text-riso-teal text-xl font-bold">✎</span>
+</a>
+</div>
+<!-- 3 Feature Badges styled like hand-stamped blocks -->
+<div class="grid grid-cols-3 gap-3 sm:gap-5 pt-6 border-t-2 border-dashed border-riso-indigo/30 w-full">
+<div class="p-3 bg-canvas-card/80 rounded-xl border-2 border-riso-indigo/40 shadow-sm relative">
+<div class="font-hand text-riso-orange font-bold text-xl sm:text-2xl mb-0.5">#01</div>
+<div class="text-xs sm:text-sm font-bold text-riso-indigo">ไม่ต้องโหลดแอป</div>
+<div class="text-[11px] text-pencil-sub">เปิดผ่านเว็บได้ทันที</div>
+</div>
+<div class="p-3 bg-canvas-card/80 rounded-xl border-2 border-riso-indigo/40 shadow-sm relative">
+<div class="font-hand text-riso-teal font-bold text-xl sm:text-2xl mb-0.5">100%</div>
+<div class="text-xs sm:text-sm font-bold text-riso-indigo">แจ้งเตือนผ่าน LINE</div>
+<div class="text-[11px] text-pencil-sub">ไม่พลาดคิวชัวร์</div>
+</div>
+<div class="p-3 bg-canvas-card/80 rounded-xl border-2 border-riso-indigo/40 shadow-sm relative">
+<div class="font-hand text-riso-indigo font-bold text-xl sm:text-2xl mb-0.5">REAL-TIME</div>
+<div class="text-xs sm:text-sm font-bold text-riso-indigo">วันต่อวัน</div>
+<div class="text-[11px] text-pencil-sub">คิวสดใหม่เสมอ</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Hand-Stamped Craft Ticket with Washi Tape & Perforations -->
+<div class="lg:col-span-5 flex justify-center relative">
+<!-- Washi tape at top left corner of ticket -->
+<div class="absolute -top-3.5 left-10 md:left-14 w-28 h-7 bg-washi-tape washi-tape-strip border border-riso-indigo/30 -rotate-6 z-20 flex items-center justify-center font-hand text-xs font-bold text-riso-indigo/80">
+          ★ JONG-Q PASS ★
+        </div>
+<!-- Washi tape at bottom right corner -->
+<div class="absolute -bottom-3 right-8 w-24 h-6 bg-washi-pink washi-tape-strip border border-riso-indigo/30 rotate-3 z-20 flex items-center justify-center font-hand text-[11px] text-riso-indigo font-bold">
+          VERIFIED ✦
+        </div>
+<!-- The Ticket Component -->
+<div class="w-full max-w-[370px] bg-[#FFFBF0] border-2 border-riso-indigo rounded-2xl p-6 shadow-riso-lg relative rotate-1 hover:rotate-0 transition-transform duration-300">
+<!-- Header Stamp Info -->
+<div class="flex justify-between items-start mb-4 pb-3 border-b-2 border-dashed border-riso-indigo/30">
+<div>
+<span class="stamp-badge px-2 py-0.5 text-xs font-bold font-hand text-riso-orange bg-riso-orange-light">
+                CONFIRMED PASS ✓
+              </span>
+<h3 class="text-xl font-extrabold text-riso-indigo mt-1.5 flex items-center gap-1.5">
+                The Barbershop Ari
+              </h3>
+<p class="text-xs text-pencil-sub font-medium flex items-center gap-1"><span class="material-symbols-outlined text-sm text-riso-orange">location_on</span> เมืองแม่ฮ่องสอน, แม่ฮ่องสอน</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-riso-orange text-white flex items-center justify-center border-2 border-riso-indigo shadow-riso-sm rotate-6">
+<span class="material-symbols-outlined">confirmation_number</span>
+</div>
+</div>
+<!-- Queue Big Number Box (Chalk / Hand Stamped aesthetic) -->
+<div class="bg-canvas-card p-4 rounded-xl text-center mb-4 border-2 border-riso-indigo relative overflow-hidden">
+<!-- Jagged decorative notch left & right -->
+<div class="absolute -left-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#FFFBF0] border-2 border-riso-indigo"></div>
+<div class="absolute -right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#FFFBF0] border-2 border-riso-indigo"></div>
+<span class="font-hand text-xs font-bold uppercase tracking-widest text-pencil-sub block">
+              หมายเลขคิวของคุณ
+            </span>
+<div class="text-5xl font-extrabold font-mono text-riso-orange my-1 tracking-tight drop-shadow-sm">
+              A-012
+            </div>
+<div class="inline-block px-3 py-1 rounded-full bg-riso-yellow/90 border border-riso-indigo text-xs font-bold text-riso-indigo">
+              วันนี้ 14:30 น. (อีก 2 คิว)
+            </div>
+</div>
+<!-- Dotted Cut / Perforation Line -->
+<div class="relative flex items-center justify-center my-4">
+<div class="w-full border-b-2 border-dashed border-riso-indigo/40"></div>
+<span class="absolute bg-[#FFFBF0] px-2 text-xs font-hand text-pencil-sub">✂ ฉีกตามรอยปรุ</span>
+</div>
+<!-- Details Grid with Hand-drawn feel -->
+<div class="grid grid-cols-2 gap-3 text-left mb-4 bg-canvas-card p-3 rounded-lg border border-riso-indigo/30">
+<div>
+<span class="text-[11px] font-hand font-bold text-pencil-sub uppercase block">บริการ</span>
+<span class="text-sm font-bold text-riso-indigo">ตัดผมวินเทจ + สระ</span>
+</div>
+<div>
+<span class="text-[11px] font-hand font-bold text-pencil-sub uppercase block">ช่างบริการ</span>
+<span class="text-sm font-bold text-riso-indigo">ช่างเอก (Master)</span>
+</div>
+</div>
+<!-- Barcode Stamp footer -->
+<div class="pt-2 border-t border-riso-indigo/20 flex flex-col items-center">
+<div class="h-8 w-full flex items-center justify-center gap-1.5 opacity-90">
+<div class="h-7 w-1.5 bg-riso-indigo"></div>
+<div class="h-7 w-0.5 bg-riso-indigo"></div>
+<div class="h-7 w-2 bg-riso-indigo"></div>
+<div class="h-7 w-0.5 bg-riso-indigo"></div>
+<div class="h-7 w-3 bg-riso-indigo"></div>
+<div class="h-7 w-1 bg-riso-indigo"></div>
+<div class="h-7 w-0.5 bg-riso-indigo"></div>
+<div class="h-7 w-2 bg-riso-indigo"></div>
+<div class="h-7 w-1 bg-riso-indigo"></div>
+<div class="h-7 w-0.5 bg-riso-indigo"></div>
+<div class="h-7 w-2 bg-riso-indigo"></div>
+</div>
+<span class="font-mono text-[11px] tracking-wider text-riso-indigo font-bold mt-1">
+              JQ-9842-LINE-SYNC
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 02: How It Works (Zine Step-by-Step with Hand-Drawn Vectors) -->
+<section class="py-14 md:py-20 px-6 md:px-14 border-t-2 border-riso-indigo bg-canvas-card relative" id="how-it-works">
+<!-- Decorative Stamp in top right -->
+<div class="max-w-[1300px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-5 border-b-2 border-dashed border-riso-indigo/30">
+<div class="max-w-xl">
+<span class="font-hand font-bold text-riso-orange text-lg uppercase tracking-wider block">✦ Pure Same-Day Logic</span>
+<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-riso-indigo mt-1">
+            ง่ายแค่ 3 สเต็ป • สล็อตสดวันต่อวัน
+          </h2>
+</div>
+<p class="text-pencil-sub font-medium max-w-md mt-3 md:mt-0 text-base">
+          ร้านเปิดรับเมื่อพร้อม จองสล็อตว่างแบบเรียลไทม์ และแจ้งเตือนผ่าน LINE อัตโนมัติ ไม่ต้องคอยถามหน้าร้าน!
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left: 3 Hand-drawn Step Cards -->
+<div class="lg:col-span-5 space-y-4">
+<!-- Step 1 -->
+<div class="p-4 rounded-xl border-2 border-riso-indigo bg-canvas-paper shadow-riso-sm flex items-start gap-4 -rotate-0.5 hover:rotate-0 transition-transform">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-riso-indigo flex items-center justify-center font-hand text-xl font-bold text-riso-orange shrink-0">
+              01
+            </div>
+<div>
+<h3 class="text-base font-bold text-riso-indigo flex items-center gap-1.5">
+                เลือกร้านที่เปิดวันนี้
+                <span class="text-xs font-hand text-riso-teal bg-riso-teal-light px-1.5 rounded">สดใหม่</span>
+</h3>
+<p class="text-sm text-pencil-sub mt-1">ระบบแสดงเฉพาะร้านที่พร้อมรับคิวจริง ไม่มีคิวค้างข้ามสัปดาห์</p>
+</div>
+</div>
+<!-- Step 2 (Active highlighted) -->
+<div class="p-4 rounded-xl border-2 border-riso-orange bg-riso-orange-light shadow-riso-orange flex items-start gap-4 rotate-0.5 hover:rotate-0 transition-transform">
+<div class="w-10 h-10 rounded-full bg-riso-orange text-white border-2 border-riso-indigo flex items-center justify-center font-hand text-xl font-bold shrink-0">
+              02
+            </div>
+<div>
+<h3 class="text-base font-bold text-riso-orange">แตะเลือกรอบเวลาว่าง</h3>
+<p class="text-sm text-riso-indigo/80 mt-1">เลือกรอบเวลาที่สะดวก จองเสร็จไวภายใน 5 วินาที</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-4 rounded-xl border-2 border-riso-indigo bg-canvas-paper shadow-riso-sm flex items-start gap-4 -rotate-0.5 hover:rotate-0 transition-transform">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-riso-indigo flex items-center justify-center font-hand text-xl font-bold text-riso-teal shrink-0">
+              03
+            </div>
+<div>
+<h3 class="text-base font-bold text-riso-indigo">รับการแจ้งเตือนผ่าน LINE</h3>
+<p class="text-sm text-pencil-sub mt-1">ตั๋วคิวดิจิทัลส่งเข้า LINE ทันที พร้อมเตือนล่วงหน้าเมื่อใกล้ถึงคิว</p>
+</div>
+</div>
+</div>
+<!-- Right: Interactive Live Slot Board with Handcrafted Indie Zine Feel -->
+<div class="lg:col-span-7 bg-canvas-cream p-6 md:p-7 rounded-2xl border-2 border-riso-indigo shadow-riso-lg relative">
+<!-- Mini Pin / Clip in top center -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-0.5 bg-riso-yellow border border-riso-indigo text-xs font-hand font-bold text-riso-indigo rounded shadow-sm">
+            📌 LIVE TIMETABLE
+          </div>
+<div class="flex flex-wrap justify-between items-center pb-4 mb-5 border-b-2 border-dashed border-riso-indigo/30 gap-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-riso-teal animate-pulse"></span>
+<span class="font-bold text-riso-indigo text-base font-hand tracking-wide">
+                SLOTS: Aura Glow Clinic
+              </span>
+</div>
+<div class="flex items-center gap-3 text-xs font-bold text-pencil-sub">
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded border border-riso-indigo bg-white"></span> ว่าง</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded border border-riso-indigo bg-riso-orange text-white"></span> เลือก</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded border border-riso-indigo bg-riso-indigo/20"></span> เต็ม</span>
+</div>
+</div>
+<!-- Time slot grid -->
+<div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+<div class="p-3 rounded-xl border-2 border-riso-indigo text-center bg-white shadow-riso-sm hover:-translate-y-0.5 cursor-pointer transition-transform">
+<span class="text-lg font-bold block text-riso-indigo">10:00</span>
+<span class="text-xs font-hand font-bold text-riso-teal bg-riso-teal-light px-1 rounded">ว่าง</span>
+</div>
+<div class="p-3 rounded-xl border-2 border-riso-indigo text-center bg-white shadow-riso-sm hover:-translate-y-0.5 cursor-pointer transition-transform">
+<span class="text-lg font-bold block text-riso-indigo">11:30</span>
+<span class="text-xs font-hand font-bold text-riso-orange bg-riso-orange-light px-1 rounded">เหลือ 1 ที่!</span>
+</div>
+<div class="p-3 rounded-xl border-2 border-riso-indigo/40 text-center bg-riso-indigo/5 opacity-50 cursor-not-allowed">
+<span class="text-lg font-bold block text-pencil-sub line-through">13:00</span>
+<span class="text-xs font-hand text-pencil-sub">เต็มแล้ว</span>
+</div>
+<!-- Selected Slot -->
+<div class="p-3 rounded-xl border-2 border-riso-indigo bg-riso-orange text-white text-center shadow-riso hover:-translate-y-0.5 cursor-pointer relative -rotate-1">
+<span class="text-lg font-extrabold block">14:30</span>
+<span class="text-xs font-hand font-bold bg-riso-yellow text-riso-indigo px-2 py-0.5 rounded-full border border-riso-indigo inline-block">
+                เลือกไว้ ★
+              </span>
+</div>
+<div class="p-3 rounded-xl border-2 border-riso-indigo text-center bg-white shadow-riso-sm hover:-translate-y-0.5 cursor-pointer transition-transform">
+<span class="text-lg font-bold block text-riso-indigo">15:00</span>
+<span class="text-xs font-hand font-bold text-riso-teal bg-riso-teal-light px-1 rounded">ว่าง</span>
+</div>
+<div class="p-3 rounded-xl border-2 border-riso-indigo text-center bg-white shadow-riso-sm hover:-translate-y-0.5 cursor-pointer transition-transform">
+<span class="text-lg font-bold block text-riso-indigo">15:30</span>
+<span class="text-xs font-hand font-bold text-riso-teal bg-riso-teal-light px-1 rounded">ว่าง</span>
+</div>
+<div class="p-3 rounded-xl border-2 border-riso-indigo/40 text-center bg-riso-indigo/5 opacity-50 cursor-not-allowed">
+<span class="text-lg font-bold block text-pencil-sub line-through">16:30</span>
+<span class="text-xs font-hand text-pencil-sub">เต็มแล้ว</span>
+</div>
+<div class="p-3 rounded-xl border-2 border-riso-indigo text-center bg-white shadow-riso-sm hover:-translate-y-0.5 cursor-pointer transition-transform">
+<span class="text-lg font-bold block text-riso-indigo">17:00</span>
+<span class="text-xs font-hand font-bold text-riso-teal bg-riso-teal-light px-1 rounded">ว่าง</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-riso-indigo/20 flex items-center justify-between text-xs text-pencil-sub font-hand">
+<span class="">💡 แตะเลือกเวลาแล้วกดยืนยันเพื่อรับตั๋วผ่าน LINE</span>
+<span class="font-bold text-riso-orange">รีเฟรชสดทุก 30 วินาที</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 04: Open Stores (Zine Catalog Style with Hand-drawn Cards) -->
+<section class="py-14 md:py-20 px-6 md:px-14 border-t-2 border-riso-indigo bg-canvas-paper relative" id="open-stores">
+<div class="max-w-[1300px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-5 border-b-2 border-dashed border-riso-indigo/30">
+<div>
+<span class="font-hand font-bold text-riso-orange text-lg uppercase tracking-wider block">✦ Active Store Directory</span>
+<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-riso-indigo mt-1">
+            ตอนนี้มีร้านไหนเปิดบ้าง?
+          </h2>
+<p class="text-pencil-sub font-medium mt-1 text-base">แสดงเฉพาะร้านที่เปิดรับคิวและมีรอบว่างพร้อมให้บริการวันต่อวัน ในจังหวัดแม่ฮ่องสอน</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-2 font-hand font-bold text-riso-teal bg-riso-teal-light px-3.5 py-1.5 rounded-full border-2 border-riso-indigo shadow-riso-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-riso-teal animate-ping"></span>
+<span class="">อัปเดตสถานะแบบเรียลไทม์</span>
+</div>
+</div>
+<!-- Store Cards Grid: Zine layout with washi tapes & sketched borders -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-canvas-card rounded-2xl border-2 border-riso-indigo shadow-riso overflow-hidden hover:-translate-y-1 hover:shadow-riso-lg transition-all flex flex-col relative group">
+<!-- Tape clip top right -->
+<div class="absolute top-2 right-2 px-2.5 py-0.5 bg-washi-tape washi-tape-strip text-[10px] font-hand font-bold text-riso-indigo border border-riso-indigo/30 z-10 rotate-3">
+            POPULAR ★
+          </div>
+<div class="h-44 w-full bg-cover bg-center border-b-2 border-riso-indigo relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVF8906D5aiHk9_vNS3xzhRkbm-xk10HWemE73iT_VJRhhYutsxdLPkagk7WTmXXG_BhMQQeOoAV3Mvlng3zPwHN4BQ6A6fwyVyfSyQT3O8GPAAr-f_0EbSjWonLhQhEJOW9qER_w3Rm2tGZTb2XNdJyLHLjN7jqu5R17tE8xtqWslQ-RID92etfcDeJrMJ99MhRXJiL_miPiLKtM7Dq3u-D168ylmI-_Nu3psnqmRddnaVP7asSjl')">
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 border border-riso-indigo text-[10px] font-bold font-hand text-riso-indigo">
+              GROOMING
+            </span>
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div><div class="flex justify-between items-center mb-1"><span class="inline-flex items-center gap-1 text-xs text-riso-teal font-bold font-hand"><span class="w-2 h-2 rounded-full bg-riso-teal"></span> เปิดรับจอง</span><span class="text-xs font-hand text-pencil-sub">ริมหนองจองคำ</span></div><h3 class="text-lg font-bold text-riso-indigo">The Barbershop Mae Hong Son</h3><p class="text-xs text-pencil-sub mt-1">คิวถัดไปว่าง: <strong class="text-riso-orange font-bold">14:30 น.</strong></p></div>
+<button class="w-full mt-4 py-2.5 bg-canvas-paper border-2 border-riso-indigo text-riso-indigo hover:bg-riso-orange hover:text-white font-bold text-sm rounded-xl shadow-riso-sm hover:shadow-none transition-all flex items-center justify-center gap-1">
+<span class="">ดูเวลาว่าง</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-canvas-card rounded-2xl border-2 border-riso-indigo shadow-riso overflow-hidden hover:-translate-y-1 hover:shadow-riso-lg transition-all flex flex-col relative group">
+<div class="h-44 w-full bg-cover bg-center border-b-2 border-riso-indigo relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoG578vyI4fyYNLHpervx7U1MvrzeqYz-DF0YuJ6nK9sLDBnsf11hyc2AVRmRe14xPGF4SfaY1ZLiSjdBD0CCLjauzdmC8wOP9XFxZcoZ9G3Uhh4L4n9K6VaAQzimJGk_TPmgOehOwWLPNa_OzBiUCUHhIzrss3sJNoEaJFJ_p1svF-EFFOqvbkb3KSMtwSTi_GFa6pU3HZ3qAUr1qXZASdF0I2oPisH7BOSVvjpYWAXqvBpRYVD9n')">
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 border border-riso-indigo text-[10px] font-bold font-hand text-riso-indigo">
+              CLINIC
+            </span>
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div><div class="flex justify-between items-center mb-1"><span class="inline-flex items-center gap-1 text-xs text-riso-teal font-bold font-hand"><span class="w-2 h-2 rounded-full bg-riso-teal"></span> เปิดรับจอง</span><span class="text-xs font-hand text-pencil-sub">อ.ปาย, แม่ฮ่องสอน</span></div><h3 class="text-lg font-bold text-riso-indigo">Aura Glow Clinic Pai</h3><p class="text-xs text-pencil-sub mt-1">คิวถัดไปว่าง: <strong class="text-riso-orange font-bold">15:00 น.</strong></p></div>
+<button class="w-full mt-4 py-2.5 bg-canvas-paper border-2 border-riso-indigo text-riso-indigo hover:bg-riso-orange hover:text-white font-bold text-sm rounded-xl shadow-riso-sm hover:shadow-none transition-all flex items-center justify-center gap-1">
+<span class="">ดูเวลาว่าง</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-canvas-card rounded-2xl border-2 border-riso-indigo shadow-riso overflow-hidden hover:-translate-y-1 hover:shadow-riso-lg transition-all flex flex-col relative group">
+<div class="h-44 w-full bg-cover bg-center border-b-2 border-riso-indigo relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcpNT0OXe-iDfbxu1n8ljNNv4gTLNjhSBgOf7qC_udsYmQwFBWHTWeRMjp6qHOJAUnFQj0gMd6CJFg3LSSPRBOblCFOy0go3SaK1Wo7riK_JpVh8bNQLR5QSMxSdf4NK_gxC_TcJzlCjYypX9irAY13K5WAbxhVT5516rTbI7YPDSREq8SeI7VzhSjnmDdB_Rt5ue2BzKKKw5brchYWNCNgv11J_LJTaqhJCiaDa6Hxelsg9-FiCJ2')">
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 border border-riso-indigo text-[10px] font-bold font-hand text-riso-indigo">
+              DINING
+            </span>
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div><div class="flex justify-between items-center mb-1"><span class="inline-flex items-center gap-1 text-xs text-riso-teal font-bold font-hand"><span class="w-2 h-2 rounded-full bg-riso-teal"></span> เปิดรับจอง</span><span class="text-xs font-hand text-pencil-sub">แม่สะเรียง, แม่ฮ่องสอน</span></div><h3 class="text-lg font-bold text-riso-indigo">Kaizen อาหารท้องถิ่นไทใหญ่</h3><p class="text-xs text-pencil-sub mt-1">คิวถัดไปว่าง: <strong class="text-riso-orange font-bold">17:30 น.</strong></p></div>
+<button class="w-full mt-4 py-2.5 bg-canvas-paper border-2 border-riso-indigo text-riso-indigo hover:bg-riso-orange hover:text-white font-bold text-sm rounded-xl shadow-riso-sm hover:shadow-none transition-all flex items-center justify-center gap-1">
+<span class="">ดูเวลาว่าง</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-canvas-card rounded-2xl border-2 border-riso-indigo shadow-riso overflow-hidden hover:-translate-y-1 hover:shadow-riso-lg transition-all flex flex-col relative group">
+<div class="h-44 w-full bg-cover bg-center border-b-2 border-riso-indigo relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9zH68ITEQA44340yt2RaUDup4pfuLCF9MWg75BzcqRsXZXdLpVSQuBm9E3YgEHVsuMi0-Ufd62cAwMg4tEwOruYdBiruMOoWequKOCpPvv64gf9sW5rsORFrdV1s3yWU7Wl8X18zZK2nFlxSUilSe0YFmKYKnBMVwe29Xm-i9ms9MI1DQrzKjSZ7wMGNRQb6Om7ed1goqVuxm5sb1rnk8lc4xzIBGgEoQ0yzkTOxYfjcr0U4zztnb')">
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 border border-riso-indigo text-[10px] font-bold font-hand text-riso-indigo">
+              WELLNESS
+            </span>
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div><div class="flex justify-between items-center mb-1"><span class="inline-flex items-center gap-1 text-xs text-riso-teal font-bold font-hand"><span class="w-2 h-2 rounded-full bg-riso-teal"></span> เปิดรับจอง</span><span class="text-xs font-hand text-pencil-sub">กาดเทศบาลแม่ฮ่องสอน</span></div><h3 class="text-lg font-bold text-riso-indigo">Posh Nails &amp; Spa Mae Hong Son</h3><p class="text-xs text-pencil-sub mt-1">คิวถัดไปว่าง: <strong class="text-riso-orange font-bold">14:00 น.</strong></p></div>
+<button class="w-full mt-4 py-2.5 bg-canvas-paper border-2 border-riso-indigo text-riso-indigo hover:bg-riso-orange hover:text-white font-bold text-sm rounded-xl shadow-riso-sm hover:shadow-none transition-all flex items-center justify-center gap-1">
+<span class="">ดูเวลาว่าง</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 07: Merchant Cockpit (Indie Cafe Planner / Chalkboard Style) -->
+<section class="py-14 md:py-20 px-6 md:px-14 border-t-2 border-riso-indigo bg-canvas-cream relative" id="merchant">
+<div class="max-w-[1300px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-5 border-b-2 border-dashed border-riso-indigo/30">
+<div>
+<span class="font-hand font-bold text-riso-orange text-lg uppercase tracking-wider block">✦ Merchant Operation System</span>
+<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-riso-indigo mt-1">
+            คุณเปิดร้าน เราช่วยจัดเวลา
+          </h2>
+<p class="text-pencil-sub font-medium mt-1 text-base">
+            สวิตช์เปิด-ปิดร้าน คุมความจุ และเรียกคิวสดได้จากหน้าจอเดียว
+          </p>
+</div>
+<div class="mt-3 md:mt-0 px-4 py-1.5 rounded-full bg-riso-teal-light text-riso-teal font-hand font-bold text-sm border-2 border-riso-indigo shadow-riso-sm self-start md:self-auto flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-riso-teal animate-pulse"></span>
+<span class="">สถานะ: กำลังเปิดรับจอง ✓</span>
+</div>
+</div>
+<!-- Merchant Dashboard Box -->
+<div class="bg-canvas-card border-2 border-riso-indigo rounded-3xl p-6 md:p-8 shadow-riso-lg relative">
+<!-- Planner Header Label -->
+<div class="absolute -top-3.5 left-8 px-4 py-1 bg-riso-yellow border-2 border-riso-indigo rounded-md font-hand font-bold text-xs text-riso-indigo shadow-sm rotate-1">
+          📋 DAILY STORE PLANNER &amp; QUEUE RUNNER
+        </div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Live Queue Items with hand-checked marks -->
+<div class="lg:col-span-7">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold text-riso-indigo flex items-center gap-2">
+<span class="">รายการจองวันนี้</span>
+<span class="font-hand text-riso-orange text-base bg-riso-orange-light px-2 py-0.5 rounded-full border border-riso-orange/40">
+                  12 รายการ
+                </span>
+</h3>
+<span class="font-hand text-xs font-bold text-pencil-sub bg-canvas-paper px-2 py-1 rounded border border-riso-indigo/30">
+                🔴 เรียลไทม์
+              </span>
+</div>
+<div class="space-y-3">
+<!-- Item 1: Done -->
+<div class="p-3.5 rounded-xl border-2 border-riso-indigo/30 bg-canvas-paper flex items-center justify-between opacity-75">
+<div class="flex items-center gap-3">
+<span class="font-mono text-base font-bold text-pencil-sub">13:30</span>
+<div>
+<div class="text-sm font-bold text-riso-indigo line-through">คุณแพรวา (1 คน)</div>
+<div class="text-xs text-pencil-sub">ตัดแต่งทรงผม</div>
+</div>
+</div>
+<span class="font-hand font-bold text-xs px-2.5 py-1 rounded-full bg-slate-200 text-pencil-sub border border-slate-300">
+                  ✓ เสร็จสิ้น
+                </span>
+</div>
+<!-- Item 2: Active / Calling Queue -->
+<div class="p-3.5 rounded-xl border-2 border-riso-orange bg-riso-orange-light shadow-riso-orange flex items-center justify-between relative -rotate-0.5">
+<div class="flex items-center gap-3">
+<span class="font-mono text-lg font-extrabold text-riso-orange">14:30</span>
+<div>
+<div class="text-sm font-extrabold text-riso-indigo flex items-center gap-1.5">
+<span class="">คุณเกมส์ (2 คน)</span>
+<span class="font-mono bg-riso-yellow px-1.5 py-0.2 rounded border border-riso-indigo text-xs">Q-012</span>
+</div>
+<div class="text-xs font-medium text-pencil-sub">Omakase Course A</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-white border-2 border-riso-indigo rounded-lg text-xs font-bold text-riso-indigo shadow-riso-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">call</span>
+<span class="">โทร</span>
+</button>
+<button class="px-3.5 py-1.5 bg-riso-orange text-white border-2 border-riso-indigo rounded-lg text-xs font-bold shadow-riso-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">campaign</span>
+<span class="">เรียกคิว</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Upcoming -->
+<div class="p-3.5 rounded-xl border-2 border-riso-indigo bg-white shadow-riso-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="font-mono text-base font-bold text-riso-indigo">15:00</span>
+<div>
+<div class="text-sm font-bold text-riso-indigo">คุณธนภัทร (1 คน)</div>
+<div class="text-xs text-pencil-sub">ปรึกษาผิวพรรณ</div>
+</div>
+</div>
+<span class="font-hand font-bold text-xs px-2.5 py-1 rounded-full bg-riso-teal-light text-riso-teal border border-riso-teal/40">
+                  ⏳ รอรับบริการ
+                </span>
+</div>
+</div>
+</div>
+<!-- Right Column: Hand-drawn Switch Controls -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-5 border-t-2 lg:border-t-0 lg:border-l-2 border-dashed border-riso-indigo/30 lg:pl-8 pt-6 lg:pt-0">
+<div>
+<h4 class="text-base font-bold text-riso-indigo font-hand flex items-center gap-1.5 mb-3">
+<span class="text-riso-orange text-lg">⚡</span>
+<span class="">คุมระบบง่าย 3 สวิตช์</span>
+</h4>
+<div class="space-y-3">
+<!-- Toggle 1: Physical Rocker Switch look -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-canvas-paper border-2 border-riso-indigo shadow-riso-sm">
+<div>
+<span class="text-sm font-bold block text-riso-indigo">เปิดรับคิวทันที</span>
+<span class="text-[11px] text-pencil-sub">สลับปิดรับจองเมื่อคิวเต็ม</span>
+</div>
+<!-- Physical Hand-drawn style toggle switch -->
+<div class="w-12 h-6 bg-riso-teal rounded-full border-2 border-riso-indigo p-0.5 flex items-center justify-end cursor-pointer shadow-inner">
+<div class="w-4 h-4 rounded-full bg-white border border-riso-indigo shadow-sm font-hand text-[9px] flex items-center justify-center font-bold">ON</div>
+</div>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-canvas-paper border-2 border-riso-indigo shadow-riso-sm">
+<div>
+<span class="text-sm font-bold block text-riso-indigo">ช่วงเวลาบริการ</span>
+<span class="text-[11px] text-pencil-sub">รอบละ 30 นาที</span>
+</div>
+<span class="font-mono text-xs font-extrabold text-riso-orange bg-riso-orange-light px-2.5 py-1 rounded border border-riso-orange/40">
+                    09:00 - 18:00
+                  </span>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-canvas-paper border-2 border-riso-indigo shadow-riso-sm">
+<div>
+<span class="text-sm font-bold block text-riso-indigo">ความจุต่อสล็อต</span>
+<span class="text-[11px] text-pencil-sub">จำนวนคิวพร้อมกัน</span>
+</div>
+<span class="font-hand font-bold text-sm text-riso-indigo bg-riso-yellow px-2 py-0.5 rounded border border-riso-indigo">
+                    3 การจอง / สล็อต
+                  </span>
+</div>
+</div>
+</div>
+<!-- Merchant Register Link -->
+<a class="w-full py-3 bg-riso-yellow text-riso-indigo border-2 border-riso-indigo text-center text-sm font-bold rounded-xl shadow-riso hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-center gap-1.5" href="#">
+<span class="">สมัครเปิดร้านบน Jong-Q ฟรี</span>
+<span class="font-hand text-lg font-bold">→</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 09: Business Types (Sticker Badges & Risograph tags) -->
+<section class="py-10 px-6 md:px-14 border-t-2 border-riso-indigo bg-canvas-paper">
+<div class="max-w-[1300px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="text-center md:text-left">
+<span class="font-hand font-bold text-riso-orange text-sm uppercase tracking-wider block">✦ Versatile Ecosystem</span>
+<h3 class="text-lg font-extrabold text-riso-indigo mt-0.5">
+          เหมาะกับทุกธุรกิจบริการแบบวันต่อวัน
+        </h3>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-2.5">
+<span class="px-3.5 py-1.5 rounded-xl bg-canvas-card border-2 border-riso-indigo shadow-riso-sm text-xs font-bold text-riso-indigo -rotate-1 hover:rotate-0 transition-transform">
+          🍜 ร้านอาหาร &amp; คิวโต๊ะ
+        </span>
+<span class="px-3.5 py-1.5 rounded-xl bg-canvas-card border-2 border-riso-indigo shadow-riso-sm text-xs font-bold text-riso-indigo rotate-1 hover:rotate-0 transition-transform">
+          🩺 คลินิก &amp; สุขภาพ
+        </span>
+<span class="px-3.5 py-1.5 rounded-xl bg-canvas-card border-2 border-riso-indigo shadow-riso-sm text-xs font-bold text-riso-indigo -rotate-1 hover:rotate-0 transition-transform">
+          ✂ บาร์เบอร์ &amp; ซาลอน
+        </span>
+<span class="px-3.5 py-1.5 rounded-xl bg-canvas-card border-2 border-riso-indigo shadow-riso-sm text-xs font-bold text-riso-indigo rotate-2 hover:rotate-0 transition-transform">
+          💅 สปา &amp; เสริมสวย
+        </span>
+<span class="px-3.5 py-1.5 rounded-xl bg-canvas-card border-2 border-riso-indigo shadow-riso-sm text-xs font-bold text-riso-indigo -rotate-2 hover:rotate-0 transition-transform">
+          🚗 ศูนย์บริการยานยนต์
+        </span>
+</div>
+</div>
+</section>
+<!-- Section 10: Final CTA (Warm Indie Zine Poster Look) -->
+<section class="py-16 md:py-24 px-6 md:px-14 border-t-2 border-riso-indigo bg-[#FFFBF0] text-center relative overflow-hidden">
+<!-- Background Sketchy Starbursts -->
+<div class="absolute -bottom-10 left-10 text-riso-orange/15 select-none pointer-events-none hidden md:block">
+<svg fill="currentColor" height="180" viewBox="0 0 100 100" width="180">
+<polygon points="50 0, 63 35, 100 38, 73 62, 82 100, 50 78, 18 100, 27 62, 0 38, 37 35"></polygon>
+</svg>
+</div>
+<div class="max-w-[780px] mx-auto relative z-10">
+<div class="inline-block px-3 py-1 bg-riso-yellow border-2 border-riso-indigo rounded-lg font-hand font-bold text-xs text-riso-indigo mb-4 -rotate-2 shadow-riso-sm">
+        ★ GET STARTED TODAY ★
+      </div>
+<h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-riso-indigo tracking-tight mb-4">
+        พร้อมแล้ว ก็เปิดรับจองได้เลย!
+      </h2>
+<p class="text-base md:text-lg text-pencil-sub font-medium mb-8 max-w-lg mx-auto leading-relaxed">
+        ยกระดับการจัดการคิววันต่อวัน ลดเวลาคอย เพิ่มความพึงพอใจให้ลูกค้าของคุณ ด้วยระบบที่เรียบง่ายที่สุด
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<a class="px-8 py-3.5 bg-riso-orange text-white font-bold text-lg rounded-xl border-2 border-riso-indigo shadow-riso hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2" href="#open-stores">
+<span class="">ดูร้านที่เปิดอยู่</span>
+<span class="material-symbols-outlined font-bold">search</span>
+</a>
+<a class="px-8 py-3.5 bg-canvas-card border-2 border-riso-indigo text-riso-indigo font-bold text-lg rounded-xl shadow-riso hover:bg-canvas-cream hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2" href="#merchant">
+<span class="">สมัครร้านค้า</span>
+<span class="font-hand text-xl font-bold">✎</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Editorial Footer: Risograph Indie Press colophon -->
+<footer class="border-t-2 border-riso-indigo bg-canvas-card">
+<div class="w-full max-w-[1360px] mx-auto px-6 md:px-14 pt-16 pb-12 flex flex-col gap-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<span class="text-3xl md:text-4xl font-extrabold text-riso-indigo tracking-tight block font-sans">
+          JONG-Q <span class="font-hand text-riso-orange text-4xl">จองคิว</span>
+</span>
+<p class="text-sm text-pencil-sub font-medium mt-1 max-w-md">
+          แพลตฟอร์มบริหารคิวและการนัดหมายวันต่อวัน สำหรับร้านค้าและผู้รับบริการในประเทศไทย
+        </p>
+</div>
+<div class="flex flex-wrap gap-5 md:gap-7 font-bold text-sm text-riso-indigo">
+<a class="hover:text-riso-orange hover:underline decoration-wavy transition-colors" href="#">ข้อกำหนดการใช้งาน</a>
+<a class="hover:text-riso-orange hover:underline decoration-wavy transition-colors" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="hover:text-riso-orange hover:underline decoration-wavy transition-colors" href="#">เชื่อมต่อ LINE OA</a>
+<a class="hover:text-riso-orange hover:underline decoration-wavy transition-colors" href="#">สมัครเปิดระบบร้านค้า</a>
+<a class="hover:text-riso-orange hover:underline decoration-wavy transition-colors" href="#">ศูนย์ช่วยเหลือ</a>
+</div>
+</div>
+<div class="pt-6 border-t-2 border-dashed border-riso-indigo/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-xs font-mono font-bold text-pencil-sub text-center sm:text-left">
+        © 2025 JONG-Q (จองคิว) TECHNOLOGIES THAILAND. PRINTED IN INDIE ZINE EDITION.
+      </p>
+<span class="font-hand text-xs font-bold px-3 py-1 rounded-md bg-riso-yellow border border-riso-indigo text-riso-indigo rotate-1">MAE HONG SON • PAI • MAE SARIANG • PANG MAPHA</span>
+</div>
+</div>
+</footer>
+
+
+
+
+</body></html>

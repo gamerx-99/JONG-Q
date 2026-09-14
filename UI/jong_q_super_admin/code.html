@@ -1,0 +1,925 @@
+<!DOCTYPE html><html class="light" lang="th" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Jong-Q (จองคิว) - แพลตฟอร์มจองคิวจังหวัดแม่ฮ่องสอน (Super Admin Headquarters Console)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#47464a",
+            "outline": "#8e7166",
+            "surface": "#f9f9f9",
+            "on-background": "#1a1c1c",
+            "background": "#f9f9f9",
+            "tertiary-container": "#74747d",
+            "primary": "#a33900",
+            "tertiary-fixed-dim": "#c6c5cf",
+            "on-surface": "#1a1c1c",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#ffb599",
+            "secondary-fixed": "#e4e1e6",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f9f9f9",
+            "surface-tint": "#a73a00",
+            "secondary": "#5f5e61",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#e8e8e8",
+            "on-secondary-container": "#656467",
+            "on-surface-variant": "#5a4138",
+            "surface-container-highest": "#e2e2e2",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "primary-fixed": "#ffdbce",
+            "inverse-on-surface": "#f0f1f1",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed-variant": "#7f2b00",
+            "secondary-container": "#e4e1e6",
+            "outline-variant": "#e2bfb2",
+            "surface-container-low": "#f3f3f3",
+            "on-secondary-fixed": "#1b1b1e",
+            "inverse-primary": "#ffb599",
+            "on-tertiary-fixed": "#1a1b22",
+            "secondary-fixed-dim": "#c8c5ca",
+            "tertiary": "#5b5b64",
+            "error-container": "#ffdad6",
+            "on-tertiary-container": "#fffbff",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e2e2e2",
+            "surface-dim": "#dadada",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#370e00",
+            "primary-container": "#cc4900",
+            "tertiary-fixed": "#e3e1ec",
+            "surface-container": "#eeeeee",
+            "inverse-surface": "#2f3131",
+            "on-tertiary-fixed-variant": "#46464e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "4rem",
+            "margin-mobile": "1.25rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": ["Noto Sans Thai"],
+            "label-pill": ["Noto Sans Thai"],
+            "body-md": ["Noto Sans Thai"],
+            "headline-md": ["Noto Sans Thai"],
+            "label-code": ["Noto Sans Thai"],
+            "display-hero": ["Noto Sans Thai"],
+            "body-sm": ["Noto Sans Thai"],
+            "headline-lg": ["Noto Sans Thai"],
+            "headline-sm": ["Noto Sans Thai"],
+            "headline-xl-mobile": ["Noto Sans Thai"],
+            "body-lg": ["Noto Sans Thai"],
+            "headline-lg-mobile": ["Noto Sans Thai"],
+            "headline-xl": ["Noto Sans Thai"],
+            "mono": ["Space Mono", "monospace"]
+          },
+          "fontSize": {
+            "display-hero-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-pill": ["11px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-code": ["13px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "display-hero": ["80px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile Risograph & Blueprint Accents */
+    .riso-stamp {
+      box-shadow: 2px 2px 0px #1a1c1c;
+    }
+    .riso-card-shadow {
+      box-shadow: 3px 3px 0px rgba(26, 28, 28, 0.08);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #e2e2e2;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- ========================================== -->
+<!-- SHARED COMPONENT: TopNavBar (JSON Injected) -->
+<!-- ========================================== -->
+<header class="w-full px-space-xl flex justify-between items-center h-16 border-b border-surface-container-highest dark:border-outline-variant bg-surface-container-lowest dark:bg-inverse-surface sticky top-0 z-50">
+<!-- Brand & Stamp -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 bg-primary text-on-primary rounded flex items-center justify-center font-bold text-base">Q</span>
+<span class="text-headline-sm font-headline-sm font-semibold tracking-tight text-primary dark:text-inverse-primary">Jong-Q Admin</span>
+</div>
+<div class="hidden lg:flex items-center gap-2 px-2.5 py-1 bg-surface-container rounded border border-surface-container-highest">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-mono text-label-pill text-secondary uppercase">★ MAE HONG SON PROVINCIAL HEADQUARTERS ★</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#directory">Directory</a>
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary font-semibold pb-1 text-body-sm font-body-sm flex items-center gap-1.5" href="#approvals">
+        Approvals
+        <span class="px-1.5 py-0.2 bg-primary text-on-primary rounded text-[10px] font-mono">6</span>
+</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#fee-tiers">Fee Tiers</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#analytics">Analytics</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#audit-logs">Audit Logs</a>
+</nav>
+<!-- Search & Actions -->
+<div class="flex items-center gap-3">
+<!-- Search Input -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-sm">search</span>
+<input class="w-48 xl:w-60 pl-9 pr-3 py-1.5 bg-surface rounded border border-surface-container-highest text-body-sm focus:border-primary focus:ring-0 focus:outline-none placeholder:text-secondary" placeholder="Search MHS Node..." type="text">
+</div>
+<!-- Province Switcher Secondary Action -->
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-surface-container rounded border border-surface-container-highest text-body-sm font-medium hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+<span class="">Mae Hong Son (7 อำเภอ)</span>
+<span class="material-symbols-outlined text-sm">arrow_drop_down</span>
+</button>
+<!-- Emergency Freeze Primary Action -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-error text-on-error rounded font-label-code text-label-code hover:opacity-90 active:scale-95 transition-all riso-stamp">
+<span class="material-symbols-outlined text-sm">ac_unit</span>
+<span class="">Emergency Freeze</span>
+</button>
+<!-- Trailing Icon Actions -->
+<button class="p-1.5 rounded text-secondary hover:bg-surface-container-low transition-colors duration-150" title="Notifications">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-1.5 rounded text-secondary hover:bg-surface-container-low transition-colors duration-150" title="Fine Tune">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<!-- Profile Avatar -->
+<div class="w-8 h-8 rounded bg-primary-fixed text-primary flex items-center justify-center font-bold text-xs border border-outline-variant" title="Super Admin Avatar">
+        SA
+      </div>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- MAIN APP CONTAINER (With SideNav Blueprint) -->
+<!-- ========================================== -->
+<div class="flex flex-1 w-full relative">
+<!-- SHARED COMPONENT: SideNavBar (JSON Injected) -->
+<aside class="hidden lg:flex fixed left-0 top-16 bottom-0 w-64 flex-col justify-between p-space-md border-r border-surface-container-highest dark:border-outline-variant bg-surface-container-lowest dark:bg-inverse-surface z-40">
+<div class="space-y-6">
+<!-- Node Region Header Badge -->
+<div class="p-3 bg-surface rounded border border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center border border-surface-container-highest" title="Mae Hong Son Province Administration Seal">
+<span class="material-symbols-outlined text-primary">assured_workload</span>
+</div>
+<div>
+<p class="font-headline-sm text-label-code text-on-surface font-semibold">MHS Region Node</p>
+<p class="text-label-pill font-label-pill text-secondary">Super Admin (Gov Ops)</p>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-surface-container-highest flex items-center justify-between">
+<span class="font-mono text-[10px] text-secondary">NODE: 58000-TH</span>
+<span class="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> 14ms
+            </span>
+</div>
+</div>
+<!-- System Navigation Tabs -->
+<div class="space-y-1">
+<p class="px-3 pb-1 text-[11px] font-mono tracking-wider text-secondary uppercase">[SYSTEM // CORE MODULES]</p>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-150" href="#directory">
+<span class="material-symbols-outlined text-base">storefront</span>
+<span class="text-body-sm font-body-sm">Store Directory</span>
+</a>
+<a class="text-primary dark:text-inverse-primary bg-primary-fixed dark:bg-primary-container font-semibold rounded-lg px-3 py-2 flex items-center justify-between" href="#approvals">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-base">approval_delegation</span>
+<span class="text-body-sm font-body-sm">Store Approvals</span>
+</div>
+<span class="px-1.5 py-0.5 bg-primary text-on-primary rounded text-[10px] font-mono">6 New</span>
+</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-150" href="#fee-tiers">
+<span class="material-symbols-outlined text-base">payments</span>
+<span class="text-body-sm font-body-sm">Fee Tiers</span>
+</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-150" href="#analytics">
+<span class="material-symbols-outlined text-base">query_stats</span>
+<span class="text-body-sm font-body-sm">System Analytics</span>
+</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-150" href="#audit-logs">
+<span class="material-symbols-outlined text-base">security</span>
+<span class="text-body-sm font-body-sm">Audit &amp; Security</span>
+</a>
+</div>
+</div>
+<!-- SideNav Footer Links -->
+<div class="space-y-3 pt-4 border-t border-surface-container-highest">
+<div class="px-3 py-2 bg-emerald-50 rounded border border-emerald-200 flex items-center justify-between">
+<span class="text-label-pill font-label-pill text-emerald-800 font-mono">System Status: Operational</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+</div>
+<div class="space-y-1">
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface rounded-lg px-3 py-1.5 flex items-center gap-3 text-body-sm" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="">Settings</span>
+</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface rounded-lg px-3 py-1.5 flex items-center gap-3 text-body-sm" href="#">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+<span class="">Support Dispatch</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ========================================== -->
+<!-- PRIMARY CONTENT CANVAS                     -->
+<!-- ========================================== -->
+<main class="flex-1 lg:pl-64 w-full bg-background min-h-screen">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+<!-- CONSOLE BANNER & MONOSPACE SYSTEM TAG -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-surface-container-highest">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 bg-on-background text-surface-container-lowest font-mono text-[11px] font-bold rounded">
+                [SYSTEM // SUPER ADMIN CORE]
+              </span>
+<span class="font-mono text-label-pill text-secondary">
+                NODE: MAE HONG SON 58000
+              </span>
+<span class="font-mono text-label-pill text-emerald-700 font-semibold">
+                STATUS: OPERATIONAL
+              </span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-background tracking-tight">
+              ศูนย์ควบคุมและบริหารจัดการกลาง (Jong-Q MHS HQ)
+            </h1>
+<p class="text-body-sm text-secondary mt-0.5">
+              ระบบตรวจสอบร้านค้า กำกับค่าธรรมเนียม และกระจายคิวแบบรวมศูนย์ 7 อำเภอ จังหวัดแม่ฮ่องสอน
+            </p>
+</div>
+<!-- Fast Provincial Filter Strip -->
+<div class="flex flex-wrap items-center gap-1.5 bg-surface-container-lowest p-1.5 rounded border border-surface-container-highest riso-card-shadow">
+<span class="text-[11px] font-mono text-secondary px-2">DISTRICT:</span>
+<button class="px-2.5 py-1 text-xs font-semibold bg-primary text-on-primary rounded">ทั้งหมด (All)</button>
+<button class="px-2 py-1 text-xs text-secondary hover:bg-surface-container rounded">อ.เมือง (54)</button>
+<button class="px-2 py-1 text-xs text-secondary hover:bg-surface-container rounded">อ.ปาย (48)</button>
+<button class="px-2 py-1 text-xs text-secondary hover:bg-surface-container rounded">อ.แม่สะเรียง (28)</button>
+<button class="px-2 py-1 text-xs text-secondary hover:bg-surface-container rounded">ปางมะผ้า (8)</button>
+<button class="px-2 py-1 text-xs text-secondary hover:bg-surface-container rounded">ขุนยวม/อื่นๆ (10)</button>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- SECTION 1: SUPER ADMIN METRICS & RISO CARDS-->
+<!-- ========================================== -->
+<section class="space-y-4" id="analytics">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-sm font-headline-sm text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+              แดชบอร์ดสถิติและภาพรวมร้านค้า (System Pulse)
+            </h2>
+<span class="font-mono text-xs text-secondary">อัปเดตอัตโนมัติ Real-Time</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Card 1: Total Merchants -->
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container-highest riso-card-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-orange-50 -mr-6 -mt-6 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="text-label-pill font-label-pill text-secondary uppercase font-mono tracking-wider">01 // MERCHANTS</span>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 text-[11px] font-mono font-bold rounded border border-emerald-200">+14% m-o-m</span>
+</div>
+<div class="mt-3 relative z-10">
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl text-on-background font-bold">148</span>
+<span class="text-body-sm text-secondary font-medium">ร้านค้าจดทะเบียน</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono">
+<span class="text-emerald-700">● 138 เปิดรับจอง</span>
+<span class="text-amber-700">● 6 รออนุมัติ</span>
+<span class="text-secondary">● 4 พักชั่วคราว</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Queue Volume -->
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container-highest riso-card-shadow relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="text-label-pill font-label-pill text-secondary uppercase font-mono tracking-wider">02 // QUEUE FLOW</span>
+<span class="px-2 py-0.5 bg-primary-fixed text-primary text-[11px] font-mono font-bold rounded">TODAY &amp; TMRW</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl text-primary font-bold">3,420</span>
+<span class="text-body-sm text-secondary font-medium">คิวหมุนเวียน</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono">
+<span class="">วันนี้: <strong class="text-on-background">2,180</strong></span>
+<span class="text-secondary">|</span>
+<span class="">จองล่วงหน้าพรุ่งนี้: <strong class="text-on-background">1,240</strong></span>
+</div>
+</div>
+</div>
+<!-- Card 3: Pending Approvals -->
+<div class="bg-surface-container-lowest p-5 rounded border-2 border-primary riso-card-shadow relative overflow-hidden bg-orange-50/20">
+<div class="flex items-center justify-between">
+<span class="text-label-pill font-label-pill text-primary uppercase font-mono tracking-wider">03 // PENDING KYC</span>
+<span class="px-2 py-0.5 bg-primary text-on-primary text-[11px] font-mono font-bold rounded animate-pulse">ACTION REQ</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl text-on-background font-bold">6</span>
+<span class="text-body-sm text-secondary font-medium">คำขอเปิดร้านรอตรวจ</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-xs">
+<span class="font-mono text-secondary">2 คาเฟ่/ร้านอาหาร</span>
+<span class="font-mono text-secondary">2 สุขภาพ</span>
+<span class="font-mono text-secondary">2 คาร์แคร์</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Platform Revenue -->
+<div class="bg-surface-container-lowest p-5 rounded border border-surface-container-highest riso-card-shadow relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="text-label-pill font-label-pill text-secondary uppercase font-mono tracking-wider">04 // MTD REVENUE</span>
+<span class="px-2 py-0.5 bg-yellow-100 text-yellow-900 text-[11px] font-mono font-bold rounded border border-yellow-300">ESTIMATED</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg font-headline-lg text-emerald-800 font-bold">฿186,400</span>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono text-secondary"><span class="">ชำระแล้ว: <strong class="text-emerald-700">142 ร้าน</strong></span><span class="text-secondary">|</span><span class="">รอชำระ: <strong class="text-amber-700">6 ร้าน</strong></span></div>
+</div>
+</div>
+</div>
+<!-- District Distribution Bar Visual -->
+<div class="bg-surface-container-lowest p-4 rounded border border-surface-container-highest flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">map</span>
+<span class="text-label-code font-label-code text-on-surface">สัดส่วนร้านค้าแยกตาม 7 อำเภอ:</span>
+</div>
+<div class="flex-1 max-w-2xl flex items-center gap-1 h-3 bg-surface-container rounded overflow-hidden">
+<div class="bg-primary h-full" style="width: 36.5%;" title="อ.เมืองแม่ฮ่องสอน 54 ร้าน (36.5%)"></div>
+<div class="bg-amber-600 h-full" style="width: 32.4%;" title="อ.ปาย 48 ร้าน (32.4%)"></div>
+<div class="bg-stone-700 h-full" style="width: 18.9%;" title="อ.แม่สะเรียง 28 ร้าน (18.9%)"></div>
+<div class="bg-stone-400 h-full" style="width: 12.2%;" title="อำเภออื่นๆ 18 ร้าน (12.2%)"></div>
+</div>
+<div class="flex items-center gap-4 text-xs font-mono text-secondary">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-primary rounded-sm"></span> อ.เมือง 54</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-amber-600 rounded-sm"></span> อ.ปาย 48</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-stone-700 rounded-sm"></span> แม่สะเรียง 28</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-stone-400 rounded-sm"></span> อื่นๆ 18</span>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 2: STORE APPROVAL SYSTEM (KYC QUEUE)-->
+<!-- ========================================== -->
+<section class="space-y-4" id="approvals">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-background">
+                  คำขอเปิดร้านค้าใหม่รอการอนุมัติ (Merchant Onboarding &amp; KYC)
+                </h2>
+<span class="px-2 py-0.5 bg-primary text-on-primary text-xs font-mono font-bold rounded-full">
+                  รอตรวจเอกสาร 6 ร้าน
+                </span>
+</div>
+<p class="text-body-sm text-secondary">
+                ตรวจสอบใบสำคัญการจดทะเบียนพาณิชย์ ใบอนุญาตสาธารณสุข และบัญชีโอนรับเงิน พร้อมเปิดสิทธิ์เข้าสู่ระบบ
+              </p>
+</div>
+<button class="self-start sm:self-auto px-3 py-1.5 border border-surface-container-highest rounded bg-surface text-body-sm font-medium hover:bg-surface-container transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="">ประวัติการตรวจสอบย้อนหลัง</span>
+</button>
+</div>
+<!-- Cards Grid for Approvals -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+<!-- Merchant Approval Card 1 -->
+<div class="bg-surface-container-lowest rounded border-2 border-stone-800 riso-card-shadow flex flex-col justify-between overflow-hidden">
+<div class="p-5 space-y-4">
+<div class="flex items-start justify-between">
+<span class="px-2 py-0.5 bg-orange-100 text-primary border border-primary-fixed-dim rounded font-mono text-[11px] font-bold">
+                    REQ-MHS-8821
+                  </span>
+<span class="font-mono text-xs text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 2 ชม. ที่แล้ว
+                  </span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-background font-semibold">
+                    ร้านกาแฟบ้านรักไทย ยูนนาน คาเฟ่
+                  </h3>
+<p class="text-body-sm text-secondary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-primary">pin_drop</span>
+                    บ้านรักไทย หมู่ 6 ต.หมอกจำแป่ อ.เมืองแม่ฮ่องสอน
+                  </p>
+</div>
+<!-- Specs Blueprint List -->
+<div class="p-3 bg-surface rounded border border-surface-container-highest space-y-2 text-xs font-mono">
+<div class="flex justify-between">
+<span class="text-secondary">หมวดหมู่:</span>
+<span class="font-bold text-on-background">คาเฟ่ &amp; ชิมชาจีนยูนนาน</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">โต๊ะ/ความจุ:</span>
+<span class="text-on-background">18 โต๊ะ (รับล่วงหน้า 8 โต๊ะ)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">เอกสารแนบ:</span>
+<span class="text-emerald-700 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> ทะเบียนพาณิชย์ + PromptPay
+                    </span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Tier สมัคร:</span>
+<span class="text-primary font-bold">Standard (฿590/ด.)</span>
+</div>
+</div>
+<!-- Document preview chip -->
+<div class="flex items-center gap-2">
+<a class="px-2.5 py-1 bg-surface-container rounded border border-surface-container-highest text-xs text-secondary hover:text-on-surface flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">attach_file</span> doc_mhs_yunnan.pdf
+                  </a>
+<span class="text-xs text-emerald-600 font-mono">KYC ครบ 100%</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-4 bg-surface border-t border-stone-800 grid grid-cols-3 gap-2">
+<button class="col-span-2 py-2 px-3 bg-primary text-on-primary rounded font-medium text-xs hover:bg-primary-container active:scale-95 transition-all riso-stamp flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">check</span>
+<span class="">อนุมัติเปิดร้าน (Approve)</span>
+</button>
+<button class="py-2 px-2 border border-surface-container-highest bg-surface-container-lowest text-secondary hover:text-error rounded text-xs transition-colors" title="ปฏิเสธคำขอ">
+                  ปฏิเสธ
+                </button>
+</div>
+</div>
+<!-- Merchant Approval Card 2 -->
+<div class="bg-surface-container-lowest rounded border-2 border-stone-800 riso-card-shadow flex flex-col justify-between overflow-hidden">
+<div class="p-5 space-y-4">
+<div class="flex items-start justify-between">
+<span class="px-2 py-0.5 bg-orange-100 text-primary border border-primary-fixed-dim rounded font-mono text-[11px] font-bold">
+                    REQ-PAI-8822
+                  </span>
+<span class="font-mono text-xs text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 5 ชม. ที่แล้ว
+                  </span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-background font-semibold">
+                    ปาย ริเวอร์ไซด์ มาสซาจ แอนด์ สปา
+                  </h3>
+<p class="text-body-sm text-secondary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-primary">pin_drop</span>
+                    ริมแม่น้ำปาย ต.เวียงใต้ อ.ปาย
+                  </p>
+</div>
+<!-- Specs Blueprint List -->
+<div class="p-3 bg-surface rounded border border-surface-container-highest space-y-2 text-xs font-mono">
+<div class="flex justify-between">
+<span class="text-secondary">หมวดหมู่:</span>
+<span class="font-bold text-on-background">สปา &amp; นวดแผนไทย</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">เตียง/หมอนวด:</span>
+<span class="text-on-background">6 เตียงอโรมา / 8 หมอนวด</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">เอกสารแนบ:</span>
+<span class="text-emerald-700 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> สบส.เพื่อสุขภาพ
+                    </span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Tier สมัคร:</span>
+<span class="text-primary font-bold">Enterprise Pro (฿1,290/ด.)</span>
+</div>
+</div>
+<!-- Document preview chip -->
+<div class="flex items-center gap-2">
+<a class="px-2.5 py-1 bg-surface-container rounded border border-surface-container-highest text-xs text-secondary hover:text-on-surface flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">attach_file</span> spa_cert_pai_2024.pdf
+                  </a>
+<span class="text-xs text-emerald-600 font-mono">พร้อมเปิดระบบ</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-4 bg-surface border-t border-stone-800 grid grid-cols-3 gap-2">
+<button class="col-span-2 py-2 px-3 bg-primary text-on-primary rounded font-medium text-xs hover:bg-primary-container active:scale-95 transition-all riso-stamp flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">check</span>
+<span class="">อนุมัติเปิดร้าน (Approve)</span>
+</button>
+<button class="py-2 px-2 border border-surface-container-highest bg-surface-container-lowest text-secondary hover:text-error rounded text-xs transition-colors" title="ปฏิเสธคำขอ">
+                  ปฏิเสธ
+                </button>
+</div>
+</div>
+<!-- Merchant Approval Card 3 -->
+<div class="bg-surface-container-lowest rounded border border-surface-container-highest riso-card-shadow flex flex-col justify-between overflow-hidden">
+<div class="p-5 space-y-4">
+<div class="flex items-start justify-between">
+<span class="px-2 py-0.5 bg-yellow-100 text-yellow-900 border border-yellow-300 rounded font-mono text-[11px] font-bold">
+                    REQ-MSR-8823
+                  </span>
+<span class="font-mono text-xs text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 1 วันที่แล้ว
+                  </span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-background font-semibold">
+                    หมอยาเภสัช แม่สะเรียง (คลินิกยาและบริการสุขภาพ)
+                  </h3>
+<p class="text-body-sm text-secondary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs text-primary">pin_drop</span>
+                    ใกล้ตลาดสดเทศบาล ต.แม่สะเรียง อ.แม่สะเรียง
+                  </p>
+</div>
+<!-- Specs Blueprint List -->
+<div class="p-3 bg-surface rounded border border-surface-container-highest space-y-2 text-xs font-mono">
+<div class="flex justify-between">
+<span class="text-secondary">หมวดหมู่:</span>
+<span class="font-bold text-on-background">สุขภาพและเภสัชกรรม</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">ประเภทบริการ:</span>
+<span class="text-on-background">นัดปรึกษาเภสัชกร / วัดความดัน</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">เอกสารแนบ:</span>
+<span class="text-amber-700 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">pending</span> รอจนท.ยืนยันใบประกอบวิชาชีพ
+                    </span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary">Tier สมัคร:</span>
+<span class="text-primary font-bold">Community Starter (฿199)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 bg-amber-50 text-amber-800 rounded border border-amber-200 text-xs font-mono">
+                    รอเอกสารเพิ่มเติม (ภ.พ.20)
+                  </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-4 bg-surface border-t border-surface-container-highest grid grid-cols-2 gap-2">
+<button class="py-2 px-3 bg-surface-container rounded border border-surface-container-highest text-secondary text-xs hover:text-on-surface font-medium">
+                  ขอเอกสารเพิ่ม
+                </button>
+<button class="py-2 px-3 bg-surface-container rounded border border-surface-container-highest text-secondary text-xs hover:text-error font-medium">
+                  ปฏิเสธคำขอ
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 3: MERCHANT MASTER DIRECTORY & CONFIG-->
+<!-- ========================================== -->
+<section class="space-y-4" id="directory">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">hub</span>
+                ศูนย์ควบคุมและเข้าไปตั้งค่าร้านค้าทั้งหมด (Merchant Master Control)
+              </h2>
+<p class="text-body-sm text-secondary">
+                Super Admin สามารถเลือกเข้าไปสวมบทบาทบริหารจัดการหลังบ้าน (Direct Config Mode) ของร้านค้าได้ทุกแห่ง
+              </p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-surface rounded border border-surface-container-highest text-body-sm font-medium hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">Export CSV/XLS</span>
+</button>
+<button class="px-3.5 py-1.5 bg-primary text-on-primary rounded text-body-sm font-medium hover:bg-primary-container active:scale-95 transition-all riso-stamp flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">add_business</span>
+<span class="">เพิ่มร้านค้าพิเศษ (Manual Add)</span>
+</button>
+</div>
+</div>
+<!-- Directory Filter Toolbar -->
+<div class="p-4 bg-surface-container-lowest rounded border border-surface-container-highest flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-1 flex-wrap items-center gap-3">
+<!-- Search Box -->
+<div class="relative flex-1 min-w-[220px]">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-sm">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface rounded border border-surface-container-highest text-body-sm focus:border-primary focus:ring-0 focus:outline-none" placeholder="ค้นหาชื่อร้าน, รหัส JQ, หรือเลขผู้เสียภาษี..." type="text">
+</div>
+<!-- Category Filter -->
+<select class="px-3 py-2 bg-surface rounded border border-surface-container-highest text-body-sm focus:border-primary focus:ring-0 focus:outline-none">
+<option>ทุกหมวดหมู่ (All Categories)</option>
+<option>ร้านอาหารและคาเฟ่</option>
+<option>บาร์เบอร์และเสริมสวย</option>
+<option>คลินิกและศูนย์ทันตกรรม</option>
+<option>คาร์แคร์และอู่มาตรฐาน</option>
+<option>สปาและการแพทย์แผนไทย</option>
+</select>
+<!-- District Filter -->
+<select class="px-3 py-2 bg-surface rounded border border-surface-container-highest text-body-sm focus:border-primary focus:ring-0 focus:outline-none">
+<option>ทุกอำเภอในแม่ฮ่องสอน</option>
+<option>อ.เมืองแม่ฮ่องสอน</option>
+<option>อ.ปาย</option>
+<option>อ.แม่สะเรียง</option>
+<option>อ.ปางมะผ้า</option>
+<option>อ.ขุนยวม</option>
+<option>อ.แม่ลาน้อย</option>
+<option>อ.สบเมย</option>
+</select>
+</div>
+<div class="flex items-center gap-3 text-xs font-mono text-secondary">
+<span class="">แสดงผล 1 - 4 จาก 148 ร้าน</span>
+<div class="flex gap-1">
+<button class="p-1 border border-surface-container-highest rounded hover:bg-surface-container disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1 border border-surface-container-highest rounded hover:bg-surface-container">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Directory Table -->
+<div class="overflow-x-auto bg-surface-container-lowest rounded border border-surface-container-highest">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-surface-container-highest text-secondary font-mono text-label-code">
+<th class="py-3 px-4">รหัส / ชื่อร้านค้า</th>
+<th class="py-3 px-4">พิกัด / อำเภอ</th>
+<th class="py-3 px-4">หมวดหมู่</th>
+<th class="py-3 px-4">สถานะคิววันนี้</th>
+<th class="py-3 px-4">Tier &amp; รอบ 30 วัน (Rolling Renewal)</th>
+<th class="py-3 px-4 text-right">การจัดการ Super Admin</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest font-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-orange-100 text-primary flex items-center justify-center font-mono font-bold text-xs border border-primary-fixed-dim">
+                        JQ01
+                      </div>
+<div>
+<div class="font-semibold text-on-background flex items-center gap-2">
+                          The Barbershop Mae Hong Son
+                          <span class="px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-mono text-[10px]">VERIFIED</span>
+</div>
+<span class="font-mono text-xs text-secondary">ID: JQ-MHS-001</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-xs font-mono">
+<div class="">หนองจองคำ</div>
+<span class="text-secondary">อ.เมืองแม่ฮ่องสอน</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-surface-container rounded border border-surface-container-highest">
+<span class="material-symbols-outlined text-xs">content_cut</span> บาร์เบอร์ &amp; กรูมมิ่ง
+                    </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-mono text-xs font-semibold">24/24 คิว (เต็มรอบ)</span>
+</div>
+<span class="text-[11px] text-secondary font-mono">เปิดรับจองวันนี้+พรุ่งนี้</span>
+</td>
+<td class="py-3.5 px-4"><span class="font-mono text-xs font-bold text-on-background">Tier มาตรฐาน (฿590/30วัน)</span><div class="text-[11px] text-emerald-700 font-mono font-medium mt-0.5">รอบ 30 วัน: เหลือ 12 วัน (ครบ 18 มี.ค.)</div><span class="inline-block mt-1 text-[10px] font-mono px-1.5 py-0.2 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded">สถานะปกติ (Active)</span></td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 bg-stone-900 text-white rounded text-xs font-medium hover:bg-stone-800 transition-all riso-stamp flex items-center gap-1" title="เข้าสู่โหมดปรับแต่งร้าน">
+<span class="material-symbols-outlined text-xs text-orange-400">tune</span>
+<span class="">เข้าตั้งค่าร้านนี้</span>
+</button>
+<button class="p-1.5 text-secondary hover:text-error rounded hover:bg-surface-container" title="ระงับชั่วคราว">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-orange-100 text-primary flex items-center justify-center font-mono font-bold text-xs border border-primary-fixed-dim">
+                        JQ02
+                      </div>
+<div>
+<div class="font-semibold text-on-background flex items-center gap-2">
+                          บ้านทรงไทยริมน้ำ จองคำ
+                          <span class="px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-mono text-[10px]">VERIFIED</span>
+</div>
+<span class="font-mono text-xs text-secondary">ID: JQ-MHS-002</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-xs font-mono">
+<div class="">ริมหนองจองคำ</div>
+<span class="text-secondary">อ.เมืองแม่ฮ่องสอน</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-surface-container rounded border border-surface-container-highest">
+<span class="material-symbols-outlined text-xs">restaurant</span> อาหารและคาเฟ่
+                    </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-mono text-xs font-semibold">42 โต๊ะหมุนเวียน</span>
+</div>
+<span class="text-[11px] text-secondary font-mono">คิวรอขณะนี้: 4 คิว</span>
+</td>
+<td class="py-3.5 px-4"><span class="font-mono text-xs font-bold text-primary">Tier เริ่มต้น (฿199/30วัน)</span><div class="text-[11px] text-secondary font-mono mt-0.5">รอบ 30 วัน: เริ่ม 5 มี.ค. (เหลือ 27 วัน)</div><span class="inline-block mt-1 text-[10px] font-mono px-1.5 py-0.2 bg-stone-100 text-stone-700 rounded">ครบ 4 เม.ย.</span></td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 bg-stone-900 text-white rounded text-xs font-medium hover:bg-stone-800 transition-all riso-stamp flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-orange-400">tune</span>
+<span class="">เข้าตั้งค่าร้านนี้</span>
+</button>
+<button class="p-1.5 text-secondary hover:text-error rounded hover:bg-surface-container" title="ระงับชั่วคราว">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-blue-100 text-blue-800 flex items-center justify-center font-mono font-bold text-xs border border-blue-200">
+                        JQ03
+                      </div>
+<div>
+<div class="font-semibold text-on-background flex items-center gap-2">
+                          Aura Glow &amp; Dental Clinic Pai
+                          <span class="px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-mono text-[10px]">VERIFIED</span>
+</div>
+<span class="font-mono text-xs text-secondary">ID: JQ-PAI-003</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-xs font-mono">
+<div class="">ถ.คนเดินปาย</div>
+<span class="text-secondary">อ.ปาย</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-surface-container rounded border border-surface-container-highest">
+<span class="material-symbols-outlined text-xs">dentistry</span> คลินิกและทันตกรรม
+                    </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-mono text-xs font-semibold">18 นัดหมายทันตแพทย์</span>
+</div>
+<span class="text-[11px] text-secondary font-mono">ระบบชำระมัดจำคิว</span>
+</td>
+<td class="py-3.5 px-4"><span class="font-mono text-xs font-bold text-on-background">Tier พรีเมียม (฿1,290/30วัน)</span><div class="text-[11px] text-emerald-700 font-mono font-medium mt-0.5">รอบ 30 วัน: เหลือ 19 วัน (ครบ 25 มี.ค.)</div><span class="inline-block mt-1 text-[10px] font-mono px-1.5 py-0.2 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded">ชำระแล้ว (Active)</span></td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 bg-stone-900 text-white rounded text-xs font-medium hover:bg-stone-800 transition-all riso-stamp flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-orange-400">tune</span>
+<span class="">เข้าตั้งค่าร้านนี้</span>
+</button>
+<button class="p-1.5 text-secondary hover:text-error rounded hover:bg-surface-container" title="ระงับชั่วคราว">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-stone-200 text-stone-800 flex items-center justify-center font-mono font-bold text-xs border border-stone-300">
+                        JQ04
+                      </div>
+<div>
+<div class="font-semibold text-on-background flex items-center gap-2">
+                          ศูนย์บริการคาร์ดีเทลลิ่ง แม่สะเรียง (Mae Sariang Garage)
+                        </div>
+<span class="font-mono text-xs text-secondary">ID: JQ-MSR-004</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-xs font-mono">
+<div class="">ถ.108 แม่สะเรียง-ฮอด</div>
+<span class="text-secondary">อ.แม่สะเรียง</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-surface-container rounded border border-surface-container-highest">
+<span class="material-symbols-outlined text-xs">local_car_wash</span> คาร์แคร์ &amp; ซ่อมบำรุง
+                    </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-mono text-xs font-semibold">เปิดรับจอง 3 ช่องซ่อม</span>
+</div>
+<span class="text-[11px] text-secondary font-mono">จองล่วงหน้า 100%</span>
+</td>
+<td class="py-3.5 px-4"><span class="font-mono text-xs font-bold text-on-background">Tier มาตรฐาน (฿590/30วัน)</span><div class="text-[11px] text-amber-800 font-mono font-medium mt-0.5">รอบ 30 วัน: เหลือ 2 วัน (ครบ 8 มี.ค.)</div><span class="inline-block mt-1 text-[10px] font-mono px-1.5 py-0.2 bg-amber-50 text-amber-800 border border-amber-200 rounded">แจ้งเตือนล่วงหน้าแล้ว</span></td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 bg-stone-900 text-white rounded text-xs font-medium hover:bg-stone-800 transition-all riso-stamp flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-orange-400">tune</span>
+<span class="">เข้าตั้งค่าร้านนี้</span>
+</button>
+<button class="p-1.5 text-secondary hover:text-error rounded hover:bg-surface-container" title="ระงับชั่วคราว">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 4: PLATFORM FINANCIAL ENGINE       -->
+<!-- ========================================== -->
+<section class="space-y-6 pb-12" id="fee-tiers">
+<div class="border-t border-surface-container-highest pt-8"><div class="flex flex-col md:flex-row md:items-center justify-between gap-4"><div><span class="px-2 py-0.5 bg-yellow-100 text-yellow-900 font-mono text-[11px] font-bold rounded border border-yellow-300">SAAS BILLING ARCHITECTURE</span><h2 class="text-headline-sm font-headline-sm text-on-background mt-1">ตั้งค่าแพ็กเกจค่าบริการซอฟต์แวร์รายเดือน สำหรับร้านค้า (Platform Subscription Plans &amp; Billing Engine)</h2><p class="text-body-sm text-secondary">แพลตฟอร์มคิดเฉพาะค่าบริการระบบจองคิวรอบละ 30 วัน (Rolling 30-Day Cycle) นับจากวันที่ร้านค้าเปิดใช้งานจริง เริ่มวันไหนนับวันนั้น ไม่ยึดสิ้นเดือนปฏิทิน และไม่มีการหักเปอร์เซ็นต์ยอดบริการลูกค้าหน้าร้าน</p></div><div class="flex items-center gap-3"><button class="px-4 py-2 bg-surface rounded border border-surface-container-highest text-body-sm font-medium hover:bg-surface-container transition-colors">ประวัติการปรับราคา</button><button class="px-4 py-2 bg-primary text-on-primary rounded text-body-sm font-medium hover:bg-primary-container active:scale-95 transition-all riso-stamp flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">save</span><span class="">บันทึกการตั้งค่าโครงสร้างค่าบริการ</span></button></div></div></div>
+<!-- Tier Configuration Cards (Blueprint Riso Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Tier 1: Community Starter -->
+<div class="bg-surface-container-lowest p-6 rounded border-2 border-stone-800 riso-card-shadow flex flex-col justify-between"><div class="space-y-4"><div class="flex items-center justify-between"><span class="font-mono text-xs font-bold text-secondary uppercase">[TIER 01 // STARTER]</span><span class="px-2 py-0.5 bg-stone-100 text-stone-800 rounded font-mono text-[10px]">OTOP &amp; ท้องถิ่น</span></div><div><h3 class="text-headline-sm font-headline-sm text-on-background font-bold">ร้านค้าชุมชน / OTOP ขนาดเล็ก</h3><p class="text-xs text-secondary mt-1">เน้นค่าใช้จ่ายต่ำ ช่วยเหลือวิสาหกิจชุมชนแม่ฮ่องสอน</p></div><div class="p-3.5 bg-surface rounded border border-surface-container-highest space-y-3"><div><label class="block text-[11px] font-mono text-secondary mb-1">ค่าบริการรอบ 30 วัน (30-DAY ROLLING CYCLE)</label><div class="flex items-center gap-2"><span class="font-mono text-sm text-secondary">฿</span><input class="w-full py-1.5 px-3 bg-surface-container-lowest rounded border border-surface-container-highest font-mono text-base font-bold text-on-background focus:border-primary focus:ring-0" type="number" value="199"><span class="text-xs text-secondary font-mono whitespace-nowrap">/ 30 วัน</span></div></div><div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono text-secondary"><span class="">ระบบชำระเงินลูกค้าหน้าร้าน:</span><span class="text-emerald-700 font-semibold">ร้านรับเงินสด/โอนเอง</span></div><div class="text-[11px] font-mono text-secondary bg-stone-100 p-2 rounded">* เริ่มวันไหน ตัดรอบครบ 30 วันตามวันนั้น (Rolling 30 Days)</div></div><ul class="space-y-2 text-xs font-mono text-secondary"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">รองรับ 1 จุดบริการหน้าร้าน</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">เปิดรับคิวเฉพาะวันปัจจุบัน (Today Only)</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">ออกใบแจ้งหนี้/ใบเสร็จรอบ 30 วันส่งเข้าอีเมลร้าน</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-secondary">close</span><span class="text-stone-400">ไม่มีแจ้งเตือน SMS อัตโนมัติ</span></li></ul></div><div class="mt-6 pt-4 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono"><span class="text-secondary">ร้านที่ใช้แพ็กเกจนี้:</span><span class="font-bold text-on-background">42 ร้านค้า</span></div></div>
+<!-- Tier 2: Standard Merchant (Highlighted Riso) -->
+<div class="bg-surface-container-lowest p-6 rounded border-2 border-primary riso-card-shadow flex flex-col justify-between relative"><div class="absolute -top-3 right-6 px-2.5 py-0.5 bg-primary text-on-primary font-mono text-[11px] font-bold rounded shadow-sm">MOST POPULAR IN MHS</div><div class="space-y-4"><div class="flex items-center justify-between"><span class="font-mono text-xs font-bold text-primary uppercase">[TIER 02 // STANDARD]</span><span class="px-2 py-0.5 bg-orange-100 text-primary rounded font-mono text-[10px]">ทั่วไป</span></div><div><h3 class="text-headline-sm font-headline-sm text-on-background font-bold">มาตรฐานธุรกิจบริการทั่วไป</h3><p class="text-xs text-secondary mt-1">เหมาะสำหรับร้านอาหาร คาเฟ่ ร้านตัดผม คาร์แคร์</p></div><div class="p-3.5 bg-orange-50/40 rounded border border-primary-fixed-dim space-y-3"><div><label class="block text-[11px] font-mono text-primary mb-1">ค่าบริการรอบ 30 วัน (30-DAY ROLLING CYCLE)</label><div class="flex items-center gap-2"><span class="font-mono text-sm text-secondary">฿</span><input class="w-full py-1.5 px-3 bg-surface-container-lowest rounded border border-surface-container-highest font-mono text-base font-bold text-on-background focus:border-primary focus:ring-0" type="number" value="590"><span class="text-xs text-primary font-mono font-bold whitespace-nowrap">/ 30 วัน</span></div></div><div class="pt-2 border-t border-primary-fixed-dim flex items-center justify-between text-xs font-mono text-secondary"><span class="">ระบบชำระเงินลูกค้าหน้าร้าน:</span><span class="text-emerald-700 font-semibold">ร้านรับเงินสด/โอนเอง</span></div><div class="text-[11px] font-mono text-primary bg-orange-100/70 p-2 rounded">* นับรอบบิล 30 วันตามวันที่แต่ละร้านเปิดระบบ เริ่มวันไหน นับวันนั้น</div></div><ul class="space-y-2 text-xs font-mono text-secondary"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">รองรับระบบจอง 2 วัน (Today + Tomorrow)</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">แจ้งเตือนลูกค้าผ่าน SMS &amp; LINE OA</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">สรุปสถิติจำนวนคิวครบรอบ 30 วัน (PDF/Excel)</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">คิวไม่จำกัดจำนวนต่อวัน</span></li></ul></div><div class="mt-6 pt-4 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono"><span class="text-secondary">ร้านที่ใช้แพ็กเกจนี้:</span><span class="font-bold text-primary">86 ร้านค้า</span></div></div>
+<!-- Tier 3: Enterprise & Clinic Pro -->
+<div class="bg-surface-container-lowest p-6 rounded border-2 border-stone-800 riso-card-shadow flex flex-col justify-between"><div class="space-y-4"><div class="flex items-center justify-between"><span class="font-mono text-xs font-bold text-secondary uppercase">[TIER 03 // ENTERPRISE]</span><span class="px-2 py-0.5 bg-blue-100 text-blue-900 rounded font-mono text-[10px]">คลินิก &amp; โรงแรม</span></div><div><h3 class="text-headline-sm font-headline-sm text-on-background font-bold">คลินิกและพรีเมียมเซอร์วิส</h3><p class="text-xs text-secondary mt-1">สำหรับศูนย์บริการสุขภาพ โรงแรม และสถานพยาบาล</p></div><div class="p-3.5 bg-surface rounded border border-surface-container-highest space-y-3"><div><label class="block text-[11px] font-mono text-secondary mb-1">ค่าบริการรอบ 30 วัน (30-DAY ROLLING CYCLE)</label><div class="flex items-center gap-2"><span class="font-mono text-sm text-secondary">฿</span><input class="w-full py-1.5 px-3 bg-surface-container-lowest rounded border border-surface-container-highest font-mono text-base font-bold text-on-background focus:border-primary focus:ring-0" type="number" value="1290"><span class="text-xs text-secondary font-mono whitespace-nowrap">/ 30 วัน</span></div></div><div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono text-secondary"><span class="">ระบบชำระเงินลูกค้าหน้าร้าน:</span><span class="text-emerald-700 font-semibold">ร้านรับเงินสด/โอนเอง</span></div><div class="text-[11px] font-mono text-secondary bg-blue-100/50 p-2 rounded">* กำหนดรอบ 30 วันเฉพาะองค์กร พร้อมระบบแจ้งเตือนอัตโนมัติก่อน 3 วัน</div></div><ul class="space-y-2 text-xs font-mono text-secondary"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">รองรับแยกหลายห้องตรวจ/ช่องบริการ Multi-bay</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">สิทธิ์การใช้งานระบบไม่จำกัดจำนวนเจ้าหน้าที่</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">บริการดูแลระบบและความปลอดภัย 24 ชม.</span></li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs text-emerald-600">check</span><span class="">Super Admin SLA รับประกันแก้ไขใน 4 ชม.</span></li></ul></div><div class="mt-6 pt-4 border-t border-surface-container-highest flex items-center justify-between text-xs font-mono"><span class="text-secondary">ร้านที่ใช้แพ็กเกจนี้:</span><span class="font-bold text-on-background">20 ร้านค้า</span></div></div>
+</div>
+<!-- Merchant Escrow Settlement & Payout Box -->
+<div class="p-5 bg-surface-container-lowest rounded border border-surface-container-highest flex flex-col md:flex-row md:items-center justify-between gap-4"><div class="flex items-start md:items-center gap-4"><div class="w-12 h-12 rounded bg-orange-100 text-primary flex items-center justify-center border border-primary-fixed-dim shrink-0"><span class="material-symbols-outlined">event_repeat</span></div><div><p class="font-headline-sm font-semibold text-on-background">ระบบรอบบิล 30 วันเฉพาะร้านค้า (Rolling 30-Day Merchant Billing System)</p><p class="text-xs text-secondary mt-0.5">ร้านเริ่มวันไหน นับวันนั้น ตัดรอบอัตโนมัติทุก 30 วันตามวันเริ่มต้นเปิดใช้งานจริงของแต่ละร้านค้า</p><div class="flex flex-wrap items-center gap-2 mt-2"><span class="text-xs font-mono text-primary bg-orange-100 px-2.5 py-1 rounded border border-primary-fixed-dim font-bold">รอบบิลวันนี้ (Due Today): 5 ร้าน (฿3,260)</span><span class="text-xs font-mono text-stone-800 bg-stone-100 px-2.5 py-1 rounded border border-stone-300">รอบบิลอีก 7 วันข้างหน้า: 28 ร้าน (฿18,920)</span><span class="text-xs font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> สถานะรอบ 30 วัน: หมุนเวียนต่อเนื่อง (Rolling Cycle Active)</span></div></div></div><div class="flex flex-wrap items-center gap-3 shrink-0"><button class="px-4 py-2 bg-surface rounded border border-surface-container-highest text-body-sm font-medium hover:bg-surface-container transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">calendar_month</span><span class="">ดูปฏิทินรอบบิล 30 วันของร้านค้า</span></button><button class="px-4 py-2 bg-primary text-on-primary rounded text-body-sm font-medium hover:bg-primary-container active:scale-95 transition-all riso-stamp flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">notification_important</span><span class="">ส่งแจ้งเตือนชำระล่วงหน้า 3 วัน (Auto Reminder)</span></button></div></div>
+</section>
+</div>
+</main>
+</div>
+<!-- ========================================== -->
+<!-- SHARED COMPONENT: Footer (JSON Injected)   -->
+<!-- ========================================== -->
+<footer class="w-full px-space-xl py-space-md flex flex-col sm:flex-row justify-between items-center border-t border-surface-container-highest dark:border-outline-variant bg-surface-container-lowest dark:bg-inverse-surface z-50">
+<div class="text-body-sm font-body-sm text-secondary dark:text-tertiary-fixed-dim text-center sm:text-left mb-2 sm:mb-0">
+      © 2024 Jong-Q (จองคิว) Platform. Mae Hong Son Provincial Digital Service Center.
+    </div>
+<div class="flex flex-wrap items-center justify-center gap-6">
+<span class="text-label-code font-label-code font-semibold text-primary dark:text-inverse-primary">Node Latency: 14ms</span>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#">Emergency Protocols</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#">Compliance Framework</a>
+<a class="text-secondary dark:text-tertiary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150 text-body-sm font-body-sm" href="#">Audit Registry</a>
+</div>
+</footer>
+
+
+</body></html>

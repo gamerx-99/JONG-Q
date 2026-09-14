@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jong-Q (จองคิว) - ตั้งค่าร้านค้า Aura Glow &amp; Dental Clinic Pai</title>
+<!-- Fonts: Noto Sans Thai, Space Mono for retro zine feel, and Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#e2bfb2",
+            "inverse-primary": "#ffb599",
+            "on-secondary-container": "#656467",
+            "primary-container": "#cc4900",
+            "tertiary-container": "#74747d",
+            "tertiary-fixed": "#e3e1ec",
+            "surface-container": "#eeeeee",
+            "on-primary": "#ffffff",
+            "outline": "#8e7166",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#c6c5cf",
+            "tertiary": "#5b5b64",
+            "surface-container-high": "#e8e8e8",
+            "secondary-container": "#e4e1e6",
+            "on-secondary-fixed-variant": "#47464a",
+            "secondary-fixed-dim": "#c8c5ca",
+            "on-tertiary-container": "#fffbff",
+            "surface-tint": "#a73a00",
+            "surface": "#FCF9F2",
+            "on-surface-variant": "#5a4138",
+            "on-tertiary-fixed-variant": "#46464e",
+            "primary-fixed": "#ffdbce",
+            "secondary-fixed": "#e4e1e6",
+            "surface-dim": "#dadada",
+            "on-surface": "#18181b",
+            "on-secondary-fixed": "#1b1b1e",
+            "primary-fixed-dim": "#ffb599",
+            "inverse-surface": "#2f3131",
+            "on-primary-container": "#fffbff",
+            "on-error": "#ffffff",
+            "background": "#FAF6EE",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#5f5e61",
+            "surface-bright": "#ffffff",
+            "inverse-on-surface": "#f0f1f1",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#1a1b22",
+            "surface-variant": "#f4ede0",
+            "on-primary-fixed": "#370e00",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f7f2e7",
+            "on-primary-fixed-variant": "#7f2b00",
+            "on-tertiary": "#ffffff",
+            "primary": "#ea580c",
+            "clinic-teal": "#0f766e",
+            "clinic-mint": "#ccfbf1",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#E4E4E7",
+            "on-background": "#18181b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.375rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "2.5rem",
+            "margin": "4rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "body-sm": ["Noto Sans Thai", "sans-serif"],
+            "label-code": ["Space Mono", "Noto Sans Thai", "monospace"],
+            "headline-md": ["Noto Sans Thai", "sans-serif"],
+            "headline-lg": ["Noto Sans Thai", "sans-serif"],
+            "headline-xl-mobile": ["Noto Sans Thai", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans Thai", "sans-serif"],
+            "display-hero-mobile": ["Noto Sans Thai", "sans-serif"],
+            "headline-xl": ["Noto Sans Thai", "sans-serif"],
+            "headline-sm": ["Noto Sans Thai", "sans-serif"],
+            "label-pill": ["Space Mono", "Noto Sans Thai", "monospace"],
+            "body-md": ["Noto Sans Thai", "sans-serif"],
+            "display-hero": ["Noto Sans Thai", "sans-serif"],
+            "body-lg": ["Noto Sans Thai", "sans-serif"]
+          },
+          fontSize: {
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "label-code": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-hero-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-pill": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-hero": ["80px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }]
+          },
+          boxShadow: {
+            "zine": "3px 3px 0px #18181b",
+            "zine-lg": "5px 5px 0px #18181b",
+            "zine-xl": "7px 7px 0px #18181b",
+            "zine-orange": "4px 4px 0px #ea580c",
+            "zine-teal": "3px 3px 0px #0f766e"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Risograph halftone & paper feel */
+    .bg-paper-pattern {
+      background-color: #FAF6EE;
+      background-image: radial-gradient(#d6cebe 0.75px, transparent 0.75px);
+      background-size: 14px 14px;
+    }
+
+    /* Sketch tape effect */
+    .tape-strip {
+      background: rgba(250, 204, 21, 0.45);
+      backdrop-filter: blur(1px);
+      transform: rotate(-2deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.2);
+      border-right: 2px dashed rgba(24, 24, 27, 0.2);
+    }
+    
+    .tape-strip-alt {
+      background: rgba(234, 88, 12, 0.18);
+      transform: rotate(1.5deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.2);
+      border-right: 2px dashed rgba(24, 24, 27, 0.2);
+    }
+
+    .tape-strip-mint {
+      background: rgba(20, 184, 166, 0.25);
+      transform: rotate(-1deg);
+      border-left: 2px dashed rgba(24, 24, 27, 0.25);
+      border-right: 2px dashed rgba(24, 24, 27, 0.25);
+    }
+
+    /* Hand drawn double border outline effect */
+    .border-sketch {
+      border: 2px solid #18181b;
+      box-shadow: 4px 4px 0px #18181b;
+    }
+
+    .border-sketch-subtle {
+      border: 1.5px solid #18181b;
+      box-shadow: 2px 2px 0px #18181b;
+    }
+  </style>
+</head>
+<body class="bg-paper-pattern text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white pb-32">
+<!-- ================= TOP APP BAR / MERCHANT PORTAL HEADER ================= -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b-2 border-on-surface px-4 md:px-8 py-3 transition-all duration-150">
+<div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
+<!-- Brand & Breadcrumbs -->
+<div class="flex items-center gap-3 md:gap-5">
+<div class="flex items-center gap-2">
+<!-- Risograph Badge Logo -->
+<div class="bg-primary text-white border-2 border-on-surface px-3 py-1 font-label-code text-label-code shadow-zine rounded-lg -rotate-1 flex items-center gap-1.5 cursor-pointer">
+<span class="material-symbols-outlined text-lg" style='font-variation-settings: "FILL" 1;'>counter_1</span>
+<span class="font-bold tracking-tight">Jong-Q (จองคิว)</span>
+</div>
+<span class="hidden sm:inline-block px-1.5 py-0.5 text-xs font-label-code bg-teal-100 text-teal-900 border border-on-surface rounded shadow-[1px_1px_0px_#000]">CLINIC PORTAL</span>
+</div>
+<!-- Breadcrumbs -->
+<div class="hidden md:flex items-center text-secondary font-label-code text-body-sm gap-2">
+<span class="text-tertiary">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">แผงควบคุมคลินิก</span>
+<span class="text-tertiary">/</span>
+<span class="text-on-surface font-bold underline decoration-primary decoration-2 underline-offset-4">ตั้งค่าร้านค้า &amp; ระบบนัดหมาย 2 วัน</span>
+</div>
+</div>
+<!-- Merchant Store Switcher & Trailing Actions -->
+<div class="flex items-center gap-3">
+<!-- Store Selector Pill -->
+<div class="flex items-center gap-2 bg-surface border-2 border-on-surface px-2.5 py-1 rounded-lg shadow-zine cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold border border-on-surface">
+            A
+          </div>
+<div class="text-left leading-tight pr-1">
+<div class="text-xs font-label-code text-tertiary font-bold leading-none">สาขาปัจจุบัน (JQ-PAI-003)</div>
+<div class="text-body-sm font-headline-sm font-bold text-on-surface truncate max-w-[150px] sm:max-w-[200px]">Aura Glow &amp; Dental Clinic Pai</div>
+</div>
+<span class="material-symbols-outlined text-base">unfold_more</span>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-1.5">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border-2 border-on-surface bg-surface hover:bg-surface-container shadow-[2px_2px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all" title="คู่มือคลินิก">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg border-2 border-on-surface bg-surface hover:bg-surface-container shadow-[2px_2px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all" title="การแจ้งเตือนคิวคนไข้">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-teal-500 border border-on-surface rounded-full"></span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="max-w-7xl mx-auto px-4 md:px-8 pt-6 pb-12 w-full">
+<!-- PAGE HEADER TITLE & ZINE MOTIF -->
+<div class="relative mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-dashed border-tertiary-fixed-dim pb-4">
+<!-- Tape visual accent -->
+<div class="tape-strip absolute -top-4 left-6 px-4 py-0.5 text-[11px] font-label-code text-on-surface font-bold uppercase tracking-wider shadow-sm z-10">
+        ★ HEALTH &amp; WELLNESS CLINIC VARIANT 02 / PAI DISTRICT
+      </div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-teal-100 text-teal-800 border border-teal-700 font-label-code text-xs px-2 py-0.5 rounded font-bold">BRANCH: JQ-PAI-003</span>
+<span class="text-xs font-label-code text-tertiary">DUAL QUEUE ENGINE: TODAY LIVE + TOMORROW SCHEDULED</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg font-extrabold text-on-surface tracking-tight flex items-center gap-2">
+          ตั้งค่าข้อมูลคลินิก &amp; นโยบายจองคิว 2 วัน 
+          <span class="text-primary font-normal font-label-code text-headline-sm">(Aura Glow Pai)</span>
+</h1>
+<p class="text-secondary font-body-md mt-1">
+          คลินิกทันตกรรมและความงามปาย บริหารจัดการคิวด่วนวันนี้ และนัดหมายล่วงหน้าวันพรุ่งนี้ แยกตามประเภทเตียงตรวจอย่างแม่นยำ
+        </p>
+</div>
+<!-- Quick Status Stamp -->
+<div class="hidden sm:flex items-center gap-2 bg-surface-container-lowest border-2 border-on-surface px-3 py-1.5 rounded-lg shadow-zine">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-on-surface"></span>
+</span>
+<div class="text-xs font-label-code font-bold">
+          CLINIC STATUS: <span class="text-emerald-700">ACTIVE &amp; APPOINTMENTS OPEN</span>
+</div>
+</div>
+</div>
+<!-- ================= 2. MASTER DUAL QUEUE CONTROL BAR ================= -->
+<!-- Variant 2 Highlight: Dual Master Queue Switch (Today Live Queue + Tomorrow Advance Scheduled) -->
+<section aria-label="Master Dual Queue Control" class="mb-8">
+<div class="relative bg-surface-container-lowest border-2 border-on-surface rounded-xl p-5 md:p-6 shadow-zine-lg overflow-hidden bg-gradient-to-r from-teal-50/60 via-white to-amber-50/60">
+<!-- Background vintage stamp watermark -->
+<div class="absolute right-4 -bottom-6 text-8xl font-black text-black/[0.03] select-none pointer-events-none font-label-code">
+          2-DAY QUEUE
+        </div>
+<div class="flex flex-col gap-5 relative z-10">
+<!-- Header row -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b-2 border-surface-container pb-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 bg-primary text-white border-2 border-on-surface rounded-xl shadow-zine flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style='font-variation-settings: "FILL" 1;'>tune</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">
+              สวิตช์ควบคุมระบบคิวแม่บท (Master Queue Dual Control)
+            </h2>
+<p class="text-body-sm text-secondary">
+              บริหารการเปิด-ปิดรับคิวด่วนวันนี้ และนัดหมายล่วงหน้าพรุ่งนี้แบบอิสระ
+            </p>
+</div>
+</div>
+<!-- Break button -->
+<button class="px-3 py-2 bg-amber-100 hover:bg-amber-200 text-on-surface border-2 border-on-surface rounded-lg font-label-code text-xs font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-1.5 shrink-0" type="button">
+<span class="material-symbols-outlined text-base text-amber-900" style='font-variation-settings: "FILL" 1;'>pause_circle</span>
+<span>พักรับคิวฉุกเฉิน 30 นาที</span>
+</button>
+</div>
+<!-- Dual Switch Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Channel 1: Today Live Queue -->
+<div class="p-3.5 bg-white border-2 border-on-surface rounded-lg shadow-zine flex items-center justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="p-2 rounded-lg bg-orange-100 border border-on-surface text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">bolt</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-body-sm text-on-surface font-label-code">1. คิวด่วนวันนี้ (Today Live)</span>
+<span class="px-2 py-0.5 text-[11px] font-bold font-label-code rounded-full bg-emerald-100 text-emerald-800 border border-emerald-600" id="liveTodayBadge">
+                    🟢 เปิดรับจอง
+                  </span>
+</div>
+<p class="text-xs text-secondary mt-0.5">รับคนไข้ Walk-in และคิวสดระหว่างวัน</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="todayQueueToggle" type="checkbox"/>
+<div class="w-12 h-6 bg-tertiary-fixed-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-2 after:border-on-surface after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-[1px_1px_0px_#000] peer-checked:bg-primary border-2 border-on-surface"></div>
+</label>
+</div>
+<!-- Channel 2: Tomorrow Advance Scheduled Slots -->
+<div class="p-3.5 bg-white border-2 border-on-surface rounded-lg shadow-zine flex items-center justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="p-2 rounded-lg bg-teal-100 border border-on-surface text-teal-800 shrink-0">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-body-sm text-on-surface font-label-code">2. คิวล่วงหน้าพรุ่งนี้ (Tomorrow Slots)</span>
+<span class="px-2 py-0.5 text-[11px] font-bold font-label-code rounded-full bg-teal-100 text-teal-800 border border-teal-700" id="advanceTomorrowBadge">
+                    📅 เปิดจอง (เหลือ 8/12)
+                  </span>
+</div>
+<p class="text-xs text-secondary mt-0.5">นัดทำฟัน / ทำหน้า ล่วงหน้า 1 วันเท่านั้น</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="tomorrowQueueToggle" type="checkbox"/>
+<div class="w-12 h-6 bg-tertiary-fixed-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-2 after:border-on-surface after:rounded-full after:h-5 after:w-5 after:transition-all after:shadow-[1px_1px_0px_#000] peer-checked:bg-teal-700 border-2 border-on-surface"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= BENTO GRID FORM SECTIONS ================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- ================= LEFT COLUMN: IDENTITY & MAP (7 COLS) ================= -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- SECTION 1: ข้อมูลทั่วไปคลินิก (Clinic Identity) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-mint absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 01 // CLINIC PROFILE
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-teal-700 text-2xl" style='font-variation-settings: "FILL" 1;'>local_hospital</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">ข้อมูลคลินิกและสาขาปาย (Clinic Identity)</h2>
+<p class="text-body-sm text-secondary">แสดงบนใบจองคิวอิเล็กทรอนิกส์และบัตรนัดตรวจใน LINE คนไข้</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Clinic Name -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span>ชื่อคลินิก / สถานพยาบาล (Clinic Name) <span class="text-primary">*</span></span>
+<span class="text-xs text-tertiary font-normal">สาขาแม่ฮ่องสอน ตอนเหนือ</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md font-medium text-on-surface focus:ring-0 focus:border-teal-700 shadow-[2px_2px_0px_#18181b] transition-all" type="text" value="Aura Glow &amp; Dental Clinic Pai (ออร่า โกลว์ แอนด์ เดนทัล คลินิกปาย)"/>
+<span class="absolute right-3 top-3 text-xs font-label-code text-teal-700 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">verified</span>
+</span>
+</div>
+</div>
+<!-- Category & Branch Code Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  หมวดหมู่ธุรกิจ (Category)
+                </label>
+<div class="relative">
+<select class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-teal-700 shadow-[2px_2px_0px_#18181b] appearance-none cursor-pointer font-medium">
+<option selected="">คลินิกสุขภาพและความงาม (Health &amp; Wellness Clinic)</option>
+<option>คลินิกทันตกรรมเฉพาะทาง (Dental Clinic)</option>
+<option>คลินิกเวชกรรมผิวพรรณ (Aesthetic Clinic)</option>
+<option>บาร์เบอร์ &amp; กรูมมิ่ง (Grooming)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  รหัสประจำสาขา (Branch Code)
+                </label>
+<input class="w-full bg-surface-container border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-label-code text-body-sm text-on-surface font-bold shadow-[2px_2px_0px_#18181b] cursor-not-allowed" readonly="" type="text" value="JQ-PAI-003"/>
+</div>
+</div>
+<!-- Slogan / Bio -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                สโลแกน / คำชี้แจงสำหรับคนไข้ (Tagline &amp; Patient Bio)
+              </label>
+<textarea class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-teal-700 shadow-[2px_2px_0px_#18181b] resize-none" rows="2">บริการทันตกรรมครบวงจร ขูดหินปูน อุดฟัน ฟอกสีฟัน เลเซอร์ผิวหน้าและทรีตเมนต์ผ่อนคลาย สไตล์คราฟท์อบอุ่นใจกลางเมืองปาย</textarea>
+<p class="text-xs font-label-code text-tertiary mt-1">ข้อความนี้จะแสดงบนหัวบัตรคิวดิจิทัลและข้อความแจ้งเตือนอัตโนมัติ</p>
+</div>
+<!-- Clinic Banner Upload Preview -->
+<div class="pt-2">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2">
+                รูปภาพคลินิก / Cover Banner &amp; Medical Badge
+              </label>
+<div class="border-2 border-dashed border-on-surface rounded-xl p-4 bg-teal-50/30 flex flex-col sm:flex-row items-center gap-5 relative">
+<div class="tape-strip absolute -top-2.5 left-4 px-2 py-0.2 text-[10px] font-label-code font-bold">CLINIC PHOTO</div>
+<!-- Preview Thumbnail -->
+<div class="w-24 h-24 sm:w-28 sm:h-28 bg-teal-100 border-2 border-on-surface rounded-lg overflow-hidden shadow-zine shrink-0 relative group flex items-center justify-center">
+<img alt="A serene, minimalist modern dental and aesthetic clinic interior in Pai, Northern Thailand with warm pine wood, clean dental chair, soft ambient lighting, and plants." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBniBqVRRAmmeiqYyH9zOzx7Aqk62z4EPJ4h28BmZcAM5k9ilVw2CGozexgebaeZIW3R9EamABNnkHCI2_scGIoTCb2LwrrqjValdRQIGpm6eqDUTM_7oMGSvAuwUPislAF8sHnUptLdPZ6vV71bX10AG1k8LcsCGG7NcXLBVjzqYTgKcofo778iPAEfcm-RZ2fL-7gOK-3KTyI_UB9IKu-N4jHv-0ZvJnEAQsMCBQ7Se6_tRfRAWIB"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-white">
+<span class="material-symbols-outlined text-lg">edit</span>
+</div>
+</div>
+<!-- Upload Details -->
+<div class="flex-1 text-center sm:text-left">
+<div class="font-headline-sm font-bold text-on-surface text-body-md">aura_glow_pai_clinic_main.jpg</div>
+<p class="text-xs text-secondary mt-0.5">ใบอนุญาตสถานพยาบาลเลขที่: 58102003-68 (ขนาดภาพแนะนำ 1200x600px)</p>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-3">
+<button class="px-3 py-1.5 bg-surface hover:bg-surface-container border-2 border-on-surface rounded-md text-xs font-label-code font-bold shadow-[2px_2px_0px_#18181b] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">cloud_upload</span> เปลี่ยนรูปภาพ
+                    </button>
+<button class="px-2.5 py-1.5 text-error hover:bg-red-50 border border-transparent rounded-md text-xs font-label-code font-bold transition-all" type="button">
+                      ลบรูป
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: พิกัดและแผนที่ปาย (Location & Pai Map Preview) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 02 // PAI MAP
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style='font-variation-settings: "FILL" 1;'>pin_drop</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">พิกัดและแผนที่ตั้งคลินิก (Location &amp; Coordinates)</h2>
+<p class="text-body-sm text-secondary">อำนวยความสะดวกให้คนไข้ในพื้นที่และนักท่องเที่ยวเดินทางมาตรงเวลา</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Full Address -->
+<div>
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                ที่อยู่คลินิกแบบละเอียด (Clinic Address) <span class="text-primary">*</span>
+</label>
+<textarea class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b] resize-none" rows="2">เลขที่ 88/2 ถนนชัยสงคราม ตำบลเวียงใต้ อำเภอปาย จังหวัดแม่ฮ่องสอน 58130</textarea>
+</div>
+<!-- Landmark & GPS Coordinates -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+<div class="sm:col-span-7">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5">
+                  จุดสังเกตเด่น (Landmark)
+                </label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b]" type="text" value="ห่างจากถนนคนเดินปาย 150 เมตร ใกล้สะพานไม้ไผ่แม่น้ำปาย"/>
+</div>
+<div class="sm:col-span-5">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span>พิกัด GPS ปาย</span>
+<span class="text-[11px] text-teal-700 font-bold font-label-code">PAI_PIN_OK</span>
+</label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3.5 py-2.5 font-label-code text-body-sm text-on-surface focus:ring-0 focus:border-primary shadow-[2px_2px_0px_#18181b]" type="text" value="19.3622, 98.4418"/>
+</div>
+</div>
+<!-- Map Preview Box styled with Risograph / Cartography Blueprint Feel -->
+<div class="mt-3">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-1.5 flex items-center justify-between">
+<span>แผนที่จำลองย่านถนนคนเดินปาย (Pai Walking Street Area)</span>
+<span class="text-xs text-tertiary">ถนนชัยสงคราม - ริมแม่น้ำปาย</span>
+</label>
+<div class="relative w-full h-56 bg-teal-50/40 border-2 border-on-surface rounded-xl overflow-hidden shadow-zine p-3 flex flex-col justify-between" style="background-image: linear-gradient(#b2dfdb 1px, transparent 1px), linear-gradient(90deg, #b2dfdb 1px, transparent 1px); background-size: 24px 24px;">
+<!-- Blueprint Cartography overlay graphics -->
+<div class="flex items-center justify-between z-10">
+<div class="bg-surface-container-lowest/90 border border-on-surface px-2.5 py-1 rounded text-xs font-label-code font-bold shadow-[1px_1px_0px_#000]">GRID: PAI_WALK_ST_03</div>
+<div class="flex items-center gap-1.5 bg-white/95 border border-on-surface px-2 py-0.5 rounded text-[11px] font-label-code font-bold">150m จากถนนคนเดินปาย • ถ.ชัยสงคราม</div>
+</div>
+<!-- Simulated Sketch Map Canvas / Visual Pins -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- River Pai curve representation -->
+<div class="w-full h-5 bg-cyan-200/70 border-y border-dashed border-cyan-600 transform rotate-12 absolute flex items-center justify-center text-[10px] font-label-code text-cyan-800 font-bold uppercase tracking-wider">แม่น้ำปาย (Pai River)</div>
+<!-- Walking Street badge -->
+<div class="absolute top-8 left-1/4 bg-amber-400 text-stone-900 border-2 border-on-surface px-2.5 py-1 rounded-md text-xs font-label-code font-bold shadow-zine flex items-center gap-1 -rotate-6">
+<span class="material-symbols-outlined text-sm">store</span> ถนนคนเดินปาย (Walking St.)
+                  </div>
+<!-- The Clinic Pin -->
+<div class="relative z-20 flex flex-col items-center animate-bounce">
+<div class="bg-teal-700 text-white border-2 border-on-surface px-3 py-1.5 rounded-lg text-xs font-bold font-label-code shadow-zine flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">dentistry</span>
+<span>Aura Glow &amp; Dental Pai</span>
+</div>
+<div class="w-0.5 h-4 bg-on-surface"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary border border-on-surface shadow-sm"></div>
+</div>
+</div>
+<!-- Map Action Controls at Bottom -->
+<div class="flex items-center justify-between z-10 pt-2">
+<div class="text-[11px] font-label-code bg-white/90 border border-on-surface px-2 py-1 rounded">มีที่จอดรถยนต์ &amp; รถมอเตอร์ไซค์หน้าร้าน 6 คัน</div>
+<button class="px-3 py-1.5 bg-surface-container-lowest hover:bg-surface border-2 border-on-surface rounded-lg text-xs font-label-code font-bold shadow-zine active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center gap-1 text-on-surface" type="button">
+<span class="material-symbols-outlined text-base text-teal-700">near_me</span>
+<span>นำทางด้วย Google Maps</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: ADVANCE BOOKING, CAPACITY & CHANNELS (5 COLS) ================= -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- SECTION 3: นโยบายการจองล่วงหน้า 2 วัน และจัดการโควตาเตียง (Advance Booking Policy & Room Capacity) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 03 // BOOKING POLICY
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-primary text-2xl" style='font-variation-settings: "FILL" 1;'>calendar_today</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">นโยบายจองคิว 2 วัน &amp; เตียงบริการ</h2>
+<p class="text-body-sm text-secondary">ควบคุมการจองคิวด่วนวันนี้ และนัดล่วงหน้าพรุ่งนี้</p>
+</div>
+</div>
+<!-- Policy highlight box -->
+<div class="bg-orange-50 border-2 border-dashed border-primary/60 rounded-xl p-3 mb-5">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5">rule</span>
+<div class="text-xs font-body-md text-on-surface">
+<strong class="font-label-code text-primary font-bold">นโยบาย 2 วัน (2-Day Window Rule):</strong> คลินิกรองรับเฉพาะคิวด่วนในวันปัจจุบัน + นัดล่วงหน้าได้สูงสุดไม่เกินวันพรุ่งนี้ (24 ชม. ล่วงหน้า) เพื่อป้องกันการไม่มาตามนัด (No-show)
+              </div>
+</div>
+</div>
+<!-- Quota Distribution by Day -->
+<div class="space-y-3 mb-6">
+<label class="block font-label-code text-body-sm font-bold text-on-surface flex items-center justify-between">
+<span>การกระจายโควตาตามวัน (Day Quota Split)</span>
+<span class="text-xs text-teal-800 font-bold">รวม 24 คิว/วัน</span>
+</label>
+<!-- Today allocation -->
+<div class="p-3 bg-surface border-2 border-on-surface rounded-lg flex items-center justify-between">
+<div>
+<div class="font-bold text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  คิวสดวันปัจจุบัน (Today Live Queue)
+                </div>
+<div class="text-xs text-secondary">เปิดรับอัตโนมัติตั้งแต่ 09:00 น.</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-code text-xs bg-white border border-on-surface px-2 py-1 rounded font-bold">12 คิว</span>
+<span class="text-[11px] font-label-code text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-300 font-bold">50%</span>
+</div>
+</div>
+<!-- Tomorrow allocation -->
+<div class="p-3 bg-surface border-2 border-on-surface rounded-lg flex items-center justify-between">
+<div>
+<div class="font-bold text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-teal-600"></span>
+                  นัดล่วงหน้าพรุ่งนี้ (Tomorrow Scheduled)
+                </div>
+<div class="text-xs text-secondary">เปิดให้จองล่วงหน้าได้ถึง 20:00 น. คืนนี้</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-code text-xs bg-white border border-on-surface px-2 py-1 rounded font-bold">12 คิว</span>
+<span class="text-[11px] font-label-code text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-300 font-bold">50%</span>
+</div>
+</div>
+</div>
+<!-- Room & Service Categories Configuration -->
+<div class="pt-4 border-t-2 border-surface-container space-y-4">
+<label class="block font-label-code text-body-sm font-bold text-on-surface">
+              ประเภทห้องตรวจ / เตียงบริการ &amp; ระยะเวลา (Slot Duration)
+            </label>
+<!-- Service 1: Dental & General Check -->
+<div class="p-3 bg-white border-2 border-on-surface rounded-lg shadow-zine">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-teal-700 text-xl">dentistry</span>
+<div class="font-bold text-body-sm">ยูนิตทำฟัน &amp; ตรวจทั่วไป (Dental Unit)</div>
+</div>
+<span class="font-label-code text-xs bg-teal-100 text-teal-900 border border-teal-800 px-2 py-0.5 rounded font-bold">30 นาที/รอบ</span>
+</div>
+<div class="flex items-center justify-between text-xs text-secondary pt-1 border-t border-dashed border-surface-container">
+<span>จำนวนเก้าอี้ทันตกรรมพร้อมกัน:</span>
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 rounded border border-on-surface bg-surface flex items-center justify-center font-bold text-xs" type="button">-</button>
+<span class="font-label-code font-bold text-on-surface">2 เก้าอี้</span>
+<button class="w-6 h-6 rounded border border-on-surface bg-primary text-white flex items-center justify-center font-bold text-xs" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- Service 2: Aesthetic & Facial Treatment -->
+<div class="p-3 bg-white border-2 border-on-surface rounded-lg shadow-zine">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">spa</span>
+<div class="font-bold text-body-sm">เตียงทรีตเมนต์ &amp; เลเซอร์ (Aura Glow)</div>
+</div>
+<span class="font-label-code text-xs bg-orange-100 text-primary border border-primary px-2 py-0.5 rounded font-bold">60 นาที/รอบ</span>
+</div>
+<div class="flex items-center justify-between text-xs text-secondary pt-1 border-t border-dashed border-surface-container">
+<span>จำนวนเตียงบริการพร้อมกัน:</span>
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 rounded border border-on-surface bg-surface flex items-center justify-center font-bold text-xs" type="button">-</button>
+<span class="font-label-code font-bold text-on-surface">3 เตียง</span>
+<button class="w-6 h-6 rounded border border-on-surface bg-primary text-white flex items-center justify-center font-bold text-xs" type="button">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Operating Hours Snapshot -->
+<div class="mt-5 pt-4 border-t-2 border-surface-container">
+<label class="block font-label-code text-body-sm font-bold text-on-surface mb-2">
+              เวลาทำการคลินิก (Daily Clinic Hours)
+            </label>
+<div class="p-2.5 rounded-lg border border-on-surface/20 bg-surface/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-teal-100 border border-on-surface flex items-center justify-center font-label-code text-xs font-bold text-teal-900">จ-อา</span>
+<span class="text-body-sm font-medium">เปิดบริการทุกวัน (ไม่มีวันหยุด)</span>
+</div>
+<span class="font-label-code text-xs font-bold text-on-surface bg-white px-2 py-1 border border-on-surface/30 rounded">09:30 - 20:00</span>
+</div>
+</div>
+</div>
+<!-- SECTION 4: ช่องทางการติดต่อคลินิก (Contact & Pai Channels) -->
+<div class="bg-surface-container-lowest border-2 border-on-surface rounded-xl p-6 shadow-zine relative">
+<!-- Section Tag -->
+<div class="tape-strip-alt absolute -top-3 right-8 px-3 py-0.5 text-xs font-label-code text-on-surface font-bold">
+            SECTION 04 // CONTACT
+          </div>
+<div class="flex items-center gap-2 mb-5 pb-3 border-b-2 border-surface-container">
+<span class="material-symbols-outlined text-teal-700 text-2xl" style='font-variation-settings: "FILL" 1;'>contact_phone</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">เบอร์โทร &amp; LINE OA ประจำคลินิกปาย</h2>
+<p class="text-body-sm text-secondary">ช่องทางแจ้งเตือนก่อนถึงเวลานัดหมาย 15 นาที</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Phone Numbers -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  เบอร์โทรหลักคลินิก (Pai Clinic Desk)
+                </label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="053-699-881"/>
+</div>
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  สายด่วนคนไข้ฉุกเฉิน (Hotline)
+                </label>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg px-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="089-755-4321"/>
+</div>
+</div>
+<!-- LINE Official Account Integration -->
+<div class="border-2 border-on-surface bg-teal-50/50 rounded-xl p-3.5 shadow-zine relative">
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#06C755] text-white border-2 border-on-surface flex items-center justify-center font-bold text-sm shadow-[1px_1px_0px_#000]">
+                    L
+                  </div>
+<div>
+<div class="font-bold text-body-sm font-label-code text-on-surface">LINE OA: @auraglow.pai</div>
+<div class="text-xs text-secondary font-label-code">ส่งตั๋วคิว &amp; พิกัดเดินทางอัตโนมัติ</div>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold font-label-code bg-emerald-200 text-emerald-900 border border-emerald-800 shadow-[1px_1px_0px_#065f46]">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>verified</span>
+                  เชื่อมต่อสำเร็จ
+                </span>
+</div>
+<p class="text-xs text-secondary">
+                ระบบจะส่งข้อความยืนยันการจองคิว 2 วัน และแจ้งเตือนคนไข้ล่วงหน้า 30 นาที และ 10 นาทีก่อนเรียกตรวจ
+              </p>
+</div>
+<!-- Social Media & SMS Alert -->
+<div class="space-y-3 pt-1">
+<div>
+<label class="block font-label-code text-xs font-bold text-on-surface mb-1">
+                  Facebook Fanpage / Instagram
+                </label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-label-code text-tertiary text-xs">@</span>
+<input class="w-full bg-surface border-2 border-on-surface rounded-lg pl-8 pr-3 py-2 font-label-code text-body-sm text-on-surface shadow-[2px_2px_0px_#18181b]" type="text" value="auraglow.pai"/>
+</div>
+</div>
+<!-- SMS Notification Toggle -->
+<div class="flex items-center justify-between bg-surface border-2 border-on-surface rounded-lg p-3 shadow-zine">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-teal-700 text-xl">sms</span>
+<div>
+<div class="font-bold text-xs font-label-code text-on-surface">SMS สำรองกรณีไม่มีสัญญาณอินเทอร์เน็ต</div>
+<div class="text-[11px] text-tertiary">ส่งรหัสคิว 4 หลักให้คนไข้ทาง SMS ทันที</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-tertiary-fixed-dim rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-black after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-teal-700 border border-on-surface"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= EXTRA INFO NOTICE BANNER ================= -->
+<div class="mt-8 bg-teal-100/60 border-2 border-dashed border-on-surface rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-teal-800 text-2xl shrink-0" style='font-variation-settings: "FILL" 1;'>medical_services</span>
+<div class="text-body-sm text-on-surface">
+<span class="font-bold font-label-code text-teal-900">PAI CLINIC RULE:</span> การปรับโควตาคิววันพรุ่งนี้ จะมีผลกับการเปิดรับจองออนไลน์รอบเวลา 20:00 น. วันนี้เป็นต้นไป
+        </div>
+</div>
+<span class="text-xs font-label-code text-tertiary uppercase tracking-wider shrink-0 bg-white/90 px-2.5 py-1 border border-on-surface/40 rounded font-bold">VARIANT 02: PAI</span>
+</div>
+</main>
+<!-- ================= STICKY BOTTOM ACTION BAR ================= -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-t-2 border-on-surface py-3 px-4 md:px-8 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<!-- Auto-save state indicator -->
+<div class="flex items-center gap-2 text-xs font-label-code text-tertiary w-full sm:w-auto justify-center sm:justify-start">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>โควตาคิว 2 วัน &amp; ข้อมูลคลินิกปาย ซิงค์พร้อมบันทึก</span>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<button class="flex-1 sm:flex-none px-4 py-2.5 bg-surface hover:bg-surface-container text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all" type="button">
+          ยกเลิก (Discard)
+        </button>
+<button class="flex-1 sm:flex-none px-4 py-2.5 bg-white hover:bg-amber-50 text-on-surface border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base text-teal-700">preview</span>
+<span>ดูตัวอย่างหน้าจองคนไข้</span>
+</button>
+<button class="flex-1 sm:flex-none px-6 py-2.5 bg-primary hover:bg-[#cc4900] text-white border-2 border-on-surface rounded-lg font-label-code text-body-sm font-bold shadow-zine hover:shadow-none active:translate-x-0.5 active:translate-y-0.5 transition-all flex items-center justify-center gap-2" id="saveBtn" type="button">
+<span class="material-symbols-outlined text-lg" style='font-variation-settings: "FILL" 1;'>save</span>
+<span>บันทึกการตั้งค่าคลินิก (Save)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro Interaction Script for Master Switches & Feedback Toast -->
+<script>
+    const todayToggle = document.getElementById('todayQueueToggle');
+    const tomorrowToggle = document.getElementById('tomorrowQueueToggle');
+    const liveTodayBadge = document.getElementById('liveTodayBadge');
+    const advanceTomorrowBadge = document.getElementById('advanceTomorrowBadge');
+    const saveBtn = document.getElementById('saveBtn');
+
+    todayToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        liveTodayBadge.className = "px-2 py-0.5 text-[11px] font-bold font-label-code rounded-full bg-emerald-100 text-emerald-800 border border-emerald-600";
+        liveTodayBadge.textContent = "🟢 เปิดรับจอง";
+      } else {
+        liveTodayBadge.className = "px-2 py-0.5 text-[11px] font-bold font-label-code rounded-full bg-red-100 text-red-800 border border-red-600";
+        liveTodayBadge.textContent = "🔴 ปิดคิวด่วนวันนี้";
+      }
+    });
+
+    tomorrowToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        advanceTomorrowBadge.className = "px-2 py-0.5 text-[11px] font-bold font-label-code rounded-full bg-teal-100 text-teal-800 border border-teal-700";
+        advanceTomorrowBadge.textContent = "📅 เปิดจอง (เหลือ 8/12)";
+      } else {
+        advanceTomorrowBadge.className = "px-2 py-0.5 text-[11px] font-bold font-label-code rounded-full bg-stone-200 text-stone-700 border border-stone-500";
+        advanceTomorrowBadge.textContent = "⏸️ ปิดรับนัดล่วงหน้า";
+      }
+    });
+
+    saveBtn.addEventListener('click', () => {
+      const originalText = saveBtn.innerHTML;
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">sync</span> กำลังบันทึกข้อมูลคลินิก...';
+      saveBtn.disabled = true;
+      setTimeout(() => {
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span> บันทึกสาขาปายเรียบร้อย!';
+        saveBtn.classList.remove('bg-primary');
+        saveBtn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          saveBtn.innerHTML = originalText;
+          saveBtn.classList.add('bg-primary');
+          saveBtn.classList.remove('bg-emerald-600');
+          saveBtn.disabled = false;
+        }, 1800);
+      }, 700);
+    });
+  </script>
+</body></html>
