@@ -1,0 +1,175 @@
+// ==========================================
+// Jong-Q Prisma Database Schema
+// Database: PostgreSQL (Local Docker Container: jongq_dev)
+// ==========================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  MERCHANT
+  ADMIN
+}
+
+enum ShopStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum TicketStatus {
+  WAITING
+  CALLED
+  SERVING
+  COMPLETED
+  SKIPPED
+  CANCELLED
+}
+
+// ------------------------------------------
+// 1. User & Authentication
+// ------------------------------------------
+model User {
+  id          String    @id @default(cuid())
+  lineUserId  String?   @unique
+  name        String
+  phone       String?
+  role        Role      @default(CUSTOMER)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  ownedShops  Shop[]    @relation("ShopOwner")
+  tickets     Ticket[]  @relation("CustomerTickets")
+  adminLogs   AdminLog[] @relation("AdminActions")
+
+  @@index([lineUserId])
+  @@index([role])
+}
+
+// ------------------------------------------
+// 2. Shop & Configuration
+// ------------------------------------------
+model Shop {
+  id              String      @id @default(cuid())
+  name            String
+  category        String      // e.g. "ตัดผม/เสริมสวย", "ร้านอาหาร/คาเฟ่", "คลินิก/สุขภาพ"
+  branchCode      String      @unique // e.g. "MHS-01"
+  address         String
+  landmark        String?     // จุดสังเกต เช่น "ตรงข้ามวัดจองคำ"
+  province        String?     // จังหวัด/พื้นที่ให้บริการ ใช้กรองในหน้าอนุมัติของแอดมิน
+  latLng          String?     // "19.3008,97.9654"
+  coverImage      String?
+  isOpen          Boolean     @default(true) // Master store toggle
+  status          ShopStatus  @default(PENDING) // Merchant approval workflow
+  telegramChatId  String?     // Telegram Chat ID for instant free merchant alert
+  telegramVerifyToken String? // One-time code the merchant sends to the bot to link telegramChatId
+  slotInterval    Int         @default(30) // Slot duration in minutes (e.g. 30 min)
+  maxCapacity     Int         @default(10) // Concurrent maximum capacity
+  ownerId         String
+  owner           User        @relation("ShopOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  queueCategories QueueCategory[]
+  timeSlots       TimeSlot[]
+  tickets         Ticket[]
+  adminLogs       AdminLog[]
+
+  @@index([status])
+  @@index([isOpen])
+  @@index([ownerId])
+}
+
+// ------------------------------------------
+// 3. Queue Category (e.g., Prefix A, B, C)
+// ------------------------------------------
+model QueueCategory {
+  id          String    @id @default(cuid())
+  shopId      String
+  shop        Shop      @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  prefix      String    // e.g. "A", "B", "C"
+  name        String    // e.g. "ตัดผมชายวินเทจ", "สระไดร์"
+  people      Int       @default(1) // Expected number of people per ticket (for the C3 stepper and M4 table)
+  avgWaitTime Int       @default(20) // in minutes
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  tickets     Ticket[]
+
+  @@unique([shopId, prefix])
+  @@index([shopId])
+}
+
+// ------------------------------------------
+// 4. TimeSlot (Strict 2-day sliding window)
+// ------------------------------------------
+model TimeSlot {
+  id            String    @id @default(cuid())
+  shopId        String
+  shop          Shop      @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  date          String    // YYYY-MM-DD strictly supporting Today + Tomorrow
+  startTime     String    // "09:00"
+  endTime       String    // "09:30"
+  maxSlots      Int       @default(5)
+  currentBooked Int       @default(0)
+  enabled       Boolean   @default(true) // Master on/off switch for this slot (today + tomorrow share the config)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  tickets       Ticket[]
+
+  @@unique([shopId, date, startTime])
+  @@index([shopId, date])
+}
+
+// ------------------------------------------
+// 5. Ticket (Live Queue & Bookings)
+// ------------------------------------------
+model Ticket {
+  id              String        @id @default(cuid())
+  shopId          String
+  shop            Shop          @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  categoryId      String
+  category        QueueCategory @relation(fields: [categoryId], references: [id])
+  customerId      String
+  customer        User          @relation("CustomerTickets", fields: [customerId], references: [id])
+  ticketNumber    String        // e.g. "A-001"
+  slotId          String?       // Nullable for walk-in instant queues
+  timeSlot        TimeSlot?     @relation(fields: [slotId], references: [id])
+  date            String        // YYYY-MM-DD
+  status          TicketStatus  @default(WAITING)
+  calledAt        DateTime?
+  servedAt        DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@unique([shopId, date, ticketNumber]) // no duplicate queue numbers under concurrent booking
+  @@index([shopId, date, status])
+  @@index([customerId])
+  @@index([slotId])
+}
+
+// ------------------------------------------
+// 6. Admin Log (Super Admin & Impersonation Audit)
+// ------------------------------------------
+model AdminLog {
+  id        String    @id @default(cuid())
+  adminId   String
+  admin     User      @relation("AdminActions", fields: [adminId], references: [id])
+  shopId    String
+  shop      Shop      @relation(fields: [shopId], references: [id])
+  action    String    // e.g. "IMPERSONATE_SESSION", "APPROVE_SHOP", "REJECT_SHOP", "TOGGLE_OPEN"
+  details   String?   // JSON or explanatory note
+  createdAt DateTime  @default(now())
+
+  @@index([adminId])
+  @@index([shopId])
+}

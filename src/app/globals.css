@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF6ED;
+  --foreground: #162032;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Risograph Zine Custom Utilities */
+.riso-border {
+  border: 2px solid #162032;
+}
+
+.riso-border-thick {
+  border: 3px solid #162032;
+}
+
+.riso-shadow {
+  box-shadow: 4px 4px 0px #162032;
+}
+
+.riso-shadow-sm {
+  box-shadow: 2px 2px 0px #162032;
+}
+
+.riso-shadow-lg {
+  box-shadow: 6px 6px 0px #162032;
+}
+
+.riso-shadow-orange {
+  box-shadow: 4px 4px 0px #FF4924;
+}
+
+.riso-shadow-teal {
+  box-shadow: 4px 4px 0px #0E8A7F;
+}
+
+.riso-btn {
+  border: 2px solid #162032;
+  box-shadow: 3px 3px 0px #162032;
+  transition: all 0.1s ease;
+}
+
+.riso-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #162032;
+}
+
+/* Subtle Riso Halftone Pattern */
+.bg-riso-dots {
+  background-image: radial-gradient(#162032 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Hand-drawn, slightly uneven ink border (Riso zine look). */
+.border-sketch {
+  border: 2px solid #162032;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+/* ── Print Standee (QR A5) ── */
+@media print {
+  @page {
+    size: A5 portrait;
+    margin: 10mm;
+  }
+
+  body {
+    background: white !important;
+    color: #162032 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide everything except the standee body when printing */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+}

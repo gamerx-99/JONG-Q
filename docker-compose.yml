@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: jongq_dev
+    restart: always
+    environment:
+      POSTGRES_USER: jongq_user
+      POSTGRES_PASSWORD: jongq_password
+      POSTGRES_DB: jongq_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - jongq_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jongq_user -d jongq_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  jongq_pgdata:
+    name: jongq_pgdata

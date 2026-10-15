@@ -9,6 +9,12 @@ out/
 build/
 dist/
 
+# TypeScript incremental cache
+*.tsbuildinfo
+
+# Local dev-server log (npm run dev > .dev.log)
+.dev.log
+
 # Environment files
 .env
 .env*.local

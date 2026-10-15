@@ -10,26 +10,20 @@
 
 ## 1. Global Design Language & Theme Tokens
 
-### 1.1 Color Palette
-- **Primary Brand (Fresh Queue Green):** `#059669` (Emerald 600), Hover: `#047857` (Emerald 700)
-- **LINE Ecosystem Accent:** `#06C755` (LINE Official Green)
-- **Background Light:** `#F8FAFC` (Slate 50)
-- **Surface / Card Background:** `#FFFFFF` (Pure White) with subtle border `#E2E8F0`
-- **Surface Dark (Header / Accents):** `#0F172A` (Slate 900)
-- **Text Primary:** `#0F172A` (Slate 900)
-- **Text Muted:** `#64748B` (Slate 500)
-- **Status Colors:**
-  - **Waiting (รอคิว):** `#3B82F6` (Blue 500)
-  - **Called / Active (ถึงคิวแล้ว!):** `#10B981` (Emerald 500) with pulsing aura
-  - **Serving (กำลังรับบริการ):** `#8B5CF6` (Purple 500)
-  - **Skipped / On-Hold (พักคิว):** `#F59E0B` (Amber 500)
-  - **Closed / Cancelled (ปิดร้าน / ยกเลิก):** `#EF4444` (Rose 500)
+> **Decision (2026-10-15, owner):** Style **A - Risograph / Indie Zine**, adjusted per audience. Replaces the earlier emerald/slate palette. For visual style ignore the Material mockups in `UI/` (`jong_q_1`, `jong_q_2`, `jong_q_super_admin`) and the mono/brutalist ones (`jong_q_3`..`5`, `jong_q_store_settings`); keep them only for layout/content ideas. Reference mockup: `UI/jong_q_playful_hand_drawn_risograph_2`.
 
-### 1.2 Typography & Sizing
-- **Font Family (Thai & Latin):** `'Prompt', 'Kanit', 'Inter', -apple-system, sans-serif`
-- **Queue Number Display:** Extra Bold, Monospace numbers (e.g. `text-5xl` to `text-6xl`, tracking-tight)
-- **Card Styling:** `border-radius: 20px`, soft ambient drop-shadow (`0 10px 25px -5px rgba(0, 0, 0, 0.05)`)
-- **Button Styling:** Tactile, height 52px for primary mobile CTAs, `border-radius: 14px`, smooth press down scale animation
+### 1.1 Color Palette (Tailwind tokens)
+- **Canvas:** `canvas-paper` `#FAF6ED` (page), `canvas-card` `#FFFDF9` (cards), `canvas-muted` `#F3ECE0`
+- **Ink:** `riso-indigo` `#162032` (text, 2-3px borders, hard shadows)
+- **Accents:** `riso-orange` `#FF4924` (primary CTA, called), `riso-teal` `#0E8A7F` (success, approved, open), `riso-yellow` `#FDE047` (highlight, pending)
+- **Muted text:** `riso-muted` `#68778D`
+- **Status:** Waiting = indigo outline, Called = orange fill, Serving = teal fill, Skipped/Pending = yellow, Closed/Cancelled = orange outline
+
+### 1.2 Typography & Shape
+- **Customer pages (LIFF, directory, booking, live ticket):** headings `font-zine` (Mali), body `font-sans` (Prompt). Playful details allowed: `.border-sketch`, `.bg-riso-dots`, stickers.
+- **Merchant & Admin pages:** `font-sans` (Prompt) only, no handwriting font; body 16px or larger, tap targets 48px or larger (tablet call board), little decoration. Same colors, borders and shadows as the customer side.
+- **Queue numbers:** extra bold `font-mono` digits, `text-5xl` or larger.
+- **Cards:** `rounded-riso` / `rounded-riso-lg` + `.riso-border` + `.riso-shadow` (4px 4px 0 #162032). **Buttons:** `.riso-btn` (press shifts 2px), primary height 52px on mobile.
 
 ---
 
