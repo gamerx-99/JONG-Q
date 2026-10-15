@@ -30,7 +30,6 @@
 - **`QueueCategory.enabled`** — ยังไม่มี บริการที่เลิกทำแล้วแต่มีคิวเก่า จะลบหรือปิดไม่ได้
 - **`people` เป็นตัวเลขแสดงผลอย่างเดียว** — หนึ่งบิตคิว = หนึ่งคนเสมอ ไม่ได้ทำให้จองได้หลายคน
 - **ร้านผูก Telegram เอง** (`Shop.telegramVerifyToken`) — ปัจจุบันต้องใส่ chat id เอง
-- **`prisma/migrations/`** — ใช้ `db push` อย่างเดียว ยังไม่มี migration history
 - **`npm run lint`** — ยังไม่ได้ตั้งค่า eslint (ค้างที่หน้าตั้งค่าแบบ interactive)
 
 ---
@@ -62,8 +61,32 @@ npm run check                 # ต้องเปิด dev server ค้าง
 | `check:slot-window` | หน้าต่าง 2 วันซ่อมตัวเอง/ซ้ำไม่ซ้ำ, ลดโควตาไม่ให้ติดลบ |
 | `check:impersonation` | ใครเข้าหน้าไหนได้, cookie ปลอมใช้ไม่ได้, audit ลงชื่อแอดมิน |
 | `check:admin-review` | กรองจังหวัด, บังคับเหตุผลปฏิเสธ, อนุมัติคลิกเดียว |
+| `check:migration` | migration history รันบนฐานว่างได้จริง และตรงกับ `schema.prisma` (จำลองสิ่งที่ Supabase ทำตอน provisioning) |
 
 ทุกสคริปต์ล้างข้อมูลที่ตัวเองสร้าง และปฏิเสธทำงานกับฐานข้อมูลที่ไม่ใช่ localhost
+
+---
+
+## ย้ายไปใช้ Supabase
+
+Supabase ตอนเลือก **Choose GitHub repository** จะรัน migration ของโปรเจกต์เพื่อสร้างฐานข้อมูล ต้องมี `prisma/migrations/` อยู่แล้ว (ตอนนี้มี baseline แล้ว และ `check:migration` ยืนยันว่ารันบนฐานว่างผ่าน)
+
+หลังจากสร้างโปรเจกต์แล้ว ตั้ง `.env` (หรือ environment variables บน host) ดังนี้
+
+```bash
+# สำหรับ migration — ต้องใช้การเชื่อมต่อตรง (port 5432) ไม่ใช่ pooler
+DATABASE_URL="postgresql://postgres.[PROJECT-REF]:[PASSWORD]@aws-0-[REGION].pooler.supabase.com:5432/postgres?schema=public"
+
+# สำหรับแอปที่รันจริง — ใช้ pooler ได้ (port 6543) ต้องมี pgbouncer=true
+DATABASE_URL="postgresql://postgres.[PROJECT-REF]:[PASSWORD]@aws-0-[REGION].pooler.supabase.com:6543/postgres?schema=public&pgbouncer=true&connection_limit=1"
+```
+
+ข้อควรระวัง:
+
+- **ห้ามใช้ pooler ตอนรัน migration** — pooler ไม่รองรับ prepared statements และ Prisma จะ error
+- **password ต้อง URL-encode** ถ้ามีอักขระพิเศษ
+- **`prisma/seed.ts` ปฏิเสธฐานข้อมูลที่ไม่ใช่ localhost** ต้องตั้ง `SEED_ALLOW_REMOTE=true` ถ้าจะ seed Supabase (และระวังว่ามันลบทุกตาราง)
+- ฐานข้อมูลเดิมในเครื่อง (ร้าน The Barbershop, หมวดคิว A/B/C, รอบเวลา) **ยังไม่ถูกย้ายไป** — ถ้าต้องการให้ย้าย ใช้ `pg_dump`/`pg_restore` แทนการ seed
 
 ---
 

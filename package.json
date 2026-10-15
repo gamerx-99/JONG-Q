@@ -18,7 +18,8 @@
     "check:slot-window": "tsx scripts/check-slot-window.ts",
     "check:impersonation": "tsx scripts/check-impersonation-access.ts && tsx scripts/check-impersonation-actions.ts",
     "check:admin-review": "tsx scripts/check-admin-review.ts",
-    "check": "npm run check:booking-race && npm run check:slot-window && npm run check:impersonation && npm run check:admin-review"
+    "check:migration": "tsx scripts/check-migration-from-empty.ts",
+    "check": "npm run check:booking-race && npm run check:slot-window && npm run check:impersonation && npm run check:admin-review && npm run check:migration"
   },
   "dependencies": {
     "@prisma/client": "^5.21.1",
