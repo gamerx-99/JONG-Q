@@ -70,7 +70,7 @@
 
 ---
 
-## 🏪 Phase 3: Store Management & 2-Day Booking Engine — 🟡 partial
+## 🏪 Phase 3: Store Management & 2-Day Booking Engine — ✅ done (2026-10-16)
 > **เป้าหมาย:** ระบบจัดการร้านค้า, สวิตช์เปิด/ปิดร้าน, และการตั้งค่ารอบเวลา 2 วัน
 - [x] **สวิตช์เปิด/ปิดร้าน (Open/Close Store Toggle):**
   - [x] Toggle บน Header ของหน้าเรียกคิว (`/merchant/[code]/board`) อัปเดต `isOpen` *(ฟอร์มส่งสถานะที่ต้องการ กดซ้ำไม่สลับกลับ)*
@@ -88,7 +88,7 @@
 
 ---
 
-## 📱 Phase 4: Customer Booking & Real-Time Tracking — 🟢 mostly done
+## 📱 Phase 4: Customer Booking & Real-Time Tracking — 🟡 จองได้ครบ flow แต่ยังไม่ real-time
 > **เป้าหมาย:** หน้าจองคิว และหน้าบัตรคิวสดใน LINE ที่อัปเดตแบบเรียลไทม์
 - [x] **หน้ารวมร้าน (Screen C1 `/`):** เฉพาะร้านที่เปิด, ค้นหา, กรองหมวด, แถบคิวที่ค้างอยู่
 - [x] **หน้าจองคิวร้านค้า (Screen C3 `/shop/[code]`):**
@@ -122,7 +122,7 @@
 
 ---
 
-## 🛡️ Phase 6: Admin Supervision & "Manage as Shop"
+## 🛡️ Phase 6: Admin Supervision & "Manage as Shop" — ✅ done (2026-10-16)
 > **เป้าหมาย:** การบริหารจัดการแพลตฟอร์ม และการเข้าช่วยเหลือร้านค้าโดยแอดมิน
 - [ ] **หน้าระบบอนุมัติร้านค้า (Screen A1 `/admin`):**
   - [x] ตรวจสอบรายชื่อร้านค้าที่สมัครเข้ามาใหม่
@@ -139,7 +139,7 @@
 
 ---
 
-## 🚀 Phase 7: Testing, Optimization & Deployment
+## 🚀 Phase 7: Testing, Optimization & Deployment — 🔴 not started
 > **เป้าหมาย:** การทดสอบความถูกต้อง ความเสถียร และเตรียมความพร้อมเปิดใช้งานจริง
 - [ ] **Simulated Queue Load Testing:** ทดสอบการจองคิวพร้อมกันหลายอุปกรณ์ และการรับส่งข้อมูลผ่าน SSE
 - [ ] **LINE In-App Browser Compatibility:** ทดสอบการทำงานของ Web Audio, LocalStorage, และ Responsive UI ภายในแอป LINE จริง
@@ -168,5 +168,12 @@
   - `check:slot-window` — หน้าต่าง 2 วันซ่อมตัวเอง/idempotent + capacity guard
   - `check:impersonation` — ใครเข้าหน้าไหนได้, แบนเนอร์, cookie ปลอม/แก้แล้วใช้ไม่ได้, `enterShop` ตั้ง cookie + log
   - `check:admin-review` — กรองจังหวัด + บังคับเหตุผลตอนปฏิเสธ + อนุมัติคลิกเดียว
-- ⚠️ งานตั้งแต่ Phase 1 ยังไม่ได้ commit เข้า git
-- ⚠️ งานค้าง: `prisma/migrations/` ยังว่าง (ใช้ `db push` อย่างเดียว), `npm run lint` ยังไม่ได้ตั้งค่า eslint, `QueueCategory` ยังไม่มี `enabled` (บริการที่เลิกทำลบไม่ได้ถ้ามีคิวเก่า), `people` เป็น display-only ไม่กระทบการจอง, `ensureTimeSlotWindow` ยังเขียนระหว่าง render ของหน้า public, `tsconfig.tsbuildinfo` ยังไม่อยู่ใน `.gitignore`
+- ✅ งานตั้งแต่ Phase 1 commit เข้า git แล้ว (`5ce7f1d`)
+- ⚠️ **งานค้างที่ยังไม่ได้แก้ — อย่าคิดว่าของครบแล้ว:**
+  - [ ] `prisma/migrations/` ยังว่าง ใช้ `db push` อย่างเดียว (schema เปลี่ยนแล้วย้อนหลังไม่ได้)
+  - [ ] `npm run lint` ยังไม่ได้ตั้งค่า eslint ค้างที่หน้าตั้งค่าแบบ interactive
+  - [ ] `QueueCategory` ยังไม่มี `enabled` — บริการที่เลิกทำแล้วแต่มีคิวเก่า จะปิดหรือลบไม่ได้
+  - [ ] `QueueCategory.people` เป็น display-only — หนึ่งบิตคิว = หนึ่งคนเสมอ ไม่กระทบการจอง (ร้านอาหารที่ต้องการจัดกลุ่มคนจะผิดความหมาย)
+  - [ ] `ensureTimeSlotWindow` ยังเขียนฐานข้อมูลระหว่าง render ของหน้า public `/shop/[code]` — ทางแก้คือแยกตาราง `SlotTemplate` ออกจาก `TimeSlot`
+  - [ ] หน้าแอดมิน "ออกจากโหมดร้าน" ต้องกด 2 จังหวะ (แบนเนอร์พาไปหน้ารายชื่อ แล้วกดออกอีกที) — ควรรวมเป็นปุ่มเดียว
+  - [ ] `Board` actions ยังเขียนลง `AdminLog` ซึ่งชื่อคอลัมน์คือ `adminId` แต่พนักงานร้าน (ไม่ใช่แอดมิน) ก็เขียนลงไปด้วย
